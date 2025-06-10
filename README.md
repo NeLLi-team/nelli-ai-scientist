@@ -5,7 +5,7 @@
 [![Python](https://img.shields.io/badge/python-3.9%2B-blue?style=flat-square)](https://python.org)
 [![FastMCP](https://img.shields.io/badge/FastMCP-1.0%2B-purple?style=flat-square)](https://github.com/phdowling/fastmcp)
 
-A sophisticated Universal MCP Agent system designed for scientific AI applications with FastMCP integration and dynamic tool discovery.
+A sophisticated Universal MCP Agent system with **enhanced reasoning, planning, and progress tracking** designed for scientific AI applications with FastMCP integration and dynamic tool discovery.
 
 ## 🚀 Quick Start
 
@@ -15,12 +15,25 @@ git clone <repository>
 cd nelli-ai-scientist
 pixi install
 
-# Run the agent
+# Run the Enhanced Sophisticated Agent (RECOMMENDED)
+pixi run sophisticated-agent
+
+# Or run the basic template agent
 pixi run agent-run
 
 # Test with example
-echo "analyze the DNA sequence ATCGATCGATCG" | pixi run agent-run
+echo "analyze the DNA sequence ATCGATCGATCG" | pixi run sophisticated-agent
 ```
+
+## 🧠 Enhanced Features (New!)
+
+The **Sophisticated Agent** (`pixi run sophisticated-agent`) includes:
+
+- **🧠 Initial Reasoning**: Deep task analysis using advanced models
+- **📋 Execution Planning**: Step-by-step workflow planning
+- **📊 Progress Tracking**: Real-time progress visualization
+- **🔍 Self-Reflection**: Adaptive learning and plan optimization
+- **🎯 Smart Tool Selection**: Intelligent tool discovery and usage
 
 ## 🧬 What You Get
 
@@ -69,38 +82,41 @@ BioPython   Filesystem   Your Custom
 
 ## 🎯 Example Usage
 
-### Natural Language Interface
+### Enhanced Natural Language Interface
 ```bash
-pixi run agent-run
+pixi run sophisticated-agent
 > analyze the DNA sequence ATCGATCGATCG and tell me about it
 
-# Agent automatically:
-# 1. Recognizes this needs sequence analysis
-# 2. Uses sequence_stats tool
-# 3. Reflects on results with biological context
-# 4. Provides comprehensive analysis
+# Sophisticated Agent automatically:
+# 🧠 Reasoning: Analyzes task complexity and requirements
+# 📋 Planning: Creates step-by-step execution plan
+# 🔧 Execution: Uses sequence_stats tool with proper parameters
+# 📊 Progress: Shows real-time progress tracking
+# 🔍 Reflection: Provides comprehensive biological analysis
 ```
 
-### File Operations
+### File-Based Sequence Analysis
 ```bash
-> read the file example/mimivirus_genome.fna and provide sequence statistics
+> generate sequence stats for contigs100k.fna
 
-# Agent automatically:
-# 1. Uses read_fasta_file to load sequences
-# 2. Uses sequence_stats for analysis
-# 3. Reflects on the biological significance
-# 4. Provides detailed genomic analysis
+# Sophisticated Agent automatically:
+# 🧠 Reasoning: Understands file-based analysis requirements
+# 📋 Planning: Plans analyze_fasta_file → write_json_report workflow
+# 🔧 Execution: Executes tools with proper error handling
+# 📊 Progress: Shows analysis progress with formatted statistics
+# 📄 Output: Generates detailed report with sequence statistics
 ```
 
-### Multi-Tool Workflows
+### Multi-Tool Scientific Workflows
 ```bash
-> analyze all FASTA files in the example directory and create a summary report
+> list all sequence files recursively and analyze the largest one
 
-# Agent automatically:
-# 1. Uses explore_directory_tree to find FASTA files
-# 2. Uses analyze_fasta_file for each file
-# 3. Uses write_json_report to create summary
-# 4. Reflects on comparative genomic insights
+# Sophisticated Agent automatically:
+# 🧠 Reasoning: Breaks down complex multi-step request
+# 📋 Planning: Creates find_files → analyze_fasta_file → report workflow
+# 🔧 Execution: Handles file discovery, size comparison, and analysis
+# 📊 Progress: Tracks each step with clear status updates
+# 🔍 Reflection: Provides scientific insights on the analysis
 ```
 
 ## 🔧 Building Custom MCP Servers
@@ -152,19 +168,28 @@ Register with the agent in `agents/template/mcp_config.json`:
 
 ```
 nelli-ai-scientist/
-├── agents/template/              # Universal MCP Agent
-│   ├── src/
-│   │   ├── agent.py             # UniversalMCPAgent implementation
-│   │   ├── llm_interface.py     # LLM integration (CBORG/Claude/OpenAI)
-│   │   └── prompt_manager.py    # External prompt management
-│   ├── prompts/                 # External prompt files
-│   └── mcp_config.json         # MCP server configuration
+├── agents/
+│   ├── sophisticated_agent/     # Enhanced Agent (RECOMMENDED)
+│   │   ├── src/
+│   │   │   ├── enhanced_agent.py    # Enhanced agent with reasoning/planning
+│   │   │   ├── task_planner.py      # Execution planning system
+│   │   │   ├── progress_tracker.py  # Real-time progress tracking
+│   │   │   └── llm_interface.py     # Multi-model LLM integration
+│   │   ├── config/
+│   │   │   └── agent_config.yaml    # Model and feature configuration
+│   │   ├── prompts/                 # Reasoning and planning prompts
+│   │   └── mcp_config.json         # MCP server configuration
+│   └── template/                # Basic Universal MCP Agent
+│       ├── src/agent.py         # UniversalMCPAgent implementation
+│       └── mcp_config.json      # Basic MCP configuration
 ├── mcps/                        # FastMCP Servers
 │   ├── template/src/           # BioPython tools
 │   │   ├── server_fastmcp.py   # FastMCP server implementation
-│   │   ├── biotools.py         # Tool implementations
+│   │   ├── biotools.py         # Enhanced tool implementations
 │   │   └── tool_schema.py      # API documentation
 │   └── filesystem/src/         # File operations
+│       ├── simple_server.py    # Enhanced filesystem MCP server
+│       └── server.py           # Original filesystem server
 ├── docs/                       # Comprehensive documentation
 ├── pixi.toml                   # Environment and tasks
 └── README.md                   # This file
@@ -173,19 +198,22 @@ nelli-ai-scientist/
 ## 🎓 Learning Path
 
 **Beginner (30 minutes)**
-1. Run the agent and try example queries
-2. Explore available tools with `tools` command
-3. Modify prompts to change agent personality
+1. Run the sophisticated agent: `pixi run sophisticated-agent`
+2. Try sequence analysis: "generate sequence stats for contigs100k.fna"
+3. Explore available tools with `tools` command
+4. Watch the reasoning and planning phases in action
 
 **Intermediate (2 hours)**  
-1. Create a simple FastMCP server with 1-2 tools
-2. Integrate with agent configuration
-3. Test multi-tool workflows
+1. Configure different models in `agents/sophisticated_agent/config/agent_config.yaml`
+2. Customize reasoning and planning prompts
+3. Test complex multi-tool workflows
+4. Create a simple FastMCP server with 1-2 tools
 
 **Advanced (Half day)**
 1. Build domain-specific MCP server with async tools
-2. Implement custom reflection logic
-3. Create sophisticated analysis pipelines
+2. Implement custom execution planning logic
+3. Create sophisticated multi-step analysis pipelines
+4. Customize the task complexity assessment system
 
 ## 📚 Documentation
 
@@ -210,21 +238,67 @@ CBORG_MODEL="google/gemini-flash-lite"  # Default model
 ### Available Commands
 ```bash
 # Core Usage
-pixi run agent-run        # Run the NeLLi AI Agent
-pixi run agent-test       # Quick functionality test
+pixi run sophisticated-agent  # Enhanced agent with reasoning & planning (RECOMMENDED)
+pixi run agent-run           # Basic template agent
+pixi run agent-test          # Quick functionality test
 
 # Development
-pixi run lint            # Check code quality
-pixi run format          # Format code
-pixi run test            # Run test suite
+pixi run lint               # Check code quality
+pixi run format             # Format code
+pixi run test               # Run test suite
 
 # MCP Server Testing
-pixi run test-biopython  # Test BioPython MCP server
-pixi run test-filesystem # Test filesystem MCP server
+pixi run test-biopython     # Test BioPython MCP server
+pixi run test-filesystem    # Test filesystem MCP server
 ```
+
+## 🤖 Model Configuration
+
+Configure the reasoning and execution models in `agents/sophisticated_agent/config/agent_config.yaml`:
+
+```yaml
+# Enhanced Features Configuration
+enhanced_features:
+  reasoning:
+    enabled: true
+    model: "google/gemini-pro"           # Advanced model for deep reasoning
+    temperature: 0.3                     # Lower temperature for focused analysis
+    max_tokens: 4000
+    
+  planning:
+    enabled: true  
+    model: "google/gemini-flash-lite"    # Efficient model for planning
+    temperature: 0.2                     # Low temperature for structured planning
+    max_tokens: 2000
+    
+  execution:
+    model: "google/gemini-flash-lite"    # Fast model for tool coordination
+    temperature: 0.1                     # Very low temperature for precise calls
+    max_tokens: 1000
+```
+
+### Available Models (CBORG API)
+
+**Reasoning Models (for complex analysis):**
+- `google/gemini-pro` - Most capable Google model
+- `anthropic/claude-opus` - Very capable Claude model  
+- `openai/gpt-4o` - Capable OpenAI model
+
+**Planning/Execution Models (for efficiency):**
+- `google/gemini-flash-lite` - Fast and efficient Google model
+- `anthropic/claude-sonnet` - Fast Claude model
+- `openai/gpt-4o-mini` - Fast OpenAI model
 
 ## 🎯 Key Features
 
+### Enhanced Agent Features (NEW!)
+- **🧠 Multi-Model Reasoning**: Uses advanced models for deep task analysis
+- **📋 Intelligent Planning**: Creates step-by-step execution workflows
+- **📊 Real-Time Progress**: Visual progress tracking with colored output
+- **🔍 Adaptive Learning**: Self-reflection and plan optimization
+- **🚀 Smart Execution**: Enhanced error handling and parameter validation
+
+### Core Universal Agent Features
 - **Async-First**: Built on asyncio for efficient concurrent operations
 - **Universal Tool Discovery**: Works with any MCP server without modification
 - **Reflective Analysis**: Intelligent interpretation of tool results
@@ -234,6 +308,14 @@ pixi run test-filesystem # Test filesystem MCP server
 
 ## 💡 Pro Tips
 
+### For the Sophisticated Agent
+1. **Use `pixi run sophisticated-agent`**: The enhanced agent provides much better results
+2. **Watch the Reasoning**: The initial reasoning phase provides valuable insights
+3. **Configure Models**: Use powerful models for reasoning, efficient ones for execution
+4. **Complex Requests**: The agent excels at multi-step scientific workflows
+5. **Progress Tracking**: Monitor real-time progress for long-running analyses
+
+### General Tips
 1. **Start Simple**: Begin with basic tool calls, then build complexity
 2. **Use Reflection**: The agent's analysis of results is often more valuable than raw tool output
 3. **Async Everything**: FastMCP's async nature enables powerful concurrent processing  
@@ -244,6 +326,14 @@ pixi run test-filesystem # Test filesystem MCP server
 
 The NeLLi AI Scientist Agent Template provides everything you need to build sophisticated AI scientist agents:
 
+### Enhanced Features (NEW!)
+- ✅ **Sophisticated Agent** with reasoning, planning, and progress tracking
+- ✅ **Multi-Model Support** for optimal performance at each stage
+- ✅ **Real-Time Progress** visualization and adaptive learning
+- ✅ **Enhanced Error Handling** for robust sequence analysis
+- ✅ **Intelligent Tool Selection** and parameter validation
+
+### Core Features
 - ✅ Universal MCP Agent with 15 pre-built tools
 - ✅ FastMCP integration for efficient async operations
 - ✅ Intelligent reflection and analysis capabilities
@@ -251,4 +341,4 @@ The NeLLi AI Scientist Agent Template provides everything you need to build soph
 - ✅ Comprehensive documentation and examples
 - ✅ Scientific computing focus with bioinformatics tools
 
-**Start building the future of AI-assisted scientific research!** 🧬🚀
+**Start with `pixi run sophisticated-agent` and build the future of AI-assisted scientific research!** 🧬🚀
