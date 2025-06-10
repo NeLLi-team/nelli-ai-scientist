@@ -3,7 +3,7 @@ name = "nelli-ai-scientist"
 version = "0.1.0"
 description = "Multi-Agent Framework for Novel Lineage Discovery"
 channels = ["conda-forge", "bioconda"]
-platforms = ["linux-64", "osx-64", "osx-arm64", "win-64"]
+platforms = ["linux-64", "osx-64"]
 
 [dependencies]
 python = ">=3.9,<3.12"
@@ -21,6 +21,7 @@ aiohttp = ">=3.9.0"
 biopython = ">=1.83"
 numpy = ">=1.26.0"
 pandas = ">=2.2.0"
+prodigal = ">=2.6"
 
 # Development tools
 pytest = ">=8.0.0"
