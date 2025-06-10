@@ -38,6 +38,10 @@ uvicorn = ">=0.30.0"
 mkdocs = ">=1.5.0"
 mkdocs-material = ">=9.5.0"
 
+# Taxonomy tools
+taxopy = ">=0.14.0,<0.15"
+rapidfuzz = ">=3.13.0,<4"
+
 [pypi-dependencies]
 openai = ">=1.35.0"
 mcp = ">=0.1.0"
