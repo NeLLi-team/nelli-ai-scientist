@@ -11,7 +11,7 @@ ENV/
 *.egg-info/
 dist/
 build/
-
+data
 # IDE
 .vscode/
 .idea/
