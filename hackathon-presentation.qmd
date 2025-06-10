@@ -1,0 +1,281 @@
+---
+title: "NeLLi AI Scientist Agent"
+subtitle: "Hackathon Quick Start Guide"
+author: "NeLLi Team"
+format: 
+  revealjs:
+    theme: dark
+    transition: slide
+    background-transition: fade
+    highlight-style: github
+    code-line-numbers: true
+    footer: "NeLLi AI Scientist Agent - Hackathon 2025"
+---
+
+## Welcome to NeLLi! 🧬🚀
+
+**Build sophisticated AI agents with FastMCP integration in minutes**
+
+:::: {.columns}
+
+::: {.column width="50%"}
+### What You Get
+- **Universal MCP Agent** - Auto-discovers tools
+- **15 Pre-built Tools** - Ready to use
+- **Async Architecture** - Built on FastMCP
+- **Intelligent Reflection** - AI analyzes results
+- **External Prompts** - Easy customization
+:::
+
+::: {.column width="50%"}
+```bash
+# Get started in 3 commands
+git clone <repository>
+cd nelli-ai-scientist
+pixi install
+
+# Run the agent
+pixi run agent-run
+```
+:::
+
+::::
+
+---
+
+## System Architecture 🏗️
+
+```{mermaid}
+flowchart TD
+    A[You] --> B[Universal Agent]
+    B --> C[LLM Service]
+    B --> D[FastMCP Clients]
+    D --> E[BioPython Tools]
+    D --> F[Filesystem Tools] 
+    D --> G[Your Custom MCP Server]
+    
+    E --> H[Sequence Analysis<br/>FASTA Processing<br/>BLAST<br/>Phylogeny]
+    F --> I[File I/O<br/>Directory Ops<br/>Tree Explorer]
+    G --> J[Domain-Specific<br/>Custom Logic]
+```
+
+**Key**: Agent discovers and uses tools dynamically!
+
+---
+
+## Quick Setup with Pixi 🐾
+
+**Pixi = Modern Python package manager**
+
+```bash
+# 1. Install Pixi
+curl -fsSL https://pixi.sh/install.sh | bash
+
+# 2. Clone and setup
+git clone <repository>
+cd nelli-ai-scientist
+pixi install
+
+# 3. Verify installation
+pixi info
+pixi list
+```
+
+```toml
+# pixi.toml defines your environment
+[dependencies]
+python = ">=3.11"
+fastmcp = "*"
+biopython = "*"
+openai = "*"
+anthropic = "*"
+
+[tasks]
+agent-run = "cd agents/template && python -m src.agent"
+```
+
+---
+
+## Agent in Action 🎯
+
+### Natural Language → Tool Execution
+
+```bash
+pixi run agent-run
+> analyze the DNA sequence ATCGATCGATCG and tell me about it
+```
+
+**Agent automatically:**
+1. Recognizes sequence analysis need
+2. Uses `sequence_stats` tool
+3. Reflects on biological context
+4. Provides comprehensive analysis
+
+```bash
+> read the file example/mimivirus_genome.fna and provide statistics
+```
+
+**Agent chains tools:**
+1. `read_fasta_file` → Load sequences
+2. `sequence_stats` → Analyze each
+3. Reflects on genomic significance
+
+---
+
+## Building Your FastMCP Server 🛠️
+
+### Simple Example
+
+```python
+# mcps/my_tools/src/server.py
+from fastmcp import FastMCP
+
+mcp = FastMCP("My Tools 🧪")
+
+@mcp.tool
+async def analyze_data(data: str, method: str = "standard") -> dict:
+    """Analyze data using custom method
+    
+    Args:
+        data: Input data to analyze
+        method: Analysis method (standard, advanced, custom)
+    """
+    result = perform_analysis(data, method)
+    return {
+        "analysis_result": result,
+        "method_used": method,
+        "confidence": 0.95
+    }
+
+if __name__ == "__main__":
+    mcp.run()
+```
+
+**FastMCP Benefits:** Python-native, async-first, type-safe, simple setup
+
+---
+
+## Advanced FastMCP Patterns 🚀
+
+### Async Batch Processing
+
+```python
+@mcp.tool
+async def process_batch(files: list, parallel: bool = True) -> dict:
+    """Process multiple files in batch"""
+    
+    async def process_single_file(file_path):
+        # Your processing logic
+        return await analyze_file(file_path)
+    
+    if parallel:
+        # Concurrent processing
+        tasks = [process_single_file(f) for f in files]
+        results = await asyncio.gather(*tasks)
+    else:
+        # Sequential processing
+        results = []
+        for file_path in files:
+            result = await process_single_file(file_path)
+            results.append(result)
+    
+    return {
+        "processed_files": len(files),
+        "results": results,
+        "processing_mode": "parallel" if parallel else "sequential"
+    }
+```
+
+---
+
+## Register Your Server 📋
+
+### 1. Add to Agent Configuration
+
+```json
+// agents/template/mcp_config.json
+{
+  "mcp_servers": {
+    "my_tools": {
+      "name": "My Custom Tools",
+      "description": "Domain-specific analysis tools",
+      "fastmcp_script": "../../mcps/my_tools/src/server.py",
+      "enabled": true,
+      "use_cases": ["custom_analysis", "batch_processing"]
+    }
+  }
+}
+```
+
+### 2. Test Your Server
+
+```bash
+# Test server directly
+cd mcps/my_tools/src && python server.py
+
+# Test with agent
+pixi run agent-run
+> use my analysis tool to process this data: "sample data here"
+```
+
+**Agent discovers your tools automatically! 🎉**
+
+---
+
+## Customization Without Code Changes 🎨
+
+### Modify Agent Behavior via Prompts
+
+```bash
+# agents/template/prompts/
+├── tool_selection.txt     # How agent chooses tools
+├── reflection.txt         # How agent analyzes results
+├── general_response.txt   # General conversation
+└── error_handling.txt     # Error situations
+```
+
+### Example: Tool Selection Prompt
+
+```text
+You are a universal AI agent with access to various tools...
+
+KEY PRINCIPLES:
+- For biological sequences, prefer BioPython tools
+- For file operations, use filesystem tools
+- For custom domain tasks, use domain-specific tools
+
+RESPONSE FORMAT:
+{
+  "response_type": "direct_answer" OR "use_tools",
+  "intent": "what the user wants to accomplish",
+  "suggested_tools": [...]
+}
+```
+
+**Change prompts → Change behavior, no coding required!**
+
+---
+
+## Your Hackathon Journey 🏆
+
+### Beginner (30 minutes)
+- Run agent with example queries
+- Explore available tools (`tools` command)
+- Modify prompts to change personality
+
+### Intermediate (2 hours)
+- Create simple FastMCP server (1-2 tools)
+- Integrate with agent configuration
+- Test multi-tool workflows
+
+### Advanced (Half day)
+- Build domain-specific MCP server
+- Implement async batch processing
+- Create sophisticated analysis pipelines
+
+### Ready to build the future! 🧬🚀
+
+**Resources:**
+- Architecture Guide: `docs/architecture-overview.md`
+- FastMCP Development: `docs/fastmcp-server-development.md`
+- Troubleshooting: `docs/troubleshooting.md`

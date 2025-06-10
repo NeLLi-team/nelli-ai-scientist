@@ -1,0 +1,89 @@
+# Universal MCP Agent Configuration
+agent:
+  name: "universal-mcp-agent"
+  role: "universal_assistant"
+  description: "A universal AI agent that works with any MCP tools"
+  
+  # Agent capabilities (dynamically discovered from MCP servers)
+  capabilities:
+    - dynamic_tool_discovery
+    - natural_language_processing
+    - filesystem_operations
+    - sequence_analysis
+    - multi_domain_assistance
+  
+  # LLM Configuration
+  llm:
+    provider: "cborg"  # LBNL's hosted LLM service
+    temperature: 0.7
+    max_tokens: 4096
+  
+  # Communication settings
+  communication:
+    protocol: "FIPA-ACL"  # For agent-to-agent communication
+    timeout: 30  # seconds
+    retry_attempts: 3
+
+# MCP Server Configuration
+# NOTE: The actual MCP server definitions are in ../../mcp_config.json
+# This section is for reference only - the agent loads servers from mcp_config.json
+mcp_servers:
+  reference_file: "../../mcp_config.json"
+  
+  # Currently configured servers (as of latest update):
+  available_servers:
+    biopython:
+      name: "BioPython Tools"
+      description: "Bioinformatics sequence analysis and computational biology tools"
+      location: "mcps/template/src/server_fastmcp.py"
+      tools: ["sequence_stats", "analyze_fasta_file", "blast_local", "multiple_alignment", "phylogenetic_tree", "translate_sequence", "read_fasta_file", "write_json_report"]
+      enabled: true
+      
+    filesystem:
+      name: "File System Operations" 
+      description: "Safe file and directory operations for data processing"
+      location: "mcps/filesystem/src/server.py"
+      tools: ["read_file", "write_file", "list_directory", "create_directory", "delete_file", "file_exists", "explore_directory_tree"]
+      enabled: true
+      
+    context7:
+      name: "Context7 Vector Database"
+      description: "Vector storage and semantic search for AI knowledge management" 
+      enabled: false
+      note: "Disabled due to compatibility issues"
+      
+    web_search:
+      name: "Web Search"
+      description: "Internet search capabilities for research and information gathering"
+      enabled: false
+      note: "Requires BRAVE_API_KEY"
+      
+    sqlite:
+      name: "SQLite Database"
+      description: "SQL database operations for structured data storage and queries"
+      enabled: false
+
+# System Prompts Configuration
+prompts:
+  directory: "prompts/"
+  available_prompts:
+    - tool_selection.txt      # Main tool selection logic
+    - reflection.txt          # Tool result analysis  
+    - general_response.txt    # General conversations
+    - error_handling.txt      # Error situation handling
+    - follow_up_suggestions.txt # Follow-up action suggestions
+
+# Agent Features
+features:
+  dynamic_discovery: true     # Automatically discover tools from MCP servers
+  reflection_analysis: true   # Analyze and interpret tool results
+  external_prompts: true      # Use external prompt files
+  path_aware: true           # Understand project directory structure
+  multi_server: true         # Support multiple MCP servers simultaneously
+
+# Development Notes for Hackathon Participants
+notes:
+  mcp_config: "Main MCP server configuration is in ../../mcp_config.json"
+  adding_servers: "To add new MCP servers, update mcp_config.json and create server in mcps/ directory"
+  prompt_customization: "Modify files in prompts/ directory to customize agent behavior"
+  tool_schemas: "Each MCP server has tool_schema.py files documenting available tools"

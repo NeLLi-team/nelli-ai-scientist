@@ -1,0 +1,31 @@
+# Agent and MCP Registry
+# Add your agent/MCP here when ready for integration
+
+agents:
+  # Example entry (uncomment and modify):
+  # - name: john-literature
+  #   path: agents/john
+  #   branch: agent/john-literature-search
+  #   capabilities:
+  #     - literature_search
+  #     - citation_analysis
+  #   mcp_dependencies:
+  #     - sequence_analysis
+  #   status: development
+
+mcps:
+  - name: biopython-template
+    path: mcps/template
+    port: 8001
+    tools:
+      - sequence_stats
+      - translate_sequence
+      - multiple_alignment
+      - phylogenetic_tree
+    status: ready
+
+# Integration settings
+settings:
+  message_broker: redis://redis:6379
+  timeout: 30
+  retry_attempts: 3

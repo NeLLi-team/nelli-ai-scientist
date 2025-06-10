@@ -1,0 +1,49 @@
+name: Validate Components
+
+on:
+  pull_request:
+    branches: [ main ]
+  push:
+    branches: [ main ]
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    
+    steps:
+    - uses: actions/checkout@v3
+    
+    - name: Set up Pixi
+      uses: prefix-dev/setup-pixi@v0.4.0
+      with:
+        pixi-version: v0.15.2
+    
+    - name: Install dependencies
+      run: pixi install
+    
+    - name: Find changed components
+      id: changes
+      run: |
+        # Get changed files
+        CHANGED_FILES=$(git diff --name-only ${{ github.event.before }} ${{ github.sha }})
+        
+        # Extract component paths
+        COMPONENTS=""
+        for file in $CHANGED_FILES; do
+          if [[ $file == agents/* ]] || [[ $file == mcps/* ]]; then
+            COMPONENT=$(echo $file | cut -d'/' -f1,2)
+            if [[ ! " $COMPONENTS " =~ " $COMPONENT " ]]; then
+              COMPONENTS="$COMPONENTS $COMPONENT"
+            fi
+          fi
+        done
+        
+        echo "components=$COMPONENTS" >> $GITHUB_OUTPUT
+    
+    - name: Validate components
+      if: steps.changes.outputs.components != ''
+      run: |
+        for component in ${{ steps.changes.outputs.components }}; do
+          echo "Validating $component"
+          ./scripts/validate-integration.sh $component
+        done

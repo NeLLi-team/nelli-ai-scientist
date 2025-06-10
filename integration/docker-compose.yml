@@ -1,0 +1,40 @@
+version: '3.8'
+
+services:
+  # Message broker
+  redis:
+    image: redis:7-alpine
+    ports:
+      - "6379:6379"
+    volumes:
+      - redis_data:/data
+  
+  # MCP Servers
+  mcp-template:
+    build: ../mcps/template
+    environment:
+      - TRANSPORT=http
+      - PORT=8001
+    ports:
+      - "8001:8001"
+  
+  # Agents (will be added by participants)
+  # agent-template:
+  #   build: ../agents/template
+  #   depends_on:
+  #     - redis
+  #     - mcp-template
+  #   environment:
+  #     - REDIS_URL=redis://redis:6379
+  
+  # Integration tests
+  integration-tests:
+    build: .
+    depends_on:
+      - redis
+    volumes:
+      - ./tests:/app/tests
+    command: pytest tests/ -v
+
+volumes:
+  redis_data:
