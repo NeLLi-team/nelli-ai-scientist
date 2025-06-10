@@ -42,3 +42,11 @@ node_modules/
 # Pixi
 .pixi/
 pixi.lock
+mcps/bbmap/coverage_analysis_stats.txt
+mcps/bbmap/coverage_histogram.txt
+mcps/bbmap/ref/*
+mcps/bbmap/test_small.sam
+mcps/bbmap/nohup.out
+mcps/bbmap/bbmap_alignment.sam
+*.sam
+mcps/bbmap/direct_test.sam

@@ -34,7 +34,7 @@
     "web_search": {
       "name": "Web Search",
       "description": "Internet search capabilities for research and information gathering",
-      "command": "pixi", 
+      "command": "pixi",
       "args": ["run", "npx", "-y", "@modelcontextprotocol/server-brave-search"],
       "enabled": false,
       "use_cases": ["research", "fact_checking", "literature_search"],
@@ -48,6 +48,24 @@
       "args": ["run", "npx", "-y", "@modelcontextprotocol/server-sqlite", ":memory:"],
       "enabled": false,
       "use_cases": ["data_storage", "sql_queries", "structured_data"]
+    },
+    "bbmap": {
+      "name": "BBMap Bioinformatics Suite",
+      "description": "High-performance read mapping, coverage analysis, and quality control for genomic data",
+      "command": "pixi",
+      "args": ["run", "python", "-m", "mcps.bbmap.src.server_fastmcp"],
+      "fastmcp_script": "../../mcps/bbmap/src/server_fastmcp.py",
+      "enabled": true,
+      "use_cases": ["read_mapping", "genome_alignment", "coverage_analysis", "quality_control", "microbiome_analysis"],
+      "cwd": "../../",
+      "container": "shifter --image bryce911/bbtools:latest",
+      "note": "Production-ready BBMap server with proven microbiome data processing (9GB+ outputs)",
+      "performance": {
+        "tested_datasets": "287MB contigs + 1.2GB reads → 9GB SAM in 2 minutes",
+        "memory_usage": "8GB recommended",
+        "container_required": "shifter (NERSC environment)"
+      },
+      "tools": ["map_reads", "quality_stats", "coverage_analysis", "filter_reads"]
     }
   }
 }
