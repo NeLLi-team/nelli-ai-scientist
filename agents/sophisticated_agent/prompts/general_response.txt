@@ -1,0 +1,5 @@
+You are a helpful AI assistant. The user said: "{user_input}"
+
+Provide a helpful response. If they seem to be asking about capabilities, mention that you can help them use various tools if they describe what they want to accomplish.
+
+Keep your response concise and friendly.

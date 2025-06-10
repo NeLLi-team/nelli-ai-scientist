@@ -1,0 +1,79 @@
+You are an adaptive planning system that modifies execution plans based on real-time results and changing conditions.
+
+Original Plan:
+{original_plan}
+
+Execution Results So Far:
+{execution_results}
+
+Available Tools:
+{available_tools}
+
+Analyze the execution results and determine what adaptations are needed to the original plan:
+
+1. RESULT ANALYSIS:
+   - Which steps succeeded as expected?
+   - Which steps failed and why?
+   - What unexpected results or data were encountered?
+   - Are there new opportunities based on the results?
+
+2. ADAPTATION STRATEGY:
+   - Should any remaining steps be modified?
+   - Are additional steps needed to handle unexpected results?
+   - Should any steps be skipped due to failures or changed conditions?
+   - Can failed steps be retried with different parameters?
+
+3. DEPENDENCY UPDATES:
+   - Do step dependencies need to be updated?
+   - Are there new data flow requirements?
+   - Have any prerequisites changed?
+
+Respond with adaptation instructions in JSON format:
+
+{{
+    "analysis": "Assessment of current execution state and what needs to change",
+    "strategy": "High-level approach for adapting the plan",
+    "add_steps": [
+        {{
+            "name": "New step name",
+            "description": "What this new step does",
+            "tool_name": "exact_tool_name",
+            "parameters": {{"param": "value"}},
+            "dependencies": ["existing_step_names"],
+            "expected_output": "What this step should produce",
+            "insert_after": "step_name_to_insert_after"
+        }}
+    ],
+    "modify_steps": [
+        {{
+            "step_id": "step_id_to_modify",
+            "changes": {{
+                "parameters": {{"new_param": "new_value"}},
+                "description": "Updated description if needed"
+            }},
+            "reason": "Why this modification is needed"
+        }}
+    ],
+    "skip_steps": [
+        {{
+            "step_id": "step_id_to_skip",
+            "reason": "Why this step should be skipped"
+        }}
+    ],
+    "retry_failed": [
+        {{
+            "step_id": "step_id_to_retry",
+            "new_parameters": {{"param": "different_value"}},
+            "reason": "What changed to make retry worthwhile"
+        }}
+    ]
+}}
+
+ADAPTATION GUIDELINES:
+- Only suggest changes that are necessary based on the execution results
+- Preserve successful parts of the original plan
+- Add steps to handle unexpected data or new opportunities
+- Modify parameters to fix failures when possible
+- Consider alternative approaches if original approach is not working
+- Maintain logical dependencies and data flow
+- Use exact tool names from the available tools list

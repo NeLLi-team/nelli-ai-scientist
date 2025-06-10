@@ -60,6 +60,8 @@ docs-build = "mkdocs build"
 # Agent tasks
 agent-test = { cmd = "cd agents/template && pytest tests/ -v", cwd = "." }
 agent-run = { cmd = "cd agents/template && python -m src.agent", cwd = "." }
+sophisticated-agent = { cmd = "python agents/sophisticated_agent/run_enhanced.py", cwd = "." }
+sophisticated-agent-test = { cmd = "cd agents/sophisticated_agent && python test_enhanced_agent.py", cwd = "." }
 
 # MCP tasks
 mcp-test = { cmd = "cd mcps/template && pytest tests/ -v", cwd = "." }
