@@ -1,0 +1,53 @@
+{
+  "mcp_servers": {
+    "context7": {
+      "name": "Context7 Vector Database",
+      "description": "Vector storage and semantic search for AI knowledge management",
+      "command": "pixi",
+      "args": ["run", "npx", "-y", "@upstash/context7-mcp"],
+      "enabled": false,
+      "use_cases": ["memory_storage", "semantic_search", "knowledge_retrieval"],
+      "note": "Disabled due to hanging issues during tool discovery"
+    },
+    "biopython": {
+      "name": "BioPython Tools",
+      "description": "Local bioinformatics sequence analysis and computational biology tools",
+      "command": "pixi",
+      "args": ["run", "python", "-m", "mcps.template.src.server"],
+      "fastmcp_script": "../../mcps/template/src/server_fastmcp.py",
+      "enabled": true,
+      "use_cases": ["sequence_analysis", "phylogenetics", "protein_analysis", "fasta_files", "json_reports"],
+      "cwd": "../../",
+      "note": "Using FastMCP client and server"
+    },
+    "filesystem": {
+      "name": "File System Operations",
+      "description": "Safe file and directory operations for data processing",
+      "command": "pixi",
+      "args": ["run", "python", "-m", "mcps.filesystem.src.server"],
+      "fastmcp_script": "../../mcps/filesystem/src/server.py",
+      "enabled": true,
+      "use_cases": ["file_operations", "data_management"],
+      "cwd": "../../",
+      "note": "Using FastMCP version for better compatibility"
+    },
+    "web_search": {
+      "name": "Web Search",
+      "description": "Internet search capabilities for research and information gathering",
+      "command": "pixi", 
+      "args": ["run", "npx", "-y", "@modelcontextprotocol/server-brave-search"],
+      "enabled": false,
+      "use_cases": ["research", "fact_checking", "literature_search"],
+      "requirements": ["BRAVE_API_KEY environment variable"],
+      "note": "Requires Brave Search API key. Get one at https://api.search.brave.com/"
+    },
+    "sqlite": {
+      "name": "SQLite Database",
+      "description": "SQL database operations for structured data storage and queries",
+      "command": "pixi",
+      "args": ["run", "npx", "-y", "@modelcontextprotocol/server-sqlite", ":memory:"],
+      "enabled": false,
+      "use_cases": ["data_storage", "sql_queries", "structured_data"]
+    }
+  }
+}

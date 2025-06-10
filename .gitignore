@@ -12,6 +12,8 @@ ENV/
 dist/
 build/
 data
+.env
+report
 # IDE
 .vscode/
 .idea/

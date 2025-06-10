@@ -104,6 +104,38 @@ def get_tool_schemas() -> Dict[str, Dict[str, Any]]:
             }
         },
         
+        "find_files_by_pattern": {
+            "name": "find_files_by_pattern",
+            "description": "Find files matching a pattern or extensions in a directory tree",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "path": {
+                        "type": "string", 
+                        "description": "Starting directory path (defaults to current working directory)",
+                        "default": None
+                    },
+                    "pattern": {
+                        "type": "string",
+                        "description": "File name pattern (e.g., '*.txt', 'seq*')",
+                        "default": "*"
+                    },
+                    "extensions": {
+                        "type": "string",
+                        "description": "Comma-separated file extensions (e.g., 'fna,fasta,fastq,fa')"
+                    },
+                    "max_depth": {
+                        "type": "integer",
+                        "description": "Maximum depth to search",
+                        "default": 3,
+                        "minimum": 1,
+                        "maximum": 10
+                    }
+                },
+                "required": []
+            }
+        },
+        
         "explore_directory_tree": {
             "name": "explore_directory_tree",
             "description": "Explore directory structure recursively from current working directory or specified path",

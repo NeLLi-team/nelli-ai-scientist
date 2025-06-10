@@ -23,56 +23,72 @@ class BioToolkit:
 
     async def sequence_stats(self, sequence: str, sequence_type: str) -> Dict[str, Any]:
         """Calculate comprehensive sequence statistics"""
+        try:
+            seq = Seq(sequence.upper())
 
-        seq = Seq(sequence.upper())
+            stats = {"length": len(seq), "type": sequence_type}
 
-        stats = {"length": len(seq), "type": sequence_type}
+            if sequence_type in ["dna", "rna"]:
+                # Nucleotide statistics
+                stats.update(
+                    {
+                        "gc_content": gc_fraction(seq) * 100,
+                        "at_content": (1 - gc_fraction(seq)) * 100,
+                        "composition": {
+                            "A": seq.count("A"),
+                            "T": seq.count("T") if sequence_type == "dna" else 0,
+                            "U": seq.count("U") if sequence_type == "rna" else 0,
+                            "G": seq.count("G"),
+                            "C": seq.count("C"),
+                            "N": seq.count("N"),
+                        },
+                    }
+                )
 
-        if sequence_type in ["dna", "rna"]:
-            # Nucleotide statistics
-            stats.update(
-                {
-                    "gc_content": gc_fraction(seq) * 100,
-                    "at_content": (1 - gc_fraction(seq)) * 100,
-                    "composition": {
-                        "A": seq.count("A"),
-                        "T": seq.count("T") if sequence_type == "dna" else 0,
-                        "U": seq.count("U") if sequence_type == "rna" else 0,
-                        "G": seq.count("G"),
-                        "C": seq.count("C"),
-                        "N": seq.count("N"),
-                    },
+                # Find ORFs for DNA
+                if sequence_type == "dna":
+                    try:
+                        orfs = self._find_orfs(seq)
+                        stats["orfs"] = {
+                            "count": len(orfs),
+                            "longest": max([orf["length"] for orf in orfs]) if orfs else 0,
+                            "details": orfs[:5],  # First 5 ORFs
+                        }
+                    except Exception as e:
+                        logger.warning(f"ORF finding failed: {str(e)}")
+                        stats["orfs"] = {
+                            "count": 0,
+                            "longest": 0,
+                            "details": [],
+                            "error": f"ORF analysis failed: {str(e)}"
+                        }
+
+            else:  # protein
+                # Protein statistics
+                stats.update(
+                    {
+                        "molecular_weight": molecular_weight(seq, seq_type="protein"),
+                        "composition": self._amino_acid_composition(seq),
+                    }
+                )
+
+                # Basic properties
+                stats["properties"] = {
+                    "hydrophobic": sum(seq.count(aa) for aa in "AILMFWYV"),
+                    "hydrophilic": sum(seq.count(aa) for aa in "RNDQEHKS"),
+                    "aromatic": sum(seq.count(aa) for aa in "FWY"),
+                    "positive": sum(seq.count(aa) for aa in "RKH"),
+                    "negative": sum(seq.count(aa) for aa in "DE"),
                 }
-            )
 
-            # Find ORFs for DNA
-            if sequence_type == "dna":
-                orfs = self._find_orfs(seq)
-                stats["orfs"] = {
-                    "count": len(orfs),
-                    "longest": max([orf["length"] for orf in orfs]) if orfs else 0,
-                    "details": orfs[:5],  # First 5 ORFs
-                }
-
-        else:  # protein
-            # Protein statistics
-            stats.update(
-                {
-                    "molecular_weight": molecular_weight(seq, seq_type="protein"),
-                    "composition": self._amino_acid_composition(seq),
-                }
-            )
-
-            # Basic properties
-            stats["properties"] = {
-                "hydrophobic": sum(seq.count(aa) for aa in "AILMFWYV"),
-                "hydrophilic": sum(seq.count(aa) for aa in "RNDQEHKS"),
-                "aromatic": sum(seq.count(aa) for aa in "FWY"),
-                "positive": sum(seq.count(aa) for aa in "RKH"),
-                "negative": sum(seq.count(aa) for aa in "DE"),
+            return stats
+        except Exception as e:
+            logger.error(f"Sequence statistics calculation failed: {str(e)}")
+            return {
+                "error": f"Failed to calculate sequence statistics: {str(e)}",
+                "length": len(sequence) if sequence else 0,
+                "type": sequence_type
             }
-
-        return stats
 
     def _find_orfs(self, seq: Seq, min_length: int = 100) -> List[Dict[str, Any]]:
         """Find open reading frames"""
@@ -80,35 +96,46 @@ class BioToolkit:
 
         for strand, nuc in [(+1, seq), (-1, seq.reverse_complement())]:
             for frame in range(3):
-                trans = nuc[frame:].translate(to_stop=False)
-                trans_str = str(trans)
-                aa_start = 0
+                try:
+                    # Clean sequence - replace ambiguous nucleotides with N
+                    clean_seq = str(nuc[frame:])
+                    # Replace any non-standard nucleotides with N
+                    clean_seq = ''.join(c if c in 'ATCGN' else 'N' for c in clean_seq)
+                    clean_seq_obj = Seq(clean_seq)
+                    
+                    # Translate with ambiguous_dna_by_name=True to handle N's properly
+                    trans = clean_seq_obj.translate(to_stop=False)
+                    trans_str = str(trans)
+                    aa_start = 0
 
-                while aa_start < len(trans_str):
-                    # Find next Met
-                    aa_start = trans_str.find("M", aa_start)
-                    if aa_start == -1:
-                        break
+                    while aa_start < len(trans_str):
+                        # Find next Met
+                        aa_start = trans_str.find("M", aa_start)
+                        if aa_start == -1:
+                            break
 
-                    # Find next stop
-                    aa_end = trans_str.find("*", aa_start)
-                    if aa_end == -1:
-                        aa_end = len(trans_str)
+                        # Find next stop
+                        aa_end = trans_str.find("*", aa_start)
+                        if aa_end == -1:
+                            aa_end = len(trans_str)
 
-                    # Check length
-                    if (aa_end - aa_start) * 3 >= min_length:
-                        orfs.append(
-                            {
-                                "start": frame + aa_start * 3,
-                                "end": frame + aa_end * 3,
-                                "strand": strand,
-                                "frame": frame,
-                                "length": (aa_end - aa_start) * 3,
-                                "protein": trans_str[aa_start:aa_end],
-                            }
-                        )
+                        # Check length
+                        if (aa_end - aa_start) * 3 >= min_length:
+                            orfs.append(
+                                {
+                                    "start": frame + aa_start * 3,
+                                    "end": frame + aa_end * 3,
+                                    "strand": strand,
+                                    "frame": frame,
+                                    "length": (aa_end - aa_start) * 3,
+                                    "protein": trans_str[aa_start:aa_end],
+                                }
+                            )
 
-                    aa_start = aa_end + 1
+                        aa_start = aa_end + 1
+                except Exception as e:
+                    logger.warning(f"Translation failed for frame {frame}, strand {strand}: {str(e)}")
+                    continue
 
         return sorted(orfs, key=lambda x: x["length"], reverse=True)
 
@@ -339,6 +366,7 @@ class BioToolkit:
         from Bio import SeqIO
 
         if not os.path.exists(file_path):
+            logger.error(f"File not found: {file_path}")
             return {"error": f"File not found: {file_path}"}
 
         try:
@@ -353,12 +381,14 @@ class BioToolkit:
                     }
                 )
 
+            logger.info(f"Successfully read {len(sequences)} sequences from {file_path}")
             return {
                 "file_path": file_path,
                 "num_sequences": len(sequences),
                 "sequences": sequences,
             }
         except Exception as e:
+            logger.error(f"Failed to read FASTA file {file_path}: {str(e)}")
             return {"error": f"Failed to read FASTA file: {str(e)}"}
 
     async def write_json_report(

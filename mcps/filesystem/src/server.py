@@ -25,7 +25,13 @@ logging.getLogger('mcp').setLevel(logging.WARNING)
 mcp = FastMCP("Filesystem Operations 📁")
 
 # Security: only allow operations in safe directories
-ALLOWED_DIRS = ["/tmp", "/home/fschulz/dev/nelli-ai-scientist"]
+# Get the repository base directory dynamically
+REPO_BASE = str(Path(__file__).parent.parent.parent.parent.absolute())
+ALLOWED_DIRS = ["/tmp", REPO_BASE]
+
+# Log the repository base path for debugging
+logger.info(f"Filesystem MCP Server - Repository base: {REPO_BASE}")
+logger.info(f"Allowed directories: {ALLOWED_DIRS}")
 
 def _check_path_security(path: str) -> bool:
     """Check if path is in allowed directories"""
@@ -88,13 +94,17 @@ async def write_file(path: str, content: str) -> dict:
         return {"error": f"Failed to write file: {str(e)}"}
 
 @mcp.tool
-async def list_directory(path: str = "/tmp") -> dict:
+async def list_directory(path: str = None) -> dict:
     """List contents of a directory
     
     Args:
         path: Path to the directory to list
     """
     try:
+        # Default to repository base directory if no path specified
+        if path is None:
+            path = REPO_BASE
+            
         if not _check_path_security(path):
             return {"error": f"Access denied. Path must be in: {ALLOWED_DIRS}"}
         
@@ -209,6 +219,103 @@ async def file_exists(path: str) -> dict:
         return {"error": f"Failed to check file existence: {str(e)}"}
 
 @mcp.tool
+async def find_files_by_pattern(path: str = None, pattern: str = "*", extensions: str = None, max_depth: int = 3) -> dict:
+    """Find files matching a pattern or extensions in a directory tree
+    
+    Args:
+        path: Starting directory path (defaults to current working directory)
+        pattern: File name pattern (e.g., "*.txt", "seq*", default: "*")
+        extensions: Comma-separated file extensions (e.g., "fna,fasta,fastq,fa")
+        max_depth: Maximum depth to search (default: 3)
+    """
+    try:
+        import fnmatch
+        
+        # Use repository base directory if no path specified
+        if path is None:
+            path = REPO_BASE
+        
+        if not _check_path_security(path):
+            return {"error": f"Access denied. Path must be in: {ALLOWED_DIRS}"}
+        
+        if not os.path.exists(path):
+            return {"error": f"Directory not found: {path}"}
+        
+        if not os.path.isdir(path):
+            return {"error": f"Path is not a directory: {path}"}
+        
+        # Parse extensions
+        valid_extensions = None
+        if extensions:
+            valid_extensions = [ext.strip().lower() for ext in extensions.split(',')]
+            # Ensure extensions start with dot
+            valid_extensions = [ext if ext.startswith('.') else f'.{ext}' for ext in valid_extensions]
+        
+        found_files = []
+        
+        def _search_files(current_path: str, current_depth: int = 0):
+            """Recursively search for files"""
+            if current_depth > max_depth:
+                return
+            
+            try:
+                items = os.listdir(current_path)
+                
+                for item in items:
+                    item_path = os.path.join(current_path, item)
+                    try:
+                        if os.path.isdir(item_path):
+                            # Recursively search subdirectory
+                            _search_files(item_path, current_depth + 1)
+                        elif os.path.isfile(item_path):
+                            # Check if file matches criteria
+                            matches = False
+                            
+                            # Check pattern match
+                            if fnmatch.fnmatch(item, pattern):
+                                matches = True
+                            
+                            # Check extension match
+                            if valid_extensions and not matches:
+                                file_ext = os.path.splitext(item)[1].lower()
+                                if file_ext in valid_extensions:
+                                    matches = True
+                            
+                            if matches:
+                                stat = os.stat(item_path)
+                                # Make path relative to search root
+                                rel_path = os.path.relpath(item_path, path)
+                                found_files.append({
+                                    "name": item,
+                                    "path": item_path,
+                                    "relative_path": rel_path,
+                                    "size": stat.st_size,
+                                    "modified": stat.st_mtime,
+                                    "extension": os.path.splitext(item)[1].lower()
+                                })
+                    except (PermissionError, OSError):
+                        # Skip items we can't access
+                        continue
+            except (PermissionError, OSError):
+                # Skip directories we can't access
+                pass
+        
+        _search_files(path)
+        
+        return {
+            "search_path": path,
+            "pattern": pattern,
+            "extensions": extensions,
+            "max_depth": max_depth,
+            "found_files": found_files,
+            "total_files": len(found_files),
+            "success": True
+        }
+        
+    except Exception as e:
+        return {"error": f"Failed to search files: {str(e)}"}
+
+@mcp.tool
 async def explore_directory_tree(path: str = None, max_depth: int = 3, include_files: bool = True) -> dict:
     """Explore directory structure recursively from current working directory or specified path
     
@@ -218,9 +325,9 @@ async def explore_directory_tree(path: str = None, max_depth: int = 3, include_f
         include_files: Whether to include files in the output (default: True)
     """
     try:
-        # Use current working directory if no path specified
+        # Use repository base directory if no path specified
         if path is None:
-            path = os.getcwd()
+            path = REPO_BASE
         
         if not _check_path_security(path):
             return {"error": f"Access denied. Path must be in: {ALLOWED_DIRS}"}
@@ -332,9 +439,10 @@ def get_examples():
     """Get example file operations"""
     return {
         "examples": [
-            {"operation": "read_file", "path": "/tmp/test.txt"},
-            {"operation": "write_file", "path": "/tmp/output.txt", "content": "Hello World"},
-            {"operation": "list_directory", "path": "/tmp"}
+            {"operation": "read_file", "path": f"{REPO_BASE}/README.md"},
+            {"operation": "write_file", "path": f"{REPO_BASE}/output.txt", "content": "Hello World"},
+            {"operation": "list_directory", "path": REPO_BASE},
+            {"operation": "explore_directory_tree", "path": REPO_BASE, "max_depth": 2}
         ]
     }
 
