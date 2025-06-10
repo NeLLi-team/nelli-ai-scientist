@@ -48,6 +48,17 @@
       "args": ["run", "npx", "-y", "@modelcontextprotocol/server-sqlite", ":memory:"],
       "enabled": false,
       "use_cases": ["data_storage", "sql_queries", "structured_data"]
+    },
+    "taxonomy": {
+      "name": "Taxonomy Tools",
+      "description": "Tools for working with taxonomy data",
+      "command": "pixi",
+      "args": ["run", "python", "-m", "mcps.taxonomy.src.server"],
+      "fastmcp_script": "../../mcps/taxonomy/src/server_fastmcp.py",
+      "enabled": true,
+      "use_cases": ["taxonomy", "phylogenetics", "json_reports"],
+      "cwd": "../../",
+      "note": "Using FastMCP client and server"
     }
   }
 }
