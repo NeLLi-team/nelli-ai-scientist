@@ -51,7 +51,7 @@ Runtime:        ~2 minutes
 Memory Usage:   8GB allocated
 Threads:        61 threads auto-detected
 Success Rate:   100% (exit code 0)
-Container:      shifter --image bryce911/bbtools:latest
+Container:      shifter --image bryce911/bbtools:39.27
 ```
 
 ### **Coverage Analysis Results**

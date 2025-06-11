@@ -58,7 +58,7 @@
       "enabled": true,
       "use_cases": ["read_mapping", "genome_alignment", "coverage_analysis", "quality_control", "microbiome_analysis"],
       "cwd": "../../",
-      "container": "shifter --image bryce911/bbtools:latest",
+      "container": "shifter --image bryce911/bbtools:39.27",
       "note": "Production-ready BBMap server with proven microbiome data processing (9GB+ outputs)",
       "performance": {
         "tested_datasets": "287MB contigs + 1.2GB reads → 9GB SAM in 2 minutes",
@@ -66,6 +66,26 @@
         "container_required": "shifter (NERSC environment)"
       },
       "tools": ["map_reads", "quality_stats", "coverage_analysis", "filter_reads"]
+    },
+    "quickbin": {
+      "name": "QuickBin Metagenomics Binning",
+      "description": "Metagenomics binning tool that groups contigs using coverage and kmer frequencies",
+      "command": "pixi",
+      "args": ["run", "python", "-m", "mcps.quickbin.src.server_fastmcp"],
+      "fastmcp_script": "../../mcps/quickbin/src/server_fastmcp.py",
+      "enabled": true,
+      "use_cases": ["metagenome_binning", "genome_separation", "contig_clustering", "coverage_analysis", "taxonomy_binning"],
+      "cwd": "../../",
+      "container": "shifter --image bryce911/bbtools:39.27",
+      "note": "Bins assembled contigs into taxonomically coherent genome clusters using QuickBin from BBTools",
+      "workflow_position": "After assembly and read mapping - uses SAM files from BBMap",
+      "performance": {
+        "input_requirements": "Assembled contigs (FASTA) + SAM alignment files",
+        "memory_usage": "16GB+ recommended for large metagenomes",
+        "container_required": "shifter (NERSC environment)"
+      },
+      "tools": ["bin_contigs", "bin_contigs_with_coverage", "generate_coverage", "evaluate_bins"],
+      "stringency_levels": ["xstrict", "strict", "normal", "loose", "xloose"]
     }
   }
 }

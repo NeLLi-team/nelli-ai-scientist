@@ -268,9 +268,9 @@ async def get_available_tools() -> str:
             "bbduk.sh - Read filtering/trimming"
         ],
         "container_info": {
-            "image": "bryce911/bbtools:latest",
+            "image": "bryce911/bbtools:39.27",
             "runtime": "shifter",
-            "command_prefix": "shifter --image bryce911/bbtools:latest"
+            "command_prefix": "shifter --image bryce911/bbtools:39.27"
         }
     }
 

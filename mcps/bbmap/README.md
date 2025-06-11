@@ -83,7 +83,7 @@ print(f"Kept {result['filter_stats']['output_reads']} high-quality reads")
 ### Container Execution
 This MCP server uses **Shifter** to run BBTools in a containerized environment:
 ```bash
-shifter --image bryce911/bbtools:latest [bbtools_command]
+shifter --image bryce911/bbtools:39.27 [bbtools_command]
 ```
 
 ### Supported File Formats
@@ -168,7 +168,7 @@ tools:
 **Container Access**
 ```bash
 # Test shifter access
-shifter --image bryce911/bbtools:latest bbmap.sh --help
+shifter --image bryce911/bbtools:39.27 bbmap.sh --help
 ```
 
 **File Permissions**

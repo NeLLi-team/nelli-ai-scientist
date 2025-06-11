@@ -42,7 +42,7 @@ fi
 # Test shifter container access
 echo ""
 echo "🔧 Testing Shifter Container Access..."
-timeout 10 shifter --image bryce911/bbtools:latest echo "Container test successful" 2>/dev/null
+timeout 10 shifter --image bryce911/bbtools:39.27 echo "Container test successful" 2>/dev/null
 if [[ $? -eq 0 ]]; then
     echo "✅ Shifter container accessible"
 else

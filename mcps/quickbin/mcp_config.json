@@ -1,0 +1,9 @@
+{
+  "mcpServers": {
+    "quickbin": {
+      "command": "python",
+      "args": ["-m", "src.server_fastmcp"],
+      "cwd": "/pscratch/sd/j/jvillada/nelli-ai-scientist/mcps/quickbin"
+    }
+  }
+}
