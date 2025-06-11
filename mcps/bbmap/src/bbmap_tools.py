@@ -20,7 +20,7 @@ logger = logging.getLogger(__name__)
 class BBMapToolkit:
     """Collection of BBMap-based bioinformatics tools"""
 
-    def __init__(self, shifter_image: str = "bryce911/bbtools:latest"):
+    def __init__(self, shifter_image: str = "bryce911/bbtools:39.27"):
         """Initialize BBMap toolkit
 
         Args:
@@ -90,8 +90,7 @@ class BBMapToolkit:
             f"ref={reference_path}",
             f"in={reads_path}",
             f"out={output_sam}",
-            "stats=mapping_stats.txt",
-            "scafstats=scaffold_stats.txt"
+            "overwrite=true"
         ]
 
         if additional_params:
@@ -103,8 +102,8 @@ class BBMapToolkit:
         if returncode != 0:
             raise RuntimeError(f"BBMap failed: {stderr}")
 
-        # Parse mapping statistics
-        stats = self._parse_mapping_stats("mapping_stats.txt")
+        # Parse mapping statistics from stdout/stderr
+        stats = self._parse_stdout_stats(stdout, stderr)
 
         result = {
             "status": "success",
@@ -401,5 +400,47 @@ class BBMapToolkit:
         except Exception as e:
             logger.warning(f"Could not parse filter stats: {e}")
             stats = {"error": "Could not parse statistics file"}
+
+        return stats
+
+    def _parse_stdout_stats(self, stdout: str, stderr: str) -> Dict[str, Any]:
+        """Parse BBMap mapping statistics from stdout/stderr output"""
+        stats = {}
+
+        # Combine stdout and stderr for parsing
+        content = stdout + "\n" + stderr
+
+        try:
+            # Extract key statistics using regex patterns
+            patterns = {
+                'reads_used': r'Reads Used:\s*(\d+)',
+                'mapped_reads': r'Mapped:\s*(\d+)',
+                'mapping_rate': r'Mapped:\s*\d+\s*\((\d+\.?\d*)%\)',
+                'average_identity': r'Average identity:\s*(\d+\.?\d*)%',
+                'average_coverage': r'Average coverage:\s*(\d+\.?\d*)',
+                'reads_processed': r'Reads:\s*(\d+)',
+                'bases_processed': r'Bases:\s*(\d+)'
+            }
+
+            for key, pattern in patterns.items():
+                match = re.search(pattern, content)
+                if match:
+                    try:
+                        stats[key] = float(match.group(1))
+                    except ValueError:
+                        stats[key] = match.group(1)
+
+            # If no specific stats found, provide basic info
+            if not stats:
+                stats = {
+                    "status": "completed",
+                    "output_available": len(stdout) > 0,
+                    "stdout_length": len(stdout),
+                    "stderr_length": len(stderr)
+                }
+
+        except Exception as e:
+            logger.warning(f"Could not parse stdout stats: {e}")
+            stats = {"error": "Could not parse statistics from output"}
 
         return stats

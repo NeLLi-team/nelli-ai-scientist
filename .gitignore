@@ -50,3 +50,5 @@ mcps/bbmap/nohup.out
 mcps/bbmap/bbmap_alignment.sam
 *.sam
 mcps/bbmap/direct_test.sam
+*.gz
+*.block
