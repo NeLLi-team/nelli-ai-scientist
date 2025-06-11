@@ -34,7 +34,7 @@
     "web_search": {
       "name": "Web Search",
       "description": "Internet search capabilities for research and information gathering",
-      "command": "pixi", 
+      "command": "pixi",
       "args": ["run", "npx", "-y", "@modelcontextprotocol/server-brave-search"],
       "enabled": false,
       "use_cases": ["research", "fact_checking", "literature_search"],
@@ -50,24 +50,15 @@
       "use_cases": ["data_storage", "sql_queries", "structured_data"]
     },
     "paper search mcp": {
-      "name": "mcpServers",
-      "description": "paper_search_server",
+      "name": "Academic Paper Search",
+      "description": "Academic paper search and retrieval service",
       "command": "uv",
-      "args": ["run", "--directory", "/clusterfs/jgi/scratch/science/mgs/nelli/shana/nelli-ai-scientist/agents/shana/paper-search-mcp/", "-m", "paper_search_mcp.server"],
-      "fastmcp_script": "../../mcps/filesystem/src/server.py",
-      "enabled": false,
-      "use_cases": ["statistical_analysis", "results_extraction", "quality_assessment"],
-      "cwd": "../../",
-      "note": "Using FastMCP version for better compatibility"
-    },
-    "mcpservers": {
-      "name": "mcpServers",
-      "description": "paper_search_server",
-      "command": "uv",
-      "args": ["run ", "/clusterfs/jgi/scratch/science/mgs/nelli/shana/nelli-ai-scientist/agents/shana/paper-search-mcp/paper_search_mcp/server.py"],
+      "args": ["run", "--directory", "/clusterfs/jgi/scratch/science/mgs/nelli/shana/nelli-ai-scientist/agents/literature_agent_shana/paper-search-mcp/", "-m", "paper_search_mcp.server"],
+      "fastmcp_script": "paper-search-mcp/paper_search_mcp/server.py",
       "enabled": true,
+      "use_cases": ["literature_search", "paper_retrieval", "academic_research"],
       "env": {"SEMANTIC_SCHOLAR_API_KEY": "l2E42OWUXn3sNpy96DOBu7DcXyD2Ejk06Tzt5aqt"},
-      "note": "Using FastMCP version for better compatibility"
+      "note": "Using paper-search-mcp for academic literature search"
     }
   }
 }

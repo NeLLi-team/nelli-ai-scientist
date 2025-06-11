@@ -44,6 +44,7 @@ mcp = ">=0.1.0"
 # anthropic = ">=0.28.0"  # Optional - only needed for legacy Claude support
 asyncio = ">=3.4.3"
 fastmcp = ">=1.0"
+paper-search-mcp = ">=0.1.3, <0.2"
 
 [tasks]
 # Development tasks
@@ -60,7 +61,7 @@ docs-build = "mkdocs build"
 # Agent tasks
 agent-test = { cmd = "cd agents/template && pytest tests/ -v", cwd = "." }
 agent-run = { cmd = "cd agents/template && python -m src.agent", cwd = "." }
-
+literatureagent-run = { cmd = "cd agents/literature_agent_shana && python -m src.agent", cwd = "." }
 # MCP tasks
 mcp-test = { cmd = "cd mcps/template && pytest tests/ -v", cwd = "." }
 mcp-run = { cmd = "cd mcps/template && python -m src.server", cwd = "." }
