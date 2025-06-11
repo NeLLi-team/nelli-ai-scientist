@@ -14,22 +14,20 @@
       "description": "Local bioinformatics sequence analysis and computational biology tools",
       "command": "pixi",
       "args": ["run", "python", "-m", "mcps.template.src.server"],
-      "fastmcp_script": "../../mcps/template/src/server_fastmcp.py",
+      "fastmcp_script": "mcps/template/src/server_fastmcp.py",
       "enabled": true,
       "use_cases": ["sequence_analysis", "phylogenetics", "protein_analysis", "fasta_files", "json_reports"],
-      "cwd": "../../",
       "note": "Using FastMCP client and server"
     },
     "filesystem": {
-      "name": "File System Operations",
+      "name": "File System Operations", 
       "description": "Safe file and directory operations for data processing",
       "command": "pixi",
       "args": ["run", "python", "-m", "mcps.filesystem.src.server"],
-      "fastmcp_script": "../../mcps/filesystem/src/server.py",
+      "fastmcp_script": "mcps/filesystem/src/simple_server.py",
       "enabled": true,
       "use_cases": ["file_operations", "data_management"],
-      "cwd": "../../",
-      "note": "Using FastMCP version for better compatibility"
+      "note": "Using simple FastMCP server for better compatibility"
     },
     "web_search": {
       "name": "Web Search",

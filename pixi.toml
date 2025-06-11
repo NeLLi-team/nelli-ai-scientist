@@ -37,6 +37,7 @@ uvicorn = ">=0.30.0"
 # Documentation
 mkdocs = ">=1.5.0"
 mkdocs-material = ">=9.5.0"
+openai = ">=1.85.0,<2"
 
 [pypi-dependencies]
 openai = ">=1.35.0"
@@ -60,7 +61,7 @@ docs-build = "mkdocs build"
 # Agent tasks
 agent-test = { cmd = "cd agents/template && pytest tests/ -v", cwd = "." }
 agent-run = { cmd = "cd agents/template && python -m src.agent", cwd = "." }
-sophisticated-agent = { cmd = "python agents/sophisticated_agent/run_enhanced.py", cwd = "." }
+sophisticated-agent = { cmd = "python agents/sophisticated_agent/run_enhanced.py", cwd = ".", env = { "PYTHONPATH" = ".", "ENV_FILE" = ".env" } }
 sophisticated-agent-test = { cmd = "cd agents/sophisticated_agent && python test_enhanced_agent.py", cwd = "." }
 
 # MCP tasks

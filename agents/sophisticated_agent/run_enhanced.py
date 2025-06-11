@@ -7,6 +7,7 @@ import asyncio
 import sys
 import os
 from pathlib import Path
+from dotenv import load_dotenv
 
 # Get the agent directory (where this script is located)
 AGENT_DIR = Path(__file__).parent
@@ -22,15 +23,24 @@ if __name__ == "__main__":
     original_cwd = os.getcwd()
     os.chdir(REPO_ROOT)
     
+    # Load environment variables from .env file
+    env_file = REPO_ROOT / ".env"
+    if env_file.exists():
+        load_dotenv(env_file)
+        print(f"🔐 Loaded environment variables from {env_file}")
+    else:
+        print(f"⚠️  No .env file found at {env_file}")
+    
     print(f"🏠 Changed working directory to: {os.getcwd()}")
     print(f"📁 Agent config path: {AGENT_DIR / 'config/agent_config.yaml'}")
     
     try:
-        # Set default paths relative to repo root
+        # Set default paths relative to agent directory
         if len(sys.argv) == 1:  # No arguments provided
+            # Point to the agent's MCP config file
+            agent_mcp_config = str(AGENT_DIR / "mcp_config.json")
             sys.argv.extend([
-                "--config", "mcp_config.json",
-                # We'll handle the config file path in the enhanced_agent.py
+                "--config", agent_mcp_config,
             ])
         
         # Store agent directory for config loading
