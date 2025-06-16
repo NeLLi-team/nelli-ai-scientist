@@ -1,0 +1,57 @@
+{
+    "agent": {
+        "name": "results_analyzer",
+        "version": "0.1.4",
+        "description": "Agent for analyzing and summarizing research paper results",
+        "capabilities": [
+            "statistical_analysis",
+            "results_extraction",
+            "quality_assessment",
+            "paper_results_summarization"
+        ],
+        "llm_provider": "CBORG",
+        "llm_providers": {
+            "CBORG": {
+                "type": "default",
+                "description": "Default LLM provider"
+            },
+            "CLAUDE": {
+                "type": "alternative",
+                "description": "Claude LLM provider"
+            },
+            "OPENAI": {
+                "type": "alternative",
+                "description": "OpenAI LLM provider"
+            }
+        }
+    },
+    "paper_summarization": {
+        "max_summary_length": 500,
+        "supported_sources": [
+            "arxiv",
+            "pubmed",
+            "biorxiv",
+            "medrxiv"
+        ],
+        "save_path": "./downloads",
+        "extraction_patterns": [
+            "(?i)results\\s*and\\s*discussion.*?(?=\\n\\s*(?:discussion|conclusion|methods|references|acknowledgments|$))",
+            "(?i)results.*?(?=\\n\\s*(?:discussion|conclusion|methods|references|acknowledgments|$))"
+        ],
+        "cache": {
+            "enabled": true,
+            "ttl_seconds": 86400,
+            "max_size_mb": 1024
+        },
+        "timeouts": {
+            "download_seconds": 30,
+            "extraction_seconds": 60,
+            "summarization_seconds": 30
+        }
+    },
+    "logging": {
+        "level": "INFO",
+        "format": "%(asctime)s - %(name)s - %(levelname)s - %(message)s",
+        "file": "results_analyzer.log"
+    }
+} 
