@@ -38,6 +38,17 @@
             "(?i)results\\s*and\\s*discussion.*?(?=\\n\\s*(?:discussion|conclusion|methods|references|acknowledgments|$))",
             "(?i)results.*?(?=\\n\\s*(?:discussion|conclusion|methods|references|acknowledgments|$))"
         ],
+        "validation_thresholds": {
+            "min_confidence": 0.5,
+            "required_indicators": ["data_presentation", "statistical_analysis"],
+            "optional_indicators": ["figures_tables", "numerical_data", "measurements", "experimental_terms"]
+        },
+        "llm_extraction": {
+            "temperature": 0.1,
+            "max_tokens": 2000,
+            "retry_attempts": 3,
+            "max_content_length": 8000
+        },
         "cache": {
             "enabled": true,
             "ttl_seconds": 86400,

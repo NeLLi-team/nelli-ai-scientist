@@ -57,7 +57,10 @@
       "fastmcp_script": "paper-search-mcp/paper_search_mcp/server.py",
       "enabled": true,
       "use_cases": ["literature_search", "paper_retrieval", "academic_research"],
-      "env": {"SEMANTIC_SCHOLAR_API_KEY": "l2E42OWUXn3sNpy96DOBu7DcXyD2Ejk06Tzt5aqt"},
+      "env": {
+        "SEMANTIC_SCHOLAR_API_KEY": "l2E42OWUXn3sNpy96DOBu7DcXyD2Ejk06Tzt5aqt",
+        "PYTHONPATH": "/clusterfs/jgi/scratch/science/mgs/nelli/shana/nelli-ai-scientist/agents/literature_agent_shana/paper-search-mcp"
+      },
       "note": "Using paper-search-mcp for academic literature search"
     }
   }
