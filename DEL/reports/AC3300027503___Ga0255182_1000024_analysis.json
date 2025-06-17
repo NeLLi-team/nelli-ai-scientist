@@ -1,0 +1,820 @@
+{
+  "file_info": {
+    "file_path": "/home/fschulz/dev/nelli-ai-scientist/example/AC3300027503___Ga0255182_1000024.fna",
+    "sequence_type": "dna",
+    "n_sequences": 1
+  },
+  "assembly_stats": {
+    "total_length": 241205,
+    "n_sequences": 1,
+    "gc_content": 27.34,
+    "n_content": 0.0,
+    "n50": 241205,
+    "l50": 1,
+    "n90": 241205,
+    "l90": 1,
+    "longest_sequence": 241205,
+    "shortest_sequence": 241205,
+    "mean_length": 241205.0,
+    "median_length": 241205,
+    "size_distribution": {
+      "<1kb": 0,
+      "1-10kb": 0,
+      "10-100kb": 0,
+      "100kb-1Mb": 1,
+      ">1Mb": 0
+    }
+  },
+  "kmer_analysis": {
+    "4-mers": {
+      "total_kmers": 241202,
+      "unique_kmers": 256,
+      "shannon_entropy": 7.339,
+      "top_10_kmers": [
+        {
+          "kmer": "AAAA",
+          "count": 5287,
+          "frequency": 2.192,
+          "expected_frequency": 0.391
+        },
+        {
+          "kmer": "TTTT",
+          "count": 5285,
+          "frequency": 2.191,
+          "expected_frequency": 0.391
+        },
+        {
+          "kmer": "ATTT",
+          "count": 5182,
+          "frequency": 2.148,
+          "expected_frequency": 0.391
+        },
+        {
+          "kmer": "AAAT",
+          "count": 5004,
+          "frequency": 2.075,
+          "expected_frequency": 0.391
+        },
+        {
+          "kmer": "TATT",
+          "count": 4744,
+          "frequency": 1.967,
+          "expected_frequency": 0.391
+        },
+        {
+          "kmer": "AATA",
+          "count": 4563,
+          "frequency": 1.892,
+          "expected_frequency": 0.391
+        },
+        {
+          "kmer": "ATAT",
+          "count": 4527,
+          "frequency": 1.877,
+          "expected_frequency": 0.391
+        },
+        {
+          "kmer": "TAAA",
+          "count": 4472,
+          "frequency": 1.854,
+          "expected_frequency": 0.391
+        },
+        {
+          "kmer": "AATT",
+          "count": 4461,
+          "frequency": 1.849,
+          "expected_frequency": 0.391
+        },
+        {
+          "kmer": "ATAA",
+          "count": 4316,
+          "frequency": 1.789,
+          "expected_frequency": 0.391
+        }
+      ]
+    },
+    "5-mers": {
+      "total_kmers": 241201,
+      "unique_kmers": 1024,
+      "shannon_entropy": 9.151,
+      "top_10_kmers": [
+        {
+          "kmer": "AAAAA",
+          "count": 2092,
+          "frequency": 0.867,
+          "expected_frequency": 0.098
+        },
+        {
+          "kmer": "TTTTT",
+          "count": 2048,
+          "frequency": 0.849,
+          "expected_frequency": 0.098
+        },
+        {
+          "kmer": "ATTTT",
+          "count": 2020,
+          "frequency": 0.837,
+          "expected_frequency": 0.098
+        },
+        {
+          "kmer": "TATTT",
+          "count": 1965,
+          "frequency": 0.815,
+          "expected_frequency": 0.098
+        },
+        {
+          "kmer": "AAAAT",
+          "count": 1935,
+          "frequency": 0.802,
+          "expected_frequency": 0.098
+        },
+        {
+          "kmer": "ATATT",
+          "count": 1888,
+          "frequency": 0.783,
+          "expected_frequency": 0.098
+        },
+        {
+          "kmer": "AATAT",
+          "count": 1888,
+          "frequency": 0.783,
+          "expected_frequency": 0.098
+        },
+        {
+          "kmer": "AAATA",
+          "count": 1887,
+          "frequency": 0.782,
+          "expected_frequency": 0.098
+        },
+        {
+          "kmer": "TTATT",
+          "count": 1808,
+          "frequency": 0.75,
+          "expected_frequency": 0.098
+        },
+        {
+          "kmer": "ATTAT",
+          "count": 1802,
+          "frequency": 0.747,
+          "expected_frequency": 0.098
+        }
+      ]
+    },
+    "6-mers": {
+      "total_kmers": 241200,
+      "unique_kmers": 4064,
+      "shannon_entropy": 10.951,
+      "top_10_kmers": [
+        {
+          "kmer": "ATTTTT",
+          "count": 847,
+          "frequency": 0.351,
+          "expected_frequency": 0.024
+        },
+        {
+          "kmer": "AAAAAT",
+          "count": 816,
+          "frequency": 0.338,
+          "expected_frequency": 0.024
+        },
+        {
+          "kmer": "TATTTT",
+          "count": 809,
+          "frequency": 0.335,
+          "expected_frequency": 0.024
+        },
+        {
+          "kmer": "ATATTT",
+          "count": 792,
+          "frequency": 0.328,
+          "expected_frequency": 0.024
+        },
+        {
+          "kmer": "AAATAT",
+          "count": 783,
+          "frequency": 0.325,
+          "expected_frequency": 0.024
+        },
+        {
+          "kmer": "AATATT",
+          "count": 777,
+          "frequency": 0.322,
+          "expected_frequency": 0.024
+        },
+        {
+          "kmer": "AAAAAA",
+          "count": 775,
+          "frequency": 0.321,
+          "expected_frequency": 0.024
+        },
+        {
+          "kmer": "ATTATT",
+          "count": 766,
+          "frequency": 0.318,
+          "expected_frequency": 0.024
+        },
+        {
+          "kmer": "AAAATA",
+          "count": 761,
+          "frequency": 0.316,
+          "expected_frequency": 0.024
+        },
+        {
+          "kmer": "TTTTTT",
+          "count": 742,
+          "frequency": 0.308,
+          "expected_frequency": 0.024
+        }
+      ]
+    }
+  },
+  "repeat_analysis": {
+    "total_sequences": 1,
+    "total_length": 241205,
+    "tandem_repeats": [
+      {
+        "start": 47560,
+        "end": 47580,
+        "repeat_unit": "TTTGCCACTT",
+        "unit_length": 10,
+        "copy_number": 2,
+        "total_length": 20,
+        "sequence_id": "AC3300027503___Ga0255182_1000024"
+      },
+      {
+        "start": 47705,
+        "end": 47725,
+        "repeat_unit": "TTTTGCCACT",
+        "unit_length": 10,
+        "copy_number": 2,
+        "total_length": 20,
+        "sequence_id": "AC3300027503___Ga0255182_1000024"
+      },
+      {
+        "start": 105837,
+        "end": 105857,
+        "repeat_unit": "ATATATATAT",
+        "unit_length": 10,
+        "copy_number": 2,
+        "total_length": 20,
+        "sequence_id": "AC3300027503___Ga0255182_1000024"
+      },
+      {
+        "start": 127760,
+        "end": 127780,
+        "repeat_unit": "GAATTATTAA",
+        "unit_length": 10,
+        "copy_number": 2,
+        "total_length": 20,
+        "sequence_id": "AC3300027503___Ga0255182_1000024"
+      },
+      {
+        "start": 138555,
+        "end": 138575,
+        "repeat_unit": "AAAGTGGCAA",
+        "unit_length": 10,
+        "copy_number": 2,
+        "total_length": 20,
+        "sequence_id": "AC3300027503___Ga0255182_1000024"
+      },
+      {
+        "start": 138535,
+        "end": 138557,
+        "repeat_unit": "GGAAATGGCAA",
+        "unit_length": 11,
+        "copy_number": 2,
+        "total_length": 22,
+        "sequence_id": "AC3300027503___Ga0255182_1000024"
+      },
+      {
+        "start": 7475,
+        "end": 7499,
+        "repeat_unit": "AAATTACTAATA",
+        "unit_length": 12,
+        "copy_number": 2,
+        "total_length": 24,
+        "sequence_id": "AC3300027503___Ga0255182_1000024"
+      },
+      {
+        "start": 73716,
+        "end": 73740,
+        "repeat_unit": "AGTTACATCTTC",
+        "unit_length": 12,
+        "copy_number": 2,
+        "total_length": 24,
+        "sequence_id": "AC3300027503___Ga0255182_1000024"
+      },
+      {
+        "start": 81861,
+        "end": 81885,
+        "repeat_unit": "AGACATAGCAGA",
+        "unit_length": 12,
+        "copy_number": 2,
+        "total_length": 24,
+        "sequence_id": "AC3300027503___Ga0255182_1000024"
+      },
+      {
+        "start": 93506,
+        "end": 93530,
+        "repeat_unit": "TTTCTCCGTTGT",
+        "unit_length": 12,
+        "copy_number": 2,
+        "total_length": 24,
+        "sequence_id": "AC3300027503___Ga0255182_1000024"
+      },
+      {
+        "start": 105802,
+        "end": 105826,
+        "repeat_unit": "TTATTTAAATAA",
+        "unit_length": 12,
+        "copy_number": 2,
+        "total_length": 24,
+        "sequence_id": "AC3300027503___Ga0255182_1000024"
+      },
+      {
+        "start": 105837,
+        "end": 105861,
+        "repeat_unit": "ATATATATATAT",
+        "unit_length": 12,
+        "copy_number": 2,
+        "total_length": 24,
+        "sequence_id": "AC3300027503___Ga0255182_1000024"
+      },
+      {
+        "start": 112213,
+        "end": 112237,
+        "repeat_unit": "CTGCTCCTGCTC",
+        "unit_length": 12,
+        "copy_number": 2,
+        "total_length": 24,
+        "sequence_id": "AC3300027503___Ga0255182_1000024"
+      },
+      {
+        "start": 125379,
+        "end": 125403,
+        "repeat_unit": "AAAAATATTAAG",
+        "unit_length": 12,
+        "copy_number": 2,
+        "total_length": 24,
+        "sequence_id": "AC3300027503___Ga0255182_1000024"
+      },
+      {
+        "start": 139318,
+        "end": 139342,
+        "repeat_unit": "TTATTTTAATTT",
+        "unit_length": 12,
+        "copy_number": 2,
+        "total_length": 24,
+        "sequence_id": "AC3300027503___Ga0255182_1000024"
+      },
+      {
+        "start": 209755,
+        "end": 209779,
+        "repeat_unit": "TTTTTACCATTT",
+        "unit_length": 12,
+        "copy_number": 2,
+        "total_length": 24,
+        "sequence_id": "AC3300027503___Ga0255182_1000024"
+      },
+      {
+        "start": 241106,
+        "end": 241202,
+        "repeat_unit": "GAACCTGCTCAA",
+        "unit_length": 12,
+        "copy_number": 8,
+        "total_length": 96,
+        "sequence_id": "AC3300027503___Ga0255182_1000024"
+      },
+      {
+        "start": 225514,
+        "end": 225540,
+        "repeat_unit": "TATTTTTTTTGTA",
+        "unit_length": 13,
+        "copy_number": 2,
+        "total_length": 26,
+        "sequence_id": "AC3300027503___Ga0255182_1000024"
+      },
+      {
+        "start": 110869,
+        "end": 110897,
+        "repeat_unit": "TTTTATTTATATTT",
+        "unit_length": 14,
+        "copy_number": 2,
+        "total_length": 28,
+        "sequence_id": "AC3300027503___Ga0255182_1000024"
+      },
+      {
+        "start": 16874,
+        "end": 16919,
+        "repeat_unit": "TGAACAAGATTTACC",
+        "unit_length": 15,
+        "copy_number": 3,
+        "total_length": 45,
+        "sequence_id": "AC3300027503___Ga0255182_1000024"
+      },
+      {
+        "start": 78568,
+        "end": 78673,
+        "repeat_unit": "TCAGTCGTTCCTTTA",
+        "unit_length": 15,
+        "copy_number": 7,
+        "total_length": 105,
+        "sequence_id": "AC3300027503___Ga0255182_1000024"
+      },
+      {
+        "start": 83738,
+        "end": 83772,
+        "repeat_unit": "TTCAACATTTGTAAAAC",
+        "unit_length": 17,
+        "copy_number": 2,
+        "total_length": 34,
+        "sequence_id": "AC3300027503___Ga0255182_1000024"
+      },
+      {
+        "start": 30048,
+        "end": 30120,
+        "repeat_unit": "TAAATCTAAAAGTCGCAC",
+        "unit_length": 18,
+        "copy_number": 4,
+        "total_length": 72,
+        "sequence_id": "AC3300027503___Ga0255182_1000024"
+      },
+      {
+        "start": 33953,
+        "end": 34007,
+        "repeat_unit": "AAATTTAAATCTTGGAAC",
+        "unit_length": 18,
+        "copy_number": 3,
+        "total_length": 54,
+        "sequence_id": "AC3300027503___Ga0255182_1000024"
+      },
+      {
+        "start": 115135,
+        "end": 115171,
+        "repeat_unit": "CTTCTTCTGGTCTTACAG",
+        "unit_length": 18,
+        "copy_number": 2,
+        "total_length": 36,
+        "sequence_id": "AC3300027503___Ga0255182_1000024"
+      },
+      {
+        "start": 115742,
+        "end": 115778,
+        "repeat_unit": "TTTTGTATATTTTATTCT",
+        "unit_length": 18,
+        "copy_number": 2,
+        "total_length": 36,
+        "sequence_id": "AC3300027503___Ga0255182_1000024"
+      },
+      {
+        "start": 60454,
+        "end": 60492,
+        "repeat_unit": "AATGTGGTTTAAATTTTAT",
+        "unit_length": 19,
+        "copy_number": 2,
+        "total_length": 38,
+        "sequence_id": "AC3300027503___Ga0255182_1000024"
+      },
+      {
+        "start": 12424,
+        "end": 12487,
+        "repeat_unit": "TTTCCGCCTTTATTATTCATA",
+        "unit_length": 21,
+        "copy_number": 3,
+        "total_length": 63,
+        "sequence_id": "AC3300027503___Ga0255182_1000024"
+      },
+      {
+        "start": 17070,
+        "end": 17112,
+        "repeat_unit": "GTTCCTACGGAAGAAACAATG",
+        "unit_length": 21,
+        "copy_number": 2,
+        "total_length": 42,
+        "sequence_id": "AC3300027503___Ga0255182_1000024"
+      },
+      {
+        "start": 42739,
+        "end": 42787,
+        "repeat_unit": "GTTCAACAACCATTAATGAATAAT",
+        "unit_length": 24,
+        "copy_number": 2,
+        "total_length": 48,
+        "sequence_id": "AC3300027503___Ga0255182_1000024"
+      },
+      {
+        "start": 241106,
+        "end": 241202,
+        "repeat_unit": "GAACCTGCTCAAGAACCTGCTCAA",
+        "unit_length": 24,
+        "copy_number": 4,
+        "total_length": 96,
+        "sequence_id": "AC3300027503___Ga0255182_1000024"
+      },
+      {
+        "start": 71428,
+        "end": 71488,
+        "repeat_unit": "GATGACGATGATGCGGTAGAACCAGATGAT",
+        "unit_length": 30,
+        "copy_number": 2,
+        "total_length": 60,
+        "sequence_id": "AC3300027503___Ga0255182_1000024"
+      },
+      {
+        "start": 78568,
+        "end": 78658,
+        "repeat_unit": "TCAGTCGTTCCTTTATCAGTCGTTCCTTTA",
+        "unit_length": 30,
+        "copy_number": 3,
+        "total_length": 90,
+        "sequence_id": "AC3300027503___Ga0255182_1000024"
+      },
+      {
+        "start": 30048,
+        "end": 30120,
+        "repeat_unit": "TAAATCTAAAAGTCGCACTAAATCTAAAAGTCGCAC",
+        "unit_length": 36,
+        "copy_number": 2,
+        "total_length": 72,
+        "sequence_id": "AC3300027503___Ga0255182_1000024"
+      },
+      {
+        "start": 225550,
+        "end": 225622,
+        "repeat_unit": "CACCATAAGGTGTTTCAGATGGTCCCATAATTCTTT",
+        "unit_length": 36,
+        "copy_number": 2,
+        "total_length": 72,
+        "sequence_id": "AC3300027503___Ga0255182_1000024"
+      },
+      {
+        "start": 241106,
+        "end": 241178,
+        "repeat_unit": "GAACCTGCTCAAGAACCTGCTCAAGAACCTGCTCAA",
+        "unit_length": 36,
+        "copy_number": 2,
+        "total_length": 72,
+        "sequence_id": "AC3300027503___Ga0255182_1000024"
+      },
+      {
+        "start": 85561,
+        "end": 85639,
+        "repeat_unit": "GAAGAACCGGAAGTTGTTGAAGAACCAGCTCTTATTGAA",
+        "unit_length": 39,
+        "copy_number": 2,
+        "total_length": 78,
+        "sequence_id": "AC3300027503___Ga0255182_1000024"
+      },
+      {
+        "start": 78568,
+        "end": 78658,
+        "repeat_unit": "TCAGTCGTTCCTTTATCAGTCGTTCCTTTATCAGTCGTTCCTTTA",
+        "unit_length": 45,
+        "copy_number": 2,
+        "total_length": 90,
+        "sequence_id": "AC3300027503___Ga0255182_1000024"
+      },
+      {
+        "start": 241106,
+        "end": 241202,
+        "repeat_unit": "GAACCTGCTCAAGAACCTGCTCAAGAACCTGCTCAAGAACCTGCTCAA",
+        "unit_length": 48,
+        "copy_number": 2,
+        "total_length": 96,
+        "sequence_id": "AC3300027503___Ga0255182_1000024"
+      }
+    ],
+    "inverted_repeats": [],
+    "direct_repeats": [],
+    "per_sequence_stats": [
+      {
+        "sequence_id": "AC3300027503___Ga0255182_1000024",
+        "sequence_length": 241205,
+        "repeat_bases": 1811,
+        "repeat_percentage": 0.75,
+        "n_tandem_repeats": 39,
+        "n_ssrs": 3188,
+        "ssr_types": {
+          "1bp": 2639,
+          "2bp": 219,
+          "3bp": 312,
+          "4bp": 12,
+          "6bp": 6
+        }
+      }
+    ],
+    "summary": {
+      "total_genome_length": 241205,
+      "total_repeat_bases": 1811,
+      "overall_repeat_percentage": 0.75,
+      "n_tandem_repeats": 39,
+      "repeat_size_distribution": {
+        "10-20bp": 5,
+        "20-50bp": 20,
+        "50-100bp": 13,
+        "100-500bp": 1,
+        ">500bp": 0
+      }
+    }
+  },
+  "gene_analysis": {
+    "summary": {
+      "total_genes": 221,
+      "total_genome_length": 241205,
+      "total_coding_length": 227101,
+      "overall_coding_density": 94.15,
+      "mean_gene_length": 1027.61,
+      "genetic_code": 11,
+      "meta_mode": true
+    },
+    "per_sequence_stats": [
+      {
+        "sequence_id": "AC3300027503___Ga0255182_1000024",
+        "sequence_length": 241205,
+        "n_genes": 221,
+        "coding_length": 227101,
+        "coding_density": 94.15,
+        "mean_gene_length": 1027.61,
+        "genes_per_kb": 0.92
+      }
+    ],
+    "codon_usage": {
+      "total_codons": 75774,
+      "codon_counts": {
+        "AAT": 5854,
+        "AAA": 5505,
+        "GAA": 4082,
+        "TTA": 3910,
+        "ATT": 3707,
+        "GAT": 3511,
+        "TAT": 3463,
+        "TTT": 2982,
+        "ATA": 2689,
+        "CAA": 2320,
+        "ACA": 2220,
+        "GTT": 1777,
+        "TCA": 1766,
+        "ACT": 1762,
+        "GGT": 1724,
+        "ATG": 1706,
+        "GGA": 1593,
+        "TCT": 1569,
+        "AGA": 1565,
+        "CCA": 1363
+      },
+      "rscu_values": {
+        "ATG": 1.0,
+        "GAA": 1.708,
+        "GAG": 0.292,
+        "GTT": 1.958,
+        "GTA": 1.475,
+        "GTC": 0.3,
+        "GTG": 0.267,
+        "TTA": 3.823,
+        "TTG": 0.673,
+        "CTC": 0.13,
+        "CTA": 0.498,
+        "CTT": 0.779,
+        "CTG": 0.098,
+        "GGA": 1.676,
+        "GGT": 1.813,
+        "GGG": 0.166,
+        "GGC": 0.345,
+        "AAC": 0.258,
+        "AAT": 1.742,
+        "CAA": 1.747,
+        "CAG": 0.253,
+        "TCC": 0.215,
+        "TCT": 1.716,
+        "TCA": 1.932,
+        "TCG": 0.315,
+        "AGT": 1.457,
+        "AGC": 0.364,
+        "AAA": 1.668,
+        "AAG": 0.332,
+        "CCA": 2.046,
+        "CCC": 0.141,
+        "CCT": 1.582,
+        "CCG": 0.231,
+        "TTT": 1.72,
+        "TTC": 0.28,
+        "TGT": 1.727,
+        "TGC": 0.273,
+        "GAC": 0.365,
+        "GAT": 1.635,
+        "GCT": 1.857,
+        "GCA": 1.304,
+        "GCC": 0.318,
+        "GCG": 0.521,
+        "CGT": 0.968,
+        "AGA": 3.916,
+        "CGC": 0.275,
+        "AGG": 0.363,
+        "CGA": 0.423,
+        "CGG": 0.055,
+        "TAC": 0.26,
+        "TAT": 1.74,
+        "ATT": 1.626,
+        "ATC": 0.194,
+        "ATA": 1.18,
+        "TGG": 1.0,
+        "CAT": 1.732,
+        "CAC": 0.268,
+        "ACA": 1.946,
+        "ACT": 1.544,
+        "ACC": 0.27,
+        "ACG": 0.24
+      },
+      "gc3_content": 16.37
+    },
+    "gene_length_distribution": {
+      "<300bp": 30,
+      "300-600bp": 58,
+      "600-900bp": 47,
+      "900-1500bp": 49,
+      "1500-3000bp": 28,
+      ">3000bp": 9
+    }
+  },
+  "promoter_analysis": {
+    "summary": {
+      "sequences_with_promoters": 1,
+      "total_sequences": 1,
+      "total_motifs_found": 30881,
+      "motif_type_counts": {
+        "pribnow_box": 22614,
+        "-35_box": 5847,
+        "shine_dalgarno": 2420
+      },
+      "promoter_density_per_kb": 128.03
+    },
+    "per_sequence_predictions": [
+      {
+        "sequence_id": "AC3300027503___Ga0255182_1000024",
+        "n_promoter_motifs": 30881,
+        "motifs_found": [
+          {
+            "type": "pribnow_box",
+            "motif": "TATAAT",
+            "position": 153,
+            "sequence_context": "TTAAACGACATATAAAAATTTTATAA"
+          },
+          {
+            "type": "pribnow_box",
+            "motif": "TATAAT",
+            "position": 164,
+            "sequence_context": "ATAAAAATTTTATAATGACATATTTT"
+          },
+          {
+            "type": "pribnow_box",
+            "motif": "TATAAT",
+            "position": 182,
+            "sequence_context": "CATATTTTTTTATAAAAACTTAAAGA"
+          },
+          {
+            "type": "pribnow_box",
+            "motif": "TATAAT",
+            "position": 391,
+            "sequence_context": "ACTCGGTTAGTTTAATGAATCCTCAA"
+          },
+          {
+            "type": "pribnow_box",
+            "motif": "TATAAT",
+            "position": 425,
+            "sequence_context": "ATGTGTAAATTGTAATAGGAATTTTC"
+          },
+          {
+            "type": "pribnow_box",
+            "motif": "TATAAT",
+            "position": 479,
+            "sequence_context": "TAAAAAATGCAATAATAATAAAAACA"
+          },
+          {
+            "type": "pribnow_box",
+            "motif": "TATAAT",
+            "position": 482,
+            "sequence_context": "AAAATGCAATAATAATAAAAACATTG"
+          },
+          {
+            "type": "pribnow_box",
+            "motif": "TATAAT",
+            "position": 575,
+            "sequence_context": "ATGTACTGATTATAAAAATTTACTCA"
+          },
+          {
+            "type": "pribnow_box",
+            "motif": "TATAAT",
+            "position": 604,
+            "sequence_context": "AACAACAAAATAAAATGTTCGAACAA"
+          },
+          {
+            "type": "pribnow_box",
+            "motif": "TATAAT",
+            "position": 625,
+            "sequence_context": "AACAACAAACTATGATGATGAAAGTA"
+          }
+        ]
+      }
+    ]
+  }
+}

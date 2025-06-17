@@ -91,24 +91,31 @@ class ConfigLoader:
         """Get LLM provider from config"""
         return self.config.get("agent", {}).get("llm", {}).get("provider", "cborg")
     
-    def get_reasoning_config(self) -> Dict[str, Any]:
-        """Get reasoning phase configuration"""
-        return self.config.get("agent", {}).get("enhanced_features", {}).get("reasoning", {
+    def get_reasoning_and_planning_config(self) -> Dict[str, Any]:
+        """Get reasoning and planning phase configuration"""
+        return self.config.get("agent", {}).get("enhanced_features", {}).get("reasoning_and_planning", {
             "enabled": True,
             "model": "google/gemini-pro",
             "temperature": 0.3,
-            "max_tokens": 2000
+            "max_tokens": 4000
         })
     
+    # Backward compatibility methods
+    def get_reasoning_config(self) -> Dict[str, Any]:
+        """Get reasoning phase configuration (backward compatibility)"""
+        return self.get_reasoning_and_planning_config()
+    
     def get_planning_config(self) -> Dict[str, Any]:
-        """Get planning phase configuration"""
-        return self.config.get("agent", {}).get("enhanced_features", {}).get("planning", {
-            "enabled": True,
-            "model": "google/gemini-flash-lite",
-            "temperature": 0.2,
-            "max_tokens": 1500,
-            "max_iterations": 5
-        })
+        """Get planning phase configuration (backward compatibility)"""
+        config = self.get_reasoning_and_planning_config()
+        # Return planning-specific defaults if needed
+        return {
+            "enabled": config.get("enabled", True),
+            "model": config.get("model", "google/gemini-pro"),
+            "temperature": 0.2,  # Slightly more focused for planning
+            "max_tokens": config.get("max_tokens", 4000),
+            "max_iterations": 10
+        }
     
     def get_execution_config(self) -> Dict[str, Any]:
         """Get execution phase configuration"""
@@ -140,17 +147,22 @@ class ConfigLoader:
         """Check if progress tracking is enabled"""
         return self.get_progress_tracking_config().get("enabled", True)
     
-    def get_reasoning_model(self) -> str:
-        """Get model for reasoning phase"""
-        return self.get_reasoning_config().get("model", "google/gemini-pro")
-    
-    def get_planning_model(self) -> str:
-        """Get model for planning phase"""
-        return self.get_planning_config().get("model", "google/gemini-flash-lite")
+    def get_reasoning_and_planning_model(self) -> str:
+        """Get model for reasoning and planning phases"""
+        return self.get_reasoning_and_planning_config().get("model", "google/gemini-pro")
     
     def get_execution_model(self) -> str:
         """Get model for execution phase"""
         return self.get_execution_config().get("model", "google/gemini-flash-lite")
+    
+    # Backward compatibility methods
+    def get_reasoning_model(self) -> str:
+        """Get model for reasoning phase (backward compatibility)"""
+        return self.get_reasoning_and_planning_model()
+    
+    def get_planning_model(self) -> str:
+        """Get model for planning phase (backward compatibility)"""
+        return self.get_reasoning_and_planning_model()
     
     def get_reports_directory(self) -> str:
         """Get reports directory path"""
@@ -158,7 +170,7 @@ class ConfigLoader:
     
     def get_max_planning_iterations(self) -> int:
         """Get maximum planning iterations"""
-        return self.get_planning_config().get("max_iterations", 5)
+        return self.get_execution_config().get("max_iterations", 10)
     
     def override_with_args(self, args) -> None:
         """Override configuration with command line arguments"""

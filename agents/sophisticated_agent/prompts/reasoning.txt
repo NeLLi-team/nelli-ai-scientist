@@ -73,8 +73,10 @@ SPECIAL CASES:
 
 IMPORTANT DISTINCTIONS:
 - "List files" / "Find files" = SIMPLE file exploration (use find_files or tree_view tools only)
-- "Analyze files" / "Get statistics" = COMPLEX analysis (use analyze_fasta_file + reporting tools)
+- "Analyze files" / "Get statistics" / "Assembly stats" / "Sequence stats" = COMPLEX analysis (requires code generation)
 - "Show directory structure" = SIMPLE tree view (use tree_view tool only)
-- "Process sequences" / "Calculate stats" = COMPLEX analysis workflow
+- "Process sequences" / "Calculate stats" / "Genome analysis" = COMPLEX analysis workflow
+
+CRITICAL: ANY request for statistics, analysis, calculation, or metrics should be classified as "complex" or "advanced" to ensure proper planning and tool coordination.
 
 Be thorough but concise. Focus on actionable insights that will guide effective planning.

@@ -26,9 +26,15 @@ class PromptManager:
         self.prompts_dir = Path(prompts_dir)
         self._prompt_cache = {}
         
+        # Determine repository root dynamically (same logic as filesystem MCP server)
+        # Go up from this file: src/prompt_manager.py -> src/ -> sophisticated_agent/ -> agents/ -> nelli-ai-scientist/
+        self.repo_root = str(Path(__file__).parent.parent.parent.parent.absolute())
+        
         # Ensure prompts directory exists
         if not self.prompts_dir.exists():
             logger.warning(f"Prompts directory not found: {self.prompts_dir}")
+            
+        logger.debug(f"PromptManager initialized with repo_root: {self.repo_root}")
             
     def load_prompt(self, prompt_name: str) -> str:
         """Load a prompt from file
@@ -72,6 +78,10 @@ class PromptManager:
             The formatted prompt
         """
         prompt_template = self.load_prompt(prompt_name)
+        
+        # Automatically inject repo_root if not provided
+        if 'repo_root' not in kwargs:
+            kwargs['repo_root'] = self.repo_root
         
         try:
             return prompt_template.format(**kwargs)

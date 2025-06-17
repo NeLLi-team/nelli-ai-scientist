@@ -1,0 +1,210 @@
+{
+  "file_info": {
+    "file_path": "/home/fschulz/dev/nelli-ai-scientist/example/mimivirus_genome.fna",
+    "sequence_type": "dna",
+    "n_sequences": 1
+  },
+  "kmer_analysis_full": {
+    "4-mers": {
+      "total_kmers": 1181542,
+      "unique_kmers": 256,
+      "shannon_entropy": 7.353,
+      "top_10_kmers": [
+        {
+          "kmer": "AAAA",
+          "count": 25719,
+          "frequency": 2.177,
+          "expected_frequency": 0.391
+        },
+        {
+          "kmer": "TTTT",
+          "count": 25615,
+          "frequency": 2.168,
+          "expected_frequency": 0.391
+        },
+        {
+          "kmer": "AAAT",
+          "count": 24484,
+          "frequency": 2.072,
+          "expected_frequency": 0.391
+        },
+        {
+          "kmer": "ATTT",
+          "count": 24288,
+          "frequency": 2.056,
+          "expected_frequency": 0.391
+        },
+        {
+          "kmer": "AATT",
+          "count": 22747,
+          "frequency": 1.925,
+          "expected_frequency": 0.391
+        },
+        {
+          "kmer": "AATA",
+          "count": 22234,
+          "frequency": 1.882,
+          "expected_frequency": 0.391
+        },
+        {
+          "kmer": "TATT",
+          "count": 22121,
+          "frequency": 1.872,
+          "expected_frequency": 0.391
+        },
+        {
+          "kmer": "TAAT",
+          "count": 19023,
+          "frequency": 1.61,
+          "expected_frequency": 0.391
+        },
+        {
+          "kmer": "ATTA",
+          "count": 18798,
+          "frequency": 1.591,
+          "expected_frequency": 0.391
+        },
+        {
+          "kmer": "ATAA",
+          "count": 18532,
+          "frequency": 1.568,
+          "expected_frequency": 0.391
+        }
+      ]
+    },
+    "5-mers": {
+      "total_kmers": 1181540,
+      "unique_kmers": 1024,
+      "shannon_entropy": 9.175,
+      "top_10_kmers": [
+        {
+          "kmer": "TTTTT",
+          "count": 10421,
+          "frequency": 0.882,
+          "expected_frequency": 0.098
+        },
+        {
+          "kmer": "AAAAA",
+          "count": 10393,
+          "frequency": 0.88,
+          "expected_frequency": 0.098
+        },
+        {
+          "kmer": "AAAAT",
+          "count": 10228,
+          "frequency": 0.866,
+          "expected_frequency": 0.098
+        },
+        {
+          "kmer": "ATTTT",
+          "count": 10157,
+          "frequency": 0.86,
+          "expected_frequency": 0.098
+        },
+        {
+          "kmer": "AAATT",
+          "count": 8855,
+          "frequency": 0.749,
+          "expected_frequency": 0.098
+        },
+        {
+          "kmer": "AATTT",
+          "count": 8754,
+          "frequency": 0.741,
+          "expected_frequency": 0.098
+        },
+        {
+          "kmer": "ATATT",
+          "count": 8552,
+          "frequency": 0.724,
+          "expected_frequency": 0.098
+        },
+        {
+          "kmer": "TATTT",
+          "count": 8545,
+          "frequency": 0.723,
+          "expected_frequency": 0.098
+        },
+        {
+          "kmer": "AATAT",
+          "count": 8531,
+          "frequency": 0.722,
+          "expected_frequency": 0.098
+        },
+        {
+          "kmer": "AAATA",
+          "count": 8507,
+          "frequency": 0.72,
+          "expected_frequency": 0.098
+        }
+      ]
+    },
+    "6-mers": {
+      "total_kmers": 1181538,
+      "unique_kmers": 4093,
+      "shannon_entropy": 10.991,
+      "top_10_kmers": [
+        {
+          "kmer": "AAAAAT",
+          "count": 4269,
+          "frequency": 0.361,
+          "expected_frequency": 0.024
+        },
+        {
+          "kmer": "TTTTTT",
+          "count": 4177,
+          "frequency": 0.354,
+          "expected_frequency": 0.024
+        },
+        {
+          "kmer": "ATTTTT",
+          "count": 4154,
+          "frequency": 0.352,
+          "expected_frequency": 0.024
+        },
+        {
+          "kmer": "AAAAAA",
+          "count": 4037,
+          "frequency": 0.342,
+          "expected_frequency": 0.024
+        },
+        {
+          "kmer": "AATATT",
+          "count": 3810,
+          "frequency": 0.322,
+          "expected_frequency": 0.024
+        },
+        {
+          "kmer": "AAAATA",
+          "count": 3678,
+          "frequency": 0.311,
+          "expected_frequency": 0.024
+        },
+        {
+          "kmer": "AATTTT",
+          "count": 3654,
+          "frequency": 0.309,
+          "expected_frequency": 0.024
+        },
+        {
+          "kmer": "AAAATT",
+          "count": 3652,
+          "frequency": 0.309,
+          "expected_frequency": 0.024
+        },
+        {
+          "kmer": "TATTTT",
+          "count": 3651,
+          "frequency": 0.309,
+          "expected_frequency": 0.024
+        },
+        {
+          "kmer": "AATAAT",
+          "count": 3517,
+          "frequency": 0.298,
+          "expected_frequency": 0.024
+        }
+      ]
+    }
+  }
+}

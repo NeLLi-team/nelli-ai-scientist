@@ -1,0 +1,42 @@
+tunnel: ea5eba81-a8cd-4d55-8b10-1b14fd3ae646
+credentials-file: /home/fschulz/.cloudflared/ea5eba81-a8cd-4d55-8b10-1b14fd3ae646.json
+
+ingress:
+  # Bioseq MCP server (nucleic acid analysis)
+  - hostname: mcp.newlineages.com
+    service: ws://localhost:8765
+    originRequest:
+      connectTimeout: 30s
+      tlsTimeout: 30s
+      keepAliveTimeout: 90s
+      noTLSVerify: false
+      
+  # ML/BioCoding MCP server (code generation & execution)
+  - hostname: ml.newlineages.com
+    service: ws://localhost:8766
+    originRequest:
+      connectTimeout: 30s
+      tlsTimeout: 30s
+      keepAliveTimeout: 90s
+      noTLSVerify: false
+      
+  # Filesystem MCP server (file operations)
+  - hostname: fs.newlineages.com
+    service: ws://localhost:8767
+    originRequest:
+      connectTimeout: 30s
+      tlsTimeout: 30s
+      keepAliveTimeout: 90s
+      noTLSVerify: false
+      
+  # Memory/Context MCP server (knowledge management)
+  - hostname: memory.newlineages.com
+    service: ws://localhost:8768
+    originRequest:
+      connectTimeout: 30s
+      tlsTimeout: 30s
+      keepAliveTimeout: 90s
+      noTLSVerify: false
+      
+  # Catch-all (returns 404 for all other requests)
+  - service: http_status:404

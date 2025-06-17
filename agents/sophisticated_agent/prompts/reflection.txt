@@ -5,10 +5,12 @@ User's original request: "{user_request}"
 Tool execution results:
 {results_summary}
 
-Please provide a thoughtful analysis and interpretation of these results. Your response should:
-1. Summarize what the tools found/accomplished
-2. Highlight key insights or important information
-3. Answer the user's original question based on the results
-4. Be conversational and helpful
+Please provide a BRIEF interpretation of the results. 
 
-Keep your response clear and informative, focusing on what's most relevant to the user's request.
+IMPORTANT:
+- If the tool output already clearly shows the answer (like a file list or tree structure), just add a one-line summary or highlight something notable
+- Do NOT repeat or reformat information that's already clearly displayed
+- Only provide detailed analysis if the results need interpretation or if there's an error
+- Keep your response to 1-3 sentences unless the results are complex or unclear
+
+Focus on adding value, not repeating what's already visible.

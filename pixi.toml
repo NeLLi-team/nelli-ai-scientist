@@ -10,112 +10,46 @@ python = ">=3.9,<3.12"
 pip = "*"
 nodejs = ">=18"
 
-# Core dependencies
+# Core dependencies for agents and MCP
 pydantic = ">=2.7.0"
 pyyaml = ">=6.0"
-redis-py = ">=5.0.0"
-python-dotenv = ">=1.0.0"
-aiohttp = ">=3.9.0"
-
-# Bioinformatics
-biopython = ">=1.83"
-numpy = ">=1.26.0"
+python-dotenv = ">=1.1.0,<2"
 pandas = ">=2.2.0"
 
 # Development tools
-pytest = ">=8.0.0"
-pytest-asyncio = ">=0.23.0"
-pytest-cov = ">=5.0.0"
 black = ">=24.0.0"
-mypy = ">=1.10.0"
 ruff = ">=0.4.0"
-
-# API frameworks
-fastapi = ">=0.111.0"
-uvicorn = ">=0.30.0"
-
-# Documentation
-mkdocs = ">=1.5.0"
-mkdocs-material = ">=9.5.0"
-openai = ">=1.85.0,<2"
 
 [pypi-dependencies]
 openai = ">=1.35.0"
+# MCP protocol and tools
 mcp = ">=0.1.0"
-# anthropic = ">=0.28.0"  # Optional - only needed for legacy Claude support
-asyncio = ">=3.4.3"
 fastmcp = ">=1.0"
+websockets = ">=12.0"
 
 [tasks]
+# Code quality tasks
+format = "black agents/ mcps/ && ruff check --fix agents/ mcps/"
+lint = "black --check agents/ mcps/ && ruff check agents/ mcps/"
+
+
+# Agent tasks - Updated for cleaned structure
+sophisticated-agent = { cmd = "python agents/sophisticated_agent/run_stdio_agent.py", cwd = ".", env = { "PYTHONPATH" = ".", "ENV_FILE" = ".env" } }
+
+# MCP server tasks - Updated for cleaned structure
+bioseq-mcp = { cmd = "cd mcps/bioseq && pixi run run", cwd = "." }
+bioseq-websocket = { cmd = "cd mcps/bioseq && pixi run websocket", cwd = "." }
+bioseq-tunnel = { cmd = "cd mcps/bioseq && pixi run tunnel", cwd = "." }
+biocoding-mcp = { cmd = "cd mcps/biocoding && pixi run run", cwd = "." }
+filesystem-mcp = { cmd = "cd mcps/filesystem && pixi run run-simple", cwd = "." }
+
 # Development tasks
-test = "pytest tests/ -v --cov=src --cov-report=html"
-test-quick = "pytest tests/ -v -x"
-format = "black . && ruff check --fix ."
-lint = "black --check . && ruff check . && mypy src/ --ignore-missing-imports"
-typecheck = "mypy src/ --ignore-missing-imports"
-
-# Documentation
-docs = "mkdocs serve"
-docs-build = "mkdocs build"
-
-# Agent tasks
-agent-test = { cmd = "cd agents/template && pytest tests/ -v", cwd = "." }
-agent-run = { cmd = "cd agents/template && python -m src.agent", cwd = "." }
-sophisticated-agent = { cmd = "python agents/sophisticated_agent/run_enhanced.py", cwd = ".", env = { "PYTHONPATH" = ".", "ENV_FILE" = ".env" } }
-sophisticated-agent-test = { cmd = "cd agents/sophisticated_agent && python test_enhanced_agent.py", cwd = "." }
-
-# MCP tasks
-mcp-test = { cmd = "cd mcps/template && pytest tests/ -v", cwd = "." }
-mcp-run = { cmd = "cd mcps/template && python -m src.server", cwd = "." }
-mcp-client = { cmd = "cd mcps/template && python -m src.client", cwd = "." }
-
-# Integration tasks
-integration-test = { cmd = "cd integration && pytest tests/ -v", cwd = "." }
-redis-start = "redis-server"
+test-agent = { cmd = "cd agents/sophisticated_agent && python -c 'from src.agent_stdio import *; print(\"Agent imports successful\")'", cwd = "." }
+test-mcp = { cmd = "cd mcps/bioseq && python -c 'from src.server import *; print(\"MCP imports successful\")'", cwd = "." }
 
 # Setup tasks
-setup = "pip install -e ."
 clean = "find . -type d -name __pycache__ -exec rm -rf {} + && find . -type f -name '*.pyc' -delete"
 
-# Data download tasks
-download-data = """
-mkdir -p data && \
-cd data && \
-echo "📥 Downloading NeLLi hackathon data..." && \
-(wget -O nelli_hackathon.tar.gz https://portal.nersc.gov/cfs/nelli/nelli_hackathon.tar.gz || \
- curl -L -o nelli_hackathon.tar.gz https://portal.nersc.gov/cfs/nelli/nelli_hackathon.tar.gz || \
- python -c "
-import urllib.request
-print('Downloading with Python urllib...')
-urllib.request.urlretrieve('https://portal.nersc.gov/cfs/nelli/nelli_hackathon.tar.gz', 'nelli_hackathon.tar.gz')
-print('Download completed!')
-") && \
-echo "📦 Extracting data..." && \
-tar -xzf nelli_hackathon.tar.gz && \
-echo "🧹 Cleaning up..." && \
-rm nelli_hackathon.tar.gz && \
-echo "✅ Hackathon data downloaded and extracted to data/ directory" && \
-echo "📊 Available datasets:" && \
-find . -name "*.fa*" -o -name "*.fna" -o -name "*.fastq*" | head -10
-"""
-download-data-check = """
-echo "📁 Checking for hackathon data..." && \
-ls -la data/ 2>/dev/null || echo "❌ No data directory found. Run 'pixi run download-data' to download hackathon datasets" && \
-echo "" && \
-echo "📊 Sample data files:" && \
-find data/ -name "*.fa*" -o -name "*.fna" -o -name "*.fastq*" 2>/dev/null | head -5 || echo "No FASTA files found"
-"""
-
-# Context7 MCP server tasks
-context7-test = "timeout 5s npx -y @upstash/context7-mcp || echo 'Context7 test completed'"
-context7-integration-test = "python test_context7_integration.py"
-agent-context7-demo = "timeout 60s python test_agent_context7.py || echo 'Demo completed or timed out'"
-agent-context7-verify = "python verify_agent_context7.py"
-enhanced-agent-demo = "python enhanced_agent_demo.py"
-
-[feature.dev]
-dependencies = { jupyter = "*", ipython = "*", jupyterlab = "*" }
 
 [environments]
 default = { solve-group = "default" }
-dev = { features = ["dev"], solve-group = "default" }

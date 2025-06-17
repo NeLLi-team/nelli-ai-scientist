@@ -18,23 +18,18 @@ agent:
   
   # Enhanced Features Configuration
   enhanced_features:
-    reasoning:
+    reasoning_and_planning:
       enabled: true
-      model: "google/gemini-pro"           # More capable model for reasoning
+      model: "google/gemini-pro"           # More capable model for reasoning and planning
       temperature: 0.3                     # Lower temperature for focused analysis
-      max_tokens: 4000                     # Sufficient for reasoning analysis
-      
-    planning:
-      enabled: true  
-      model: "google/gemini-flash-lite"    # Efficient model for planning
-      temperature: 0.2                     # Low temperature for structured planning
-      max_tokens: 2000                     # Enough for detailed plans
-      max_iterations: 10                    # Maximum planning iterations
+      max_tokens: 4000                     # Sufficient for reasoning and planning
       
     execution:
-      model: "google/gemini-flash-lite"    # Fast model for tool coordination
+      enabled: true
+      model: "google/gemini-flash-lite"    # Fast model for tool coordination and execution
       temperature: 0.1                     # Very low temperature for precise calls
       max_tokens: 1000                     # Focused responses
+      max_iterations: 10                   # Maximum planning iterations
       
     progress_tracking:
       enabled: true

@@ -1,0 +1,23 @@
+version: '3.8'
+
+services:
+  bioseq-mcp:
+    build: .
+    image: nelli/bioseq-mcp:latest
+    container_name: bioseq-mcp-server
+    stdin_open: true
+    tty: true
+    volumes:
+      # Mount data directory for FASTA files
+      - ${DATA_DIR:-./data}:/data:ro
+      # Mount output directory for results
+      - ${OUTPUT_DIR:-./output}:/output
+    environment:
+      - PYTHONUNBUFFERED=1
+      - MCP_MODE=stdio
+    networks:
+      - mcp-network
+
+networks:
+  mcp-network:
+    driver: bridge

@@ -250,7 +250,67 @@ pixi run test               # Run test suite
 # MCP Server Testing
 pixi run test-biopython     # Test BioPython MCP server
 pixi run test-filesystem    # Test filesystem MCP server
+
+# Remote MCP Server (Bioseq)
+cd mcps/bioseq
+pixi run websocket          # Start WebSocket bridge on port 8765
+pixi run cf-run             # Start Cloudflare tunnel (production domain)
+# Or for quick testing:
+pixi run tunnel             # Start temporary tunnel (generates .trycloudflare.com URL)
 ```
+
+### 🌐 Remote Bioseq MCP Server
+
+The **bioseq** MCP server provides 32 specialized nucleic acid analysis tools and can be accessed remotely via WebSocket:
+
+#### Starting the Bioseq MCP Server
+
+1. **Navigate to bioseq directory:**
+   ```bash
+   cd mcps/bioseq
+   ```
+
+2. **Start the WebSocket bridge:**
+   ```bash
+   pixi run websocket
+   # Starts on ws://localhost:8765
+   ```
+
+3. **For remote access, start Cloudflare tunnel:**
+   
+   **Option A - Production (with custom domain):**
+   ```bash
+   pixi run cf-run
+   # Uses wss://mcp.newlineages.com (or your configured domain)
+   ```
+   
+   **Option B - Testing (temporary URL):**
+   ```bash
+   pixi run tunnel
+   # Generates temporary URL like wss://abc123.trycloudflare.com
+   ```
+
+4. **Configure agent to use remote server:**
+   
+   Edit `agents/sophisticated_agent/mcp_config.json`:
+   ```json
+   {
+     "bioseq-remote": {
+       "transport": "websocket",
+       "uri": "wss://mcp.newlineages.com",  // or your tunnel URL
+       "enabled": true
+     }
+   }
+   ```
+
+The bioseq server includes tools for:
+- Assembly statistics and genome analysis
+- Gene prediction and promoter detection
+- GC skew and CpG island analysis
+- Tandem repeat and motif detection
+- K-mer analysis and much more
+
+See [Remote MCP Architecture Guide](docs/REMOTE_MCP_ARCHITECTURE.md) and [MCP Remote Hosting Guide](docs/MCP_REMOTE_HOSTING_GUIDE.md) for detailed setup instructions.
 
 ## 🤖 Model Configuration
 

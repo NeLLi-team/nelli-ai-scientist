@@ -1,0 +1,30 @@
+[project]
+name = "filesystem-mcp"
+version = "0.1.0"
+description = "File System Operations MCP Server - Safe file and directory operations"
+channels = ["conda-forge"]
+platforms = ["linux-64", "osx-64", "osx-arm64", "win-64"]
+
+[dependencies]
+python = ">=3.9,<3.12"
+pip = "*"
+
+# Core dependencies
+pydantic = ">=2.7.0"
+
+[pypi-dependencies]
+mcp = ">=0.1.0"
+fastmcp = ">=1.0"
+
+[tasks]
+# Server tasks
+run = "python -m src.server"
+run-simple = "python -m src.simple_server"
+test = "pytest tests/ -v" 
+
+# Development
+format = "black src/ && ruff check --fix src/"
+lint = "black --check src/ && ruff check src/"
+
+[environments]
+default = { solve-group = "default" }

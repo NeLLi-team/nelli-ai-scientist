@@ -10,34 +10,68 @@
       "note": "Disabled due to hanging issues during tool discovery"
     },
     "biopython": {
-      "name": "BioPython Tools",
-      "description": "Local bioinformatics sequence analysis and computational biology tools",
-      "command": "pixi",
-      "args": ["run", "python", "-m", "mcps.template.src.server"],
-      "fastmcp_script": "mcps/template/src/server_fastmcp.py",
-      "enabled": true,
-      "use_cases": ["sequence_analysis", "phylogenetics", "protein_analysis", "fasta_files", "json_reports"],
-      "note": "Using FastMCP client and server"
+      "name": "Nucleic Acid Analysis Tools",
+      "description": "Specialized DNA/RNA sequence analysis including assembly stats, promoter detection, GC skew, and giant virus analysis",
+      "command": "bash",
+      "args": ["-c", "cd mcps/bioseq && pixi run run"],
+      "fastmcp_script": "mcps/bioseq/src/server.py",
+      "enabled": false,
+      "use_stdio": true,
+      "use_cases": ["nucleic_acid_analysis", "assembly_statistics", "promoter_detection", "gc_skew_analysis", "cpg_islands", "giant_virus_motifs", "repeat_detection", "gene_prediction", "kmer_analysis"],
+      "note": "Independent MCP with own pixi environment via stdio"
+    },
+    "biocoding": {
+      "name": "BioCoding - Interactive Code Generation",
+      "description": "Generate, execute, analyze, and iterate on scientific Python code. Create data analysis pipelines, ML models, visualizations, and more.",
+      "command": "bash",
+      "args": ["-c", "cd mcps/biocoding && pixi run run"],
+      "fastmcp_script": "mcps/biocoding/src/server.py",
+      "enabled": false,
+      "use_stdio": true,
+      "use_cases": ["code_generation", "code_execution", "code_analysis", "code_iteration", "notebook_creation", "test_generation", "ml_pipelines", "data_visualization", "statistical_analysis"],
+      "note": "Empowers agents to write and refine scientific code interactively"
     },
     "filesystem": {
       "name": "File System Operations", 
       "description": "Safe file and directory operations for data processing",
       "command": "pixi",
-      "args": ["run", "python", "-m", "mcps.filesystem.src.server"],
+      "args": ["run", "--manifest-path", "mcps/filesystem", "run-simple"],
       "fastmcp_script": "mcps/filesystem/src/simple_server.py",
       "enabled": true,
+      "use_stdio": true,
       "use_cases": ["file_operations", "data_management"],
-      "note": "Using simple FastMCP server for better compatibility"
+      "note": "Independent MCP with own pixi environment via stdio"
     },
-    "web_search": {
-      "name": "Web Search",
-      "description": "Internet search capabilities for research and information gathering",
-      "command": "pixi", 
-      "args": ["run", "npx", "-y", "@modelcontextprotocol/server-brave-search"],
+    "playwright": {
+      "name": "Web scraping", 
+      "description": "interact with web pages, take screenshots, generate test code, web scraping",
+      "command": "pixi",
+      "args": ["run", "npx", "-y", "@executeautomation/playwright-mcp-server"],
+      "enabled": false
+    },
+    "sequential-thinking": {
+      "name": "sequential-thinking", 
+      "description": "Dynamic and reflective problem-solving through a structured thinking process",
+      "command": "pixi",
+      "args": ["run", "npx", "@modelcontextprotocol/server-sequential-thinking"],
+      "fastmcp_script": "mcps/filesystem/src/simple_server.py",
+      "enabled": false
+    },
+    "json": {
+      "name": "JSON operations", 
+      "description": "Qquerying and manipulating JSON data.",
+      "command": "pixi",
+      "args": ["run", "npx", "@gongrzhe/server-json-mcp@1.0.3"],
       "enabled": false,
-      "use_cases": ["research", "fact_checking", "literature_search"],
-      "requirements": ["BRAVE_API_KEY environment variable"],
-      "note": "Requires Brave Search API key. Get one at https://api.search.brave.com/"
+      "note": "Temporarily disabled due to npm registry connection issues"
+    },
+    "memory": {
+      "name": "memory", 
+      "description": "enhance agent memory",
+      "command": "pixi",
+      "args": ["run", "npx", "@modelcontextprotocol/server-memory"],
+      "enabled": false,
+      "note": "Temporarily disabled due to npm registry connection issues"
     },
     "sqlite": {
       "name": "SQLite Database",
@@ -46,6 +80,42 @@
       "args": ["run", "npx", "-y", "@modelcontextprotocol/server-sqlite", ":memory:"],
       "enabled": false,
       "use_cases": ["data_storage", "sql_queries", "structured_data"]
+    },
+    "bioseq-remote": {
+      "name": "Remote Nucleic Acid Analysis Tools",
+      "description": "Remote bioseq MCP server accessed via Cloudflare Tunnel - Specialized DNA/RNA sequence analysis",
+      "transport": "websocket",
+      "uri": "wss://mcp.newlineages.com",
+      "enabled": true,
+      "use_cases": ["nucleic_acid_analysis", "assembly_statistics", "promoter_detection", "gc_skew_analysis", "cpg_islands", "giant_virus_motifs", "repeat_detection", "gene_prediction", "kmer_analysis"],
+      "note": "Remote MCP server accessed via custom domain mcp.newlineages.com through Cloudflare Tunnel."
+    },
+    "ml-remote": {
+      "name": "Remote ML/BioCoding Tools",
+      "description": "Remote ML and code generation MCP server for scientific computing",
+      "transport": "websocket", 
+      "uri": "wss://ml.newlineages.com",
+      "enabled": false,
+      "use_cases": ["code_generation", "code_execution", "ml_pipelines", "data_analysis"],
+      "note": "Remote ML MCP server - enable when ml.newlineages.com is running"
+    },
+    "filesystem-remote": {
+      "name": "Remote Filesystem Operations",
+      "description": "Remote filesystem MCP server for file operations",
+      "transport": "websocket",
+      "uri": "wss://fs.newlineages.com", 
+      "enabled": false,
+      "use_cases": ["file_operations", "data_management"],
+      "note": "Remote filesystem MCP server - enable when fs.newlineages.com is running"
+    },
+    "memory-remote": {
+      "name": "Remote Memory/Context Management",
+      "description": "Remote memory and context management MCP server",
+      "transport": "websocket",
+      "uri": "wss://memory.newlineages.com",
+      "enabled": false, 
+      "use_cases": ["memory_storage", "semantic_search", "knowledge_retrieval"],
+      "note": "Remote memory MCP server - enable when memory.newlineages.com is running"
     }
   }
 }

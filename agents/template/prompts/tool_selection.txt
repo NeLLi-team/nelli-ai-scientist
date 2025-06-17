@@ -18,15 +18,15 @@ IMPORTANT:
 - For sequence file analysis, prefer "analyze_fasta_file" over individual steps
 - For filesystem exploration or when users ask about "files", "directories", "project structure", etc., prefer "explore_directory_tree" to get a comprehensive view of the directory structure
 - Use "list_directory" only for simple single-directory listings
-- When users mention subdirectories like "example", "docs", "agents", "mcps", etc., provide the full path relative to the project root (e.g., "../../example" for the example directory, "../../docs" for docs, "../../mcps" for mcps)
-- The current working directory is /home/fschulz/dev/nelli-ai-scientist/agents/template, so to access project directories use "../../dirname"
-- When users mention specific files that are in subdirectories, always include the full relative path (e.g., "../../example/mimivirus_genome.fna" not just "mimivirus_genome.fna")
+- When users mention subdirectories like "example", "docs", "agents", "mcps", etc., provide the full path from the repository root (e.g., "{repo_root}/example", "{repo_root}/docs", "{repo_root}/mcps")
+- For accessing project directories, use absolute paths from the repository root: "{repo_root}/dirname"
+- When users mention specific files that are in subdirectories, always include the full absolute path (e.g., "{repo_root}/example/mimivirus_genome.fna" not just "mimivirus_genome.fna")
 - If a file was previously found in a directory exploration, use the complete path shown in those results
 
 TOOL CHAINING RULES:
 - When the user wants to "analyze and save" or "create a report", suggest TWO tools: first the analysis tool, then write_json_report
 - For write_json_report: use "ANALYSIS_RESULTS" as the data parameter value - the agent will automatically pass the previous tool's results
-- Always save reports to the "reports" subdirectory: use paths like "../../reports/filename.json"
+- Always save reports to the "reports" subdirectory: use paths like "{repo_root}/reports/filename.json"
 - Create the reports directory first if it doesn't exist using create_directory tool
 - For file outputs (JSON, MD reports), always use the reports subdirectory pattern
 
@@ -54,17 +54,17 @@ EXAMPLE - User wants to "analyze mimivirus_genome.fna and save results to JSON":
         {{
             "tool_name": "create_directory",
             "reason": "Ensure reports directory exists for output",
-            "parameters": {{"path": "../../reports"}}
+            "parameters": {{"path": "{repo_root}/reports"}}
         }},
         {{
             "tool_name": "analyze_fasta_file", 
             "reason": "Analyze the genomic sequence file",
-            "parameters": {{"file_path": "../../example/mimivirus_genome.fna", "sequence_type": "dna"}}
+            "parameters": {{"file_path": "{repo_root}/example/mimivirus_genome.fna", "sequence_type": "dna"}}
         }},
         {{
             "tool_name": "write_json_report",
             "reason": "Save analysis results to JSON file in reports directory", 
-            "parameters": {{"data": "ANALYSIS_RESULTS", "output_path": "../../reports/mimivirus_analysis.json"}}
+            "parameters": {{"data": "ANALYSIS_RESULTS", "output_path": "{repo_root}/reports/mimivirus_analysis.json"}}
         }}
     ]
 }}

@@ -1,0 +1,33 @@
+When encountering errors during tool execution, follow these guidelines:
+
+1. **Parameter Validation**:
+   - Always validate parameters before calling tools
+   - Convert None/null values to appropriate defaults
+   - Use empty strings "" for missing string parameters
+   - Use "." for missing path parameters
+   - Use "*" for missing pattern parameters
+
+2. **Error Recovery**:
+   - If a tool fails with validation errors, fix the parameters and retry
+   - If a tool is not found, suggest alternative approaches
+   - If connection errors occur, retry up to 3 times
+   - If all retries fail, gracefully skip the step and continue
+
+3. **User Communication**:
+   - Never show raw error traces to users
+   - Provide clear, actionable error messages
+   - Explain what went wrong in simple terms
+   - Suggest what will be done to recover
+
+4. **Common Fixes**:
+   - tree_view: Use path=".", file_extensions="", ignore_hidden=True
+   - find_files: Use path=".", pattern="*", recursive=True
+   - read_file: Path is required - ask user if missing
+
+5. **Error Patterns**:
+   - "validation error" → Fix parameters and retry
+   - "not found" → Use alternative tool or approach
+   - "timeout" → Retry with adjusted parameters
+   - "connection" → Wait and retry
+
+Remember: The goal is to complete the user's request successfully, even if some steps encounter issues. Be resilient and adaptive.

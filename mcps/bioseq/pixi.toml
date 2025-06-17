@@ -1,0 +1,50 @@
+[project]
+name = "bioseq-mcp"
+version = "0.1.0"
+description = "Nucleic Acid Analysis MCP Server - Specialized DNA/RNA sequence analysis tools"
+channels = ["conda-forge", "bioconda"]
+platforms = ["linux-64", "osx-64", "osx-arm64", "win-64"]
+
+[dependencies]
+python = ">=3.9,<3.12"
+pip = "*"
+
+# Bioinformatics dependencies
+biopython = ">=1.83"
+numpy = ">=1.26.0"
+pandas = ">=2.0.0"
+matplotlib = ">=3.7.0"
+seaborn = ">=0.12.0"
+
+# Core dependencies for MCP
+pydantic = ">=2.7.0"
+
+[pypi-dependencies]
+mcp = ">=0.1.0"
+fastmcp = ">=1.0"
+pyrodigal = ">=3.0.0"
+websockets = ">=12.0"
+
+[tasks]
+# Server tasks
+run = "python -m src.server"
+test = "python test_simplified.py"
+test-full = "pytest tests/ -v"
+
+# WebSocket and tunnel tasks
+websocket = "python mcp_websocket_bridge.py"
+tunnel = "./cloudflared tunnel --url http://localhost:8765"
+
+# Cloudflare tunnel management
+cf-login = "./cloudflared tunnel login"
+cf-list = "./cloudflared tunnel list"
+cf-create = "./cloudflared tunnel create bioseq-mcp"
+cf-route = "./cloudflared tunnel route dns bioseq-mcp mcp.newlineages.com"
+cf-run = "./cloudflared tunnel --config cloudflared-config.yml run bioseq-mcp"
+
+# Development
+format = "black src/ tests/ && ruff check --fix src/ tests/"
+lint = "black --check src/ tests/ && ruff check src/ tests/"
+
+[environments]
+default = { solve-group = "default" }

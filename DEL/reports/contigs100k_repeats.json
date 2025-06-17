@@ -1,0 +1,3 @@
+{
+  "result": "Error calling tool 'repeat_detection': 1 validation error for call[repeat_detection]\nsequences\n  Input should be a valid list [type=list_type, input_value={'file_path': '/home/fsch..._101233_cov_9.633092'}]}, input_type=dict]\n    For further information visit https://errors.pydantic.dev/2.11/v/list_type"
+}

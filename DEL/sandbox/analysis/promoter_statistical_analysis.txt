@@ -1,0 +1,12 @@
+PROMOTER MOTIF STATISTICAL ANALYSIS REPORT
+==================================================
+
+Analysis Date: 2025-06-12 07:33:13
+Data Source: AC3300027503___Ga0255182_1000024_analysis.json
+
+SUMMARY STATISTICS:
+- Total promoter motifs: 30,881
+- Promoter density: 128.03 per kb
+- Genome length: 241,205 bp
+- Most frequent motif: TATAAT (Pribnow box)
+- Motif type distribution: Pribnow (73.2%), -35 box (18.9%), Shine-Dalgarno (7.8%)

@@ -1,0 +1,409 @@
+{
+  "analysis_type": "comprehensive_viral_analysis",
+  "sequences_analyzed": 3,
+  "assembly_stats": {
+    "total_length": 256,
+    "n_sequences": 3,
+    "gc_content": 39.45,
+    "n_content": 0.0,
+    "n50": 86,
+    "l50": 2,
+    "n90": 79,
+    "l90": 3,
+    "longest_sequence": 91,
+    "shortest_sequence": 79,
+    "mean_length": 85.33,
+    "median_length": 86,
+    "size_distribution": {
+      "<1kb": 3,
+      "1-10kb": 0,
+      "10-100kb": 0,
+      "100kb-1Mb": 0,
+      ">1Mb": 0
+    }
+  },
+  "promoter_search": {
+    "summary": {
+      "sequences_analyzed": 3,
+      "sequences_with_giant_virus_motifs": 2,
+      "total_motifs_found": 77,
+      "motif_type_distribution": {
+        "mimivirus_early": 14,
+        "mega_box": 4,
+        "asfar_tattt": 10,
+        "asfar_tatata": 38,
+        "phyco_early": 11
+      },
+      "motif_density_per_kb": 300.78
+    },
+    "at_rich_analysis": {
+      "at_rich_windows": 0,
+      "total_windows": 0,
+      "percentage_at_rich": 0,
+      "criteria": ">=70% AT content in 100bp windows"
+    },
+    "detailed_results": [
+      {
+        "sequence_id": "mimivirus_like_1",
+        "n_motifs": 30,
+        "motif_details": [
+          {
+            "type": "mimivirus_early",
+            "motif": "AAAATTGA",
+            "position": 0,
+            "upstream_distance": "variable",
+            "sequence_context": "AAAATTGAATCGATCGATCGATCGTATA",
+            "description": "Early gene promoter in mimiviruses (45% of genes)"
+          },
+          {
+            "type": "mimivirus_early",
+            "motif": "AAAATTGA",
+            "position": 29,
+            "upstream_distance": "variable",
+            "sequence_context": "TCGATCGATCGATCGTATATAAAATTGAATCGATCGATCGAAAAAATT",
+            "description": "Early gene promoter in mimiviruses (45% of genes)"
+          },
+          {
+            "type": "mimivirus_early",
+            "motif": "AAAATTGA",
+            "position": 51,
+            "upstream_distance": "variable",
+            "sequence_context": "AATTGAATCGATCGATCGAAAAAATTGGATCGATCGTATATAAATCGA",
+            "description": "Early gene promoter in mimiviruses (45% of genes)"
+          },
+          {
+            "type": "mimivirus_early",
+            "motif": "AAAATTGG",
+            "position": 0,
+            "upstream_distance": "variable",
+            "sequence_context": "AAAATTGAATCGATCGATCGATCGTATA",
+            "description": "Early gene promoter in mimiviruses (45% of genes)"
+          },
+          {
+            "type": "mimivirus_early",
+            "motif": "AAAATTGG",
+            "position": 29,
+            "upstream_distance": "variable",
+            "sequence_context": "TCGATCGATCGATCGTATATAAAATTGAATCGATCGATCGAAAAAATT",
+            "description": "Early gene promoter in mimiviruses (45% of genes)"
+          },
+          {
+            "type": "mimivirus_early",
+            "motif": "AAAATTGG",
+            "position": 51,
+            "upstream_distance": "variable",
+            "sequence_context": "AATTGAATCGATCGATCGAAAAAATTGGATCGATCGTATATAAATCGA",
+            "description": "Early gene promoter in mimiviruses (45% of genes)"
+          },
+          {
+            "type": "mimivirus_early",
+            "motif": "GAAATTGA",
+            "position": 0,
+            "upstream_distance": "variable",
+            "sequence_context": "AAAATTGAATCGATCGATCGATCGTATA",
+            "description": "Early gene promoter in mimiviruses (45% of genes)"
+          },
+          {
+            "type": "mimivirus_early",
+            "motif": "GAAATTGA",
+            "position": 29,
+            "upstream_distance": "variable",
+            "sequence_context": "TCGATCGATCGATCGTATATAAAATTGAATCGATCGATCGAAAAAATT",
+            "description": "Early gene promoter in mimiviruses (45% of genes)"
+          },
+          {
+            "type": "mega_box",
+            "motif": "TATATAAAATTGA",
+            "position": 24,
+            "upstream_distance": "variable",
+            "sequence_context": "TTGAATCGATCGATCGATCGTATATAAAATTGAATCGATCGATCGAAAAAATT",
+            "description": "Proposed ancestral NCLDV promoter motif"
+          },
+          {
+            "type": "mega_box",
+            "motif": "TATATAAAATTGG",
+            "position": 24,
+            "upstream_distance": "variable",
+            "sequence_context": "TTGAATCGATCGATCGATCGTATATAAAATTGAATCGATCGATCGAAAAAATT",
+            "description": "Proposed ancestral NCLDV promoter motif"
+          },
+          {
+            "type": "asfar_tattt",
+            "motif": "TATTT",
+            "position": 24,
+            "upstream_distance": "variable",
+            "sequence_context": "TTGAATCGATCGATCGATCGTATATAAAATTGAATCGATCGATCG",
+            "description": "A/T-rich promoter motif in Asfarviridae"
+          },
+          {
+            "type": "asfar_tattt",
+            "motif": "TATTT",
+            "position": 67,
+            "upstream_distance": "variable",
+            "sequence_context": "CGAAAAAATTGGATCGATCGTATATAAATCGATCGATCG",
+            "description": "A/T-rich promoter motif in Asfarviridae"
+          },
+          {
+            "type": "asfar_tatata",
+            "motif": "TATATA",
+            "position": 24,
+            "upstream_distance": "variable",
+            "sequence_context": "TTGAATCGATCGATCGATCGTATATAAAATTGAATCGATCGATCGA",
+            "description": "TATATA box in Asfarviridae"
+          },
+          {
+            "type": "asfar_tatata",
+            "motif": "TATATA",
+            "position": 26,
+            "upstream_distance": "variable",
+            "sequence_context": "GAATCGATCGATCGATCGTATATAAAATTGAATCGATCGATCGAAA",
+            "description": "TATATA box in Asfarviridae"
+          },
+          {
+            "type": "asfar_tatata",
+            "motif": "TATATA",
+            "position": 67,
+            "upstream_distance": "variable",
+            "sequence_context": "CGAAAAAATTGGATCGATCGTATATAAATCGATCGATCG",
+            "description": "TATATA box in Asfarviridae"
+          },
+          {
+            "type": "asfar_tatata",
+            "motif": "TATATA",
+            "position": 69,
+            "upstream_distance": "variable",
+            "sequence_context": "AAAAAATTGGATCGATCGTATATAAATCGATCGATCG",
+            "description": "TATATA box in Asfarviridae"
+          },
+          {
+            "type": "asfar_tatata",
+            "motif": "ATATAT",
+            "position": 23,
+            "upstream_distance": "variable",
+            "sequence_context": "ATTGAATCGATCGATCGATCGTATATAAAATTGAATCGATCGATCG",
+            "description": "TATATA box in Asfarviridae"
+          },
+          {
+            "type": "asfar_tatata",
+            "motif": "ATATAT",
+            "position": 25,
+            "upstream_distance": "variable",
+            "sequence_context": "TGAATCGATCGATCGATCGTATATAAAATTGAATCGATCGATCGAA",
+            "description": "TATATA box in Asfarviridae"
+          },
+          {
+            "type": "asfar_tatata",
+            "motif": "ATATAT",
+            "position": 66,
+            "upstream_distance": "variable",
+            "sequence_context": "TCGAAAAAATTGGATCGATCGTATATAAATCGATCGATCG",
+            "description": "TATATA box in Asfarviridae"
+          },
+          {
+            "type": "asfar_tatata",
+            "motif": "ATATAT",
+            "position": 68,
+            "upstream_distance": "variable",
+            "sequence_context": "GAAAAAATTGGATCGATCGTATATAAATCGATCGATCG",
+            "description": "TATATA box in Asfarviridae"
+          }
+        ]
+      },
+      {
+        "sequence_id": "mimivirus_like_2",
+        "n_motifs": 47,
+        "motif_details": [
+          {
+            "type": "mimivirus_early",
+            "motif": "AAAATTGA",
+            "position": 34,
+            "upstream_distance": "variable",
+            "sequence_context": "CGCGCGCGCGCGATCGATCGAAAATTGAATCGATCGATATATATATAT",
+            "description": "Early gene promoter in mimiviruses (45% of genes)"
+          },
+          {
+            "type": "mimivirus_early",
+            "motif": "AAAATTGA",
+            "position": 83,
+            "upstream_distance": "variable",
+            "sequence_context": "TATATCGATCGATCGTATATAAAATTGA",
+            "description": "Early gene promoter in mimiviruses (45% of genes)"
+          },
+          {
+            "type": "mimivirus_early",
+            "motif": "AAAATTGG",
+            "position": 34,
+            "upstream_distance": "variable",
+            "sequence_context": "CGCGCGCGCGCGATCGATCGAAAATTGAATCGATCGATATATATATAT",
+            "description": "Early gene promoter in mimiviruses (45% of genes)"
+          },
+          {
+            "type": "mimivirus_early",
+            "motif": "AAAATTGG",
+            "position": 83,
+            "upstream_distance": "variable",
+            "sequence_context": "TATATCGATCGATCGTATATAAAATTGA",
+            "description": "Early gene promoter in mimiviruses (45% of genes)"
+          },
+          {
+            "type": "mimivirus_early",
+            "motif": "GAAATTGA",
+            "position": 34,
+            "upstream_distance": "variable",
+            "sequence_context": "CGCGCGCGCGCGATCGATCGAAAATTGAATCGATCGATATATATATAT",
+            "description": "Early gene promoter in mimiviruses (45% of genes)"
+          },
+          {
+            "type": "mimivirus_early",
+            "motif": "GAAATTGA",
+            "position": 83,
+            "upstream_distance": "variable",
+            "sequence_context": "TATATCGATCGATCGTATATAAAATTGA",
+            "description": "Early gene promoter in mimiviruses (45% of genes)"
+          },
+          {
+            "type": "mega_box",
+            "motif": "TATATAAAATTGA",
+            "position": 78,
+            "upstream_distance": "variable",
+            "sequence_context": "ATATATATATCGATCGATCGTATATAAAATTGA",
+            "description": "Proposed ancestral NCLDV promoter motif"
+          },
+          {
+            "type": "mega_box",
+            "motif": "TATATAAAATTGG",
+            "position": 78,
+            "upstream_distance": "variable",
+            "sequence_context": "ATATATATATCGATCGATCGTATATAAAATTGA",
+            "description": "Proposed ancestral NCLDV promoter motif"
+          },
+          {
+            "type": "asfar_tattt",
+            "motif": "TATTT",
+            "position": 51,
+            "upstream_distance": "variable",
+            "sequence_context": "TCGAAAATTGAATCGATCGATATATATATATATATATCGATCGAT",
+            "description": "A/T-rich promoter motif in Asfarviridae"
+          },
+          {
+            "type": "asfar_tattt",
+            "motif": "TATTT",
+            "position": 53,
+            "upstream_distance": "variable",
+            "sequence_context": "GAAAATTGAATCGATCGATATATATATATATATATCGATCGATCG",
+            "description": "A/T-rich promoter motif in Asfarviridae"
+          },
+          {
+            "type": "asfar_tattt",
+            "motif": "TATTT",
+            "position": 55,
+            "upstream_distance": "variable",
+            "sequence_context": "AAATTGAATCGATCGATATATATATATATATATCGATCGATCGTA",
+            "description": "A/T-rich promoter motif in Asfarviridae"
+          },
+          {
+            "type": "asfar_tattt",
+            "motif": "TATTT",
+            "position": 57,
+            "upstream_distance": "variable",
+            "sequence_context": "ATTGAATCGATCGATATATATATATATATATCGATCGATCGTATA",
+            "description": "A/T-rich promoter motif in Asfarviridae"
+          },
+          {
+            "type": "asfar_tattt",
+            "motif": "TATTT",
+            "position": 59,
+            "upstream_distance": "variable",
+            "sequence_context": "TGAATCGATCGATATATATATATATATATCGATCGATCGTATATA",
+            "description": "A/T-rich promoter motif in Asfarviridae"
+          },
+          {
+            "type": "asfar_tattt",
+            "motif": "TATTT",
+            "position": 61,
+            "upstream_distance": "variable",
+            "sequence_context": "AATCGATCGATATATATATATATATATCGATCGATCGTATATAAA",
+            "description": "A/T-rich promoter motif in Asfarviridae"
+          },
+          {
+            "type": "asfar_tattt",
+            "motif": "TATTT",
+            "position": 63,
+            "upstream_distance": "variable",
+            "sequence_context": "TCGATCGATATATATATATATATATCGATCGATCGTATATAAAAT",
+            "description": "A/T-rich promoter motif in Asfarviridae"
+          },
+          {
+            "type": "asfar_tattt",
+            "motif": "TATTT",
+            "position": 78,
+            "upstream_distance": "variable",
+            "sequence_context": "ATATATATATCGATCGATCGTATATAAAATTGA",
+            "description": "A/T-rich promoter motif in Asfarviridae"
+          },
+          {
+            "type": "asfar_tatata",
+            "motif": "TATATA",
+            "position": 49,
+            "upstream_distance": "variable",
+            "sequence_context": "GATCGAAAATTGAATCGATCGATATATATATATATATATCGATCGA",
+            "description": "TATATA box in Asfarviridae"
+          },
+          {
+            "type": "asfar_tatata",
+            "motif": "TATATA",
+            "position": 51,
+            "upstream_distance": "variable",
+            "sequence_context": "TCGAAAATTGAATCGATCGATATATATATATATATATCGATCGATC",
+            "description": "TATATA box in Asfarviridae"
+          },
+          {
+            "type": "asfar_tatata",
+            "motif": "TATATA",
+            "position": 53,
+            "upstream_distance": "variable",
+            "sequence_context": "GAAAATTGAATCGATCGATATATATATATATATATCGATCGATCGT",
+            "description": "TATATA box in Asfarviridae"
+          },
+          {
+            "type": "asfar_tatata",
+            "motif": "TATATA",
+            "position": 55,
+            "upstream_distance": "variable",
+            "sequence_context": "AAATTGAATCGATCGATATATATATATATATATCGATCGATCGTAT",
+            "description": "TATATA box in Asfarviridae"
+          }
+        ]
+      }
+    ]
+  },
+  "gc_skew_analysis": {
+    "per_sequence_analysis": [
+      {
+        "sequence_id": "long_test_seq",
+        "sequence_length": 4300,
+        "window_size": 1000,
+        "step_size": 500,
+        "n_windows": 7,
+        "mean_gc_skew": 0.1427,
+        "std_gc_skew": 0.0029,
+        "max_skew": {
+          "value": 0.1472,
+          "position": 3000
+        },
+        "min_skew": {
+          "value": 0.1376,
+          "position": 3500
+        },
+        "potential_origins": [],
+        "n_origin_candidates": 0
+      }
+    ],
+    "summary": {
+      "n_sequences_analyzed": 1,
+      "overall_mean_skew": 0.1427,
+      "overall_std_skew": 0.0,
+      "sequences_with_origin_candidates": 0
+    }
+  }
+}

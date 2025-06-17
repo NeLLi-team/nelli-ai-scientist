@@ -1,0 +1,2440 @@
+{
+  "file_info": {
+    "file_path": "/home/fschulz/dev/nelli-ai-scientist/example/mimivirus_genome.fna",
+    "sequence_type": "dna",
+    "n_sequences": 1
+  },
+  "assembly_stats": {
+    "total_length": 1181549,
+    "n_sequences": 1,
+    "gc_content": 27.95,
+    "n_content": 0.0,
+    "n50": 1181549,
+    "l50": 1,
+    "n90": 1181549,
+    "l90": 1,
+    "longest_sequence": 1181549,
+    "shortest_sequence": 1181549,
+    "mean_length": 1181549.0,
+    "median_length": 1181549,
+    "size_distribution": {
+      "<1kb": 0,
+      "1-10kb": 0,
+      "10-100kb": 0,
+      "100kb-1Mb": 0,
+      ">1Mb": 1
+    }
+  },
+  "repeat_analysis": {
+    "tandem_repeats": [
+      {
+        "start": 41404,
+        "end": 41424,
+        "repeat_unit": "TTTAATAATA",
+        "unit_length": 10,
+        "copy_number": 2,
+        "total_length": 20,
+        "sequence_id": "NC_014649.1"
+      },
+      {
+        "start": 58766,
+        "end": 58786,
+        "repeat_unit": "TTTTTTGATT",
+        "unit_length": 10,
+        "copy_number": 2,
+        "total_length": 20,
+        "sequence_id": "NC_014649.1"
+      },
+      {
+        "start": 100824,
+        "end": 100844,
+        "repeat_unit": "TATAAAGAAA",
+        "unit_length": 10,
+        "copy_number": 2,
+        "total_length": 20,
+        "sequence_id": "NC_014649.1"
+      },
+      {
+        "start": 185870,
+        "end": 185900,
+        "repeat_unit": "AATCCAATTT",
+        "unit_length": 10,
+        "copy_number": 3,
+        "total_length": 30,
+        "sequence_id": "NC_014649.1"
+      },
+      {
+        "start": 203649,
+        "end": 203669,
+        "repeat_unit": "AATTTTTTGT",
+        "unit_length": 10,
+        "copy_number": 2,
+        "total_length": 20,
+        "sequence_id": "NC_014649.1"
+      },
+      {
+        "start": 254593,
+        "end": 254613,
+        "repeat_unit": "TTTTTTTGTC",
+        "unit_length": 10,
+        "copy_number": 2,
+        "total_length": 20,
+        "sequence_id": "NC_014649.1"
+      },
+      {
+        "start": 349001,
+        "end": 349031,
+        "repeat_unit": "TTATGACTAT",
+        "unit_length": 10,
+        "copy_number": 3,
+        "total_length": 30,
+        "sequence_id": "NC_014649.1"
+      },
+      {
+        "start": 407223,
+        "end": 407243,
+        "repeat_unit": "AGATTTTTGT",
+        "unit_length": 10,
+        "copy_number": 2,
+        "total_length": 20,
+        "sequence_id": "NC_014649.1"
+      },
+      {
+        "start": 467837,
+        "end": 467857,
+        "repeat_unit": "CATATAAGGC",
+        "unit_length": 10,
+        "copy_number": 2,
+        "total_length": 20,
+        "sequence_id": "NC_014649.1"
+      },
+      {
+        "start": 823570,
+        "end": 823600,
+        "repeat_unit": "TAAAATCCAA",
+        "unit_length": 10,
+        "copy_number": 3,
+        "total_length": 30,
+        "sequence_id": "NC_014649.1"
+      },
+      {
+        "start": 891326,
+        "end": 891346,
+        "repeat_unit": "TTATTTATGA",
+        "unit_length": 10,
+        "copy_number": 2,
+        "total_length": 20,
+        "sequence_id": "NC_014649.1"
+      },
+      {
+        "start": 927145,
+        "end": 927165,
+        "repeat_unit": "ATCCCAATTC",
+        "unit_length": 10,
+        "copy_number": 2,
+        "total_length": 20,
+        "sequence_id": "NC_014649.1"
+      },
+      {
+        "start": 1033735,
+        "end": 1033755,
+        "repeat_unit": "TTTGATTTTC",
+        "unit_length": 10,
+        "copy_number": 2,
+        "total_length": 20,
+        "sequence_id": "NC_014649.1"
+      },
+      {
+        "start": 1106899,
+        "end": 1106919,
+        "repeat_unit": "TAAATAAAAT",
+        "unit_length": 10,
+        "copy_number": 2,
+        "total_length": 20,
+        "sequence_id": "NC_014649.1"
+      },
+      {
+        "start": 1112162,
+        "end": 1112182,
+        "repeat_unit": "TTTCTTTATA",
+        "unit_length": 10,
+        "copy_number": 2,
+        "total_length": 20,
+        "sequence_id": "NC_014649.1"
+      },
+      {
+        "start": 97500,
+        "end": 97522,
+        "repeat_unit": "AATTTTTTTTC",
+        "unit_length": 11,
+        "copy_number": 2,
+        "total_length": 22,
+        "sequence_id": "NC_014649.1"
+      },
+      {
+        "start": 127513,
+        "end": 127535,
+        "repeat_unit": "ATATTTTGACG",
+        "unit_length": 11,
+        "copy_number": 2,
+        "total_length": 22,
+        "sequence_id": "NC_014649.1"
+      },
+      {
+        "start": 170896,
+        "end": 170918,
+        "repeat_unit": "TTTATAAATAG",
+        "unit_length": 11,
+        "copy_number": 2,
+        "total_length": 22,
+        "sequence_id": "NC_014649.1"
+      },
+      {
+        "start": 217104,
+        "end": 217126,
+        "repeat_unit": "ATAATCTTTAA",
+        "unit_length": 11,
+        "copy_number": 2,
+        "total_length": 22,
+        "sequence_id": "NC_014649.1"
+      },
+      {
+        "start": 248735,
+        "end": 248757,
+        "repeat_unit": "ATTGAATATTA",
+        "unit_length": 11,
+        "copy_number": 2,
+        "total_length": 22,
+        "sequence_id": "NC_014649.1"
+      },
+      {
+        "start": 278137,
+        "end": 278170,
+        "repeat_unit": "CAATTTATCCG",
+        "unit_length": 11,
+        "copy_number": 3,
+        "total_length": 33,
+        "sequence_id": "NC_014649.1"
+      },
+      {
+        "start": 349976,
+        "end": 349998,
+        "repeat_unit": "ACAAATTACAC",
+        "unit_length": 11,
+        "copy_number": 2,
+        "total_length": 22,
+        "sequence_id": "NC_014649.1"
+      },
+      {
+        "start": 673721,
+        "end": 673743,
+        "repeat_unit": "AAATACTCGAA",
+        "unit_length": 11,
+        "copy_number": 2,
+        "total_length": 22,
+        "sequence_id": "NC_014649.1"
+      },
+      {
+        "start": 673763,
+        "end": 673785,
+        "repeat_unit": "AAAAATATTGA",
+        "unit_length": 11,
+        "copy_number": 2,
+        "total_length": 22,
+        "sequence_id": "NC_014649.1"
+      },
+      {
+        "start": 749790,
+        "end": 749812,
+        "repeat_unit": "AATACAATTAT",
+        "unit_length": 11,
+        "copy_number": 2,
+        "total_length": 22,
+        "sequence_id": "NC_014649.1"
+      },
+      {
+        "start": 765446,
+        "end": 765468,
+        "repeat_unit": "TTTATTGATAA",
+        "unit_length": 11,
+        "copy_number": 2,
+        "total_length": 22,
+        "sequence_id": "NC_014649.1"
+      },
+      {
+        "start": 813288,
+        "end": 813310,
+        "repeat_unit": "AAAAAAAATTG",
+        "unit_length": 11,
+        "copy_number": 2,
+        "total_length": 22,
+        "sequence_id": "NC_014649.1"
+      },
+      {
+        "start": 849966,
+        "end": 849999,
+        "repeat_unit": "TAATCATACAT",
+        "unit_length": 11,
+        "copy_number": 3,
+        "total_length": 33,
+        "sequence_id": "NC_014649.1"
+      },
+      {
+        "start": 861186,
+        "end": 861208,
+        "repeat_unit": "AAAATTCCCAA",
+        "unit_length": 11,
+        "copy_number": 2,
+        "total_length": 22,
+        "sequence_id": "NC_014649.1"
+      },
+      {
+        "start": 900185,
+        "end": 900229,
+        "repeat_unit": "TATTTATTGTA",
+        "unit_length": 11,
+        "copy_number": 4,
+        "total_length": 44,
+        "sequence_id": "NC_014649.1"
+      },
+      {
+        "start": 921251,
+        "end": 921273,
+        "repeat_unit": "TATATATTAAT",
+        "unit_length": 11,
+        "copy_number": 2,
+        "total_length": 22,
+        "sequence_id": "NC_014649.1"
+      },
+      {
+        "start": 979705,
+        "end": 979760,
+        "repeat_unit": "TAACAGTAACC",
+        "unit_length": 11,
+        "copy_number": 5,
+        "total_length": 55,
+        "sequence_id": "NC_014649.1"
+      },
+      {
+        "start": 979795,
+        "end": 979817,
+        "repeat_unit": "TAACAGTAACT",
+        "unit_length": 11,
+        "copy_number": 2,
+        "total_length": 22,
+        "sequence_id": "NC_014649.1"
+      },
+      {
+        "start": 979840,
+        "end": 979895,
+        "repeat_unit": "CTAACAGTAAT",
+        "unit_length": 11,
+        "copy_number": 5,
+        "total_length": 55,
+        "sequence_id": "NC_014649.1"
+      },
+      {
+        "start": 979940,
+        "end": 979962,
+        "repeat_unit": "GATACCTAACA",
+        "unit_length": 11,
+        "copy_number": 2,
+        "total_length": 22,
+        "sequence_id": "NC_014649.1"
+      },
+      {
+        "start": 979969,
+        "end": 979991,
+        "repeat_unit": "CTAACAGTAAT",
+        "unit_length": 11,
+        "copy_number": 2,
+        "total_length": 22,
+        "sequence_id": "NC_014649.1"
+      },
+      {
+        "start": 979991,
+        "end": 980024,
+        "repeat_unit": "CTAACAGATAC",
+        "unit_length": 11,
+        "copy_number": 3,
+        "total_length": 33,
+        "sequence_id": "NC_014649.1"
+      },
+      {
+        "start": 980034,
+        "end": 980056,
+        "repeat_unit": "TACCTAACAGT",
+        "unit_length": 11,
+        "copy_number": 2,
+        "total_length": 22,
+        "sequence_id": "NC_014649.1"
+      },
+      {
+        "start": 984414,
+        "end": 984436,
+        "repeat_unit": "ATAATTATTCG",
+        "unit_length": 11,
+        "copy_number": 2,
+        "total_length": 22,
+        "sequence_id": "NC_014649.1"
+      },
+      {
+        "start": 1029274,
+        "end": 1029296,
+        "repeat_unit": "TTTTTAGAATA",
+        "unit_length": 11,
+        "copy_number": 2,
+        "total_length": 22,
+        "sequence_id": "NC_014649.1"
+      },
+      {
+        "start": 1065638,
+        "end": 1065660,
+        "repeat_unit": "ATATTATACAC",
+        "unit_length": 11,
+        "copy_number": 2,
+        "total_length": 22,
+        "sequence_id": "NC_014649.1"
+      },
+      {
+        "start": 5601,
+        "end": 5625,
+        "repeat_unit": "TTTTTAGAATTA",
+        "unit_length": 12,
+        "copy_number": 2,
+        "total_length": 24,
+        "sequence_id": "NC_014649.1"
+      },
+      {
+        "start": 21444,
+        "end": 21468,
+        "repeat_unit": "TTTTCATTATCA",
+        "unit_length": 12,
+        "copy_number": 2,
+        "total_length": 24,
+        "sequence_id": "NC_014649.1"
+      },
+      {
+        "start": 29049,
+        "end": 29073,
+        "repeat_unit": "TCAAATAACACA",
+        "unit_length": 12,
+        "copy_number": 2,
+        "total_length": 24,
+        "sequence_id": "NC_014649.1"
+      },
+      {
+        "start": 57920,
+        "end": 57944,
+        "repeat_unit": "AGTATCGTTGAG",
+        "unit_length": 12,
+        "copy_number": 2,
+        "total_length": 24,
+        "sequence_id": "NC_014649.1"
+      },
+      {
+        "start": 59058,
+        "end": 59082,
+        "repeat_unit": "TTGGCGCTTGGT",
+        "unit_length": 12,
+        "copy_number": 2,
+        "total_length": 24,
+        "sequence_id": "NC_014649.1"
+      },
+      {
+        "start": 59723,
+        "end": 59759,
+        "repeat_unit": "CTCACTTATTTA",
+        "unit_length": 12,
+        "copy_number": 3,
+        "total_length": 36,
+        "sequence_id": "NC_014649.1"
+      },
+      {
+        "start": 62025,
+        "end": 62049,
+        "repeat_unit": "AGGTTTACAAAC",
+        "unit_length": 12,
+        "copy_number": 2,
+        "total_length": 24,
+        "sequence_id": "NC_014649.1"
+      },
+      {
+        "start": 66550,
+        "end": 66574,
+        "repeat_unit": "TTTTAATGGATT",
+        "unit_length": 12,
+        "copy_number": 2,
+        "total_length": 24,
+        "sequence_id": "NC_014649.1"
+      },
+      {
+        "start": 158169,
+        "end": 158193,
+        "repeat_unit": "TGTGAGCATGCA",
+        "unit_length": 12,
+        "copy_number": 2,
+        "total_length": 24,
+        "sequence_id": "NC_014649.1"
+      },
+      {
+        "start": 172610,
+        "end": 172634,
+        "repeat_unit": "TCAGTATTTGGC",
+        "unit_length": 12,
+        "copy_number": 2,
+        "total_length": 24,
+        "sequence_id": "NC_014649.1"
+      },
+      {
+        "start": 193943,
+        "end": 193967,
+        "repeat_unit": "AATTGGTGATTC",
+        "unit_length": 12,
+        "copy_number": 2,
+        "total_length": 24,
+        "sequence_id": "NC_014649.1"
+      },
+      {
+        "start": 194336,
+        "end": 194360,
+        "repeat_unit": "ATCTCAAAAATG",
+        "unit_length": 12,
+        "copy_number": 2,
+        "total_length": 24,
+        "sequence_id": "NC_014649.1"
+      },
+      {
+        "start": 241841,
+        "end": 241865,
+        "repeat_unit": "TATTCAAAAAAT",
+        "unit_length": 12,
+        "copy_number": 2,
+        "total_length": 24,
+        "sequence_id": "NC_014649.1"
+      },
+      {
+        "start": 244656,
+        "end": 244680,
+        "repeat_unit": "TTCTTCTTCTGA",
+        "unit_length": 12,
+        "copy_number": 2,
+        "total_length": 24,
+        "sequence_id": "NC_014649.1"
+      },
+      {
+        "start": 248074,
+        "end": 248098,
+        "repeat_unit": "TTCTTGAGTTTG",
+        "unit_length": 12,
+        "copy_number": 2,
+        "total_length": 24,
+        "sequence_id": "NC_014649.1"
+      },
+      {
+        "start": 334747,
+        "end": 334771,
+        "repeat_unit": "TCTGAATAATTA",
+        "unit_length": 12,
+        "copy_number": 2,
+        "total_length": 24,
+        "sequence_id": "NC_014649.1"
+      },
+      {
+        "start": 368009,
+        "end": 368033,
+        "repeat_unit": "TCAGATTCACTG",
+        "unit_length": 12,
+        "copy_number": 2,
+        "total_length": 24,
+        "sequence_id": "NC_014649.1"
+      },
+      {
+        "start": 368132,
+        "end": 368156,
+        "repeat_unit": "GATTTAGTAGAC",
+        "unit_length": 12,
+        "copy_number": 2,
+        "total_length": 24,
+        "sequence_id": "NC_014649.1"
+      },
+      {
+        "start": 368467,
+        "end": 368491,
+        "repeat_unit": "TGTTGTGGGATA",
+        "unit_length": 12,
+        "copy_number": 2,
+        "total_length": 24,
+        "sequence_id": "NC_014649.1"
+      },
+      {
+        "start": 369306,
+        "end": 369390,
+        "repeat_unit": "ATTTATTAGAGG",
+        "unit_length": 12,
+        "copy_number": 7,
+        "total_length": 84,
+        "sequence_id": "NC_014649.1"
+      },
+      {
+        "start": 383323,
+        "end": 383359,
+        "repeat_unit": "ATCAACTAGTAA",
+        "unit_length": 12,
+        "copy_number": 3,
+        "total_length": 36,
+        "sequence_id": "NC_014649.1"
+      },
+      {
+        "start": 383638,
+        "end": 383662,
+        "repeat_unit": "ATTATATGCAAT",
+        "unit_length": 12,
+        "copy_number": 2,
+        "total_length": 24,
+        "sequence_id": "NC_014649.1"
+      },
+      {
+        "start": 393125,
+        "end": 393161,
+        "repeat_unit": "TGATTATTTTGT",
+        "unit_length": 12,
+        "copy_number": 3,
+        "total_length": 36,
+        "sequence_id": "NC_014649.1"
+      },
+      {
+        "start": 421274,
+        "end": 421298,
+        "repeat_unit": "ACCAATCTGAAA",
+        "unit_length": 12,
+        "copy_number": 2,
+        "total_length": 24,
+        "sequence_id": "NC_014649.1"
+      },
+      {
+        "start": 429236,
+        "end": 429260,
+        "repeat_unit": "ATAATAATCAAT",
+        "unit_length": 12,
+        "copy_number": 2,
+        "total_length": 24,
+        "sequence_id": "NC_014649.1"
+      },
+      {
+        "start": 429260,
+        "end": 429284,
+        "repeat_unit": "ATAATAATCAAA",
+        "unit_length": 12,
+        "copy_number": 2,
+        "total_length": 24,
+        "sequence_id": "NC_014649.1"
+      },
+      {
+        "start": 438476,
+        "end": 438500,
+        "repeat_unit": "AATAGTTCACCA",
+        "unit_length": 12,
+        "copy_number": 2,
+        "total_length": 24,
+        "sequence_id": "NC_014649.1"
+      },
+      {
+        "start": 451410,
+        "end": 451434,
+        "repeat_unit": "TGATGCTGAGTC",
+        "unit_length": 12,
+        "copy_number": 2,
+        "total_length": 24,
+        "sequence_id": "NC_014649.1"
+      },
+      {
+        "start": 451535,
+        "end": 451571,
+        "repeat_unit": "AATCTGATAATG",
+        "unit_length": 12,
+        "copy_number": 3,
+        "total_length": 36,
+        "sequence_id": "NC_014649.1"
+      },
+      {
+        "start": 459794,
+        "end": 459818,
+        "repeat_unit": "ATGATGATGAAG",
+        "unit_length": 12,
+        "copy_number": 2,
+        "total_length": 24,
+        "sequence_id": "NC_014649.1"
+      },
+      {
+        "start": 463107,
+        "end": 463131,
+        "repeat_unit": "AGTTTCATCATT",
+        "unit_length": 12,
+        "copy_number": 2,
+        "total_length": 24,
+        "sequence_id": "NC_014649.1"
+      },
+      {
+        "start": 523249,
+        "end": 523273,
+        "repeat_unit": "TGATCGTGATGG",
+        "unit_length": 12,
+        "copy_number": 2,
+        "total_length": 24,
+        "sequence_id": "NC_014649.1"
+      },
+      {
+        "start": 523273,
+        "end": 523297,
+        "repeat_unit": "TGATCATGGTGA",
+        "unit_length": 12,
+        "copy_number": 2,
+        "total_length": 24,
+        "sequence_id": "NC_014649.1"
+      },
+      {
+        "start": 524101,
+        "end": 524125,
+        "repeat_unit": "GTTTGGGATCTT",
+        "unit_length": 12,
+        "copy_number": 2,
+        "total_length": 24,
+        "sequence_id": "NC_014649.1"
+      },
+      {
+        "start": 526752,
+        "end": 526776,
+        "repeat_unit": "TCTAGAATTACC",
+        "unit_length": 12,
+        "copy_number": 2,
+        "total_length": 24,
+        "sequence_id": "NC_014649.1"
+      },
+      {
+        "start": 563801,
+        "end": 563825,
+        "repeat_unit": "AACTGATAATAC",
+        "unit_length": 12,
+        "copy_number": 2,
+        "total_length": 24,
+        "sequence_id": "NC_014649.1"
+      },
+      {
+        "start": 610070,
+        "end": 610130,
+        "repeat_unit": "CAAATAATCAAA",
+        "unit_length": 12,
+        "copy_number": 5,
+        "total_length": 60,
+        "sequence_id": "NC_014649.1"
+      },
+      {
+        "start": 623906,
+        "end": 623930,
+        "repeat_unit": "AAATAAAGAACC",
+        "unit_length": 12,
+        "copy_number": 2,
+        "total_length": 24,
+        "sequence_id": "NC_014649.1"
+      },
+      {
+        "start": 657309,
+        "end": 657333,
+        "repeat_unit": "TCTTGTTCATAT",
+        "unit_length": 12,
+        "copy_number": 2,
+        "total_length": 24,
+        "sequence_id": "NC_014649.1"
+      },
+      {
+        "start": 658517,
+        "end": 658541,
+        "repeat_unit": "ATCTACAAAAAC",
+        "unit_length": 12,
+        "copy_number": 2,
+        "total_length": 24,
+        "sequence_id": "NC_014649.1"
+      },
+      {
+        "start": 661372,
+        "end": 661396,
+        "repeat_unit": "ATTTCCTAAACT",
+        "unit_length": 12,
+        "copy_number": 2,
+        "total_length": 24,
+        "sequence_id": "NC_014649.1"
+      },
+      {
+        "start": 661396,
+        "end": 661420,
+        "repeat_unit": "ATTTCCCAAAGT",
+        "unit_length": 12,
+        "copy_number": 2,
+        "total_length": 24,
+        "sequence_id": "NC_014649.1"
+      },
+      {
+        "start": 665140,
+        "end": 665164,
+        "repeat_unit": "ATATTATTAGTA",
+        "unit_length": 12,
+        "copy_number": 2,
+        "total_length": 24,
+        "sequence_id": "NC_014649.1"
+      },
+      {
+        "start": 673773,
+        "end": 673797,
+        "repeat_unit": "AAAAAATATTGA",
+        "unit_length": 12,
+        "copy_number": 2,
+        "total_length": 24,
+        "sequence_id": "NC_014649.1"
+      },
+      {
+        "start": 680020,
+        "end": 680044,
+        "repeat_unit": "GAATTACGAGAA",
+        "unit_length": 12,
+        "copy_number": 2,
+        "total_length": 24,
+        "sequence_id": "NC_014649.1"
+      },
+      {
+        "start": 697990,
+        "end": 698014,
+        "repeat_unit": "TTAGATTCATGA",
+        "unit_length": 12,
+        "copy_number": 2,
+        "total_length": 24,
+        "sequence_id": "NC_014649.1"
+      },
+      {
+        "start": 737187,
+        "end": 737211,
+        "repeat_unit": "CCATAACCATTA",
+        "unit_length": 12,
+        "copy_number": 2,
+        "total_length": 24,
+        "sequence_id": "NC_014649.1"
+      },
+      {
+        "start": 741158,
+        "end": 741182,
+        "repeat_unit": "ATACTGTCAATG",
+        "unit_length": 12,
+        "copy_number": 2,
+        "total_length": 24,
+        "sequence_id": "NC_014649.1"
+      },
+      {
+        "start": 776334,
+        "end": 776358,
+        "repeat_unit": "AATTTTTATTGA",
+        "unit_length": 12,
+        "copy_number": 2,
+        "total_length": 24,
+        "sequence_id": "NC_014649.1"
+      },
+      {
+        "start": 777972,
+        "end": 777996,
+        "repeat_unit": "TCGATCAAATAG",
+        "unit_length": 12,
+        "copy_number": 2,
+        "total_length": 24,
+        "sequence_id": "NC_014649.1"
+      },
+      {
+        "start": 783257,
+        "end": 783281,
+        "repeat_unit": "ATAATTTGGTTG",
+        "unit_length": 12,
+        "copy_number": 2,
+        "total_length": 24,
+        "sequence_id": "NC_014649.1"
+      },
+      {
+        "start": 803205,
+        "end": 803241,
+        "repeat_unit": "AACATTATTTTG",
+        "unit_length": 12,
+        "copy_number": 3,
+        "total_length": 36,
+        "sequence_id": "NC_014649.1"
+      },
+      {
+        "start": 803403,
+        "end": 803427,
+        "repeat_unit": "ATTTTTGGGAAT",
+        "unit_length": 12,
+        "copy_number": 2,
+        "total_length": 24,
+        "sequence_id": "NC_014649.1"
+      },
+      {
+        "start": 803436,
+        "end": 803460,
+        "repeat_unit": "AACATTTTTTGG",
+        "unit_length": 12,
+        "copy_number": 2,
+        "total_length": 24,
+        "sequence_id": "NC_014649.1"
+      },
+      {
+        "start": 803537,
+        "end": 803561,
+        "repeat_unit": "TTTTTGGGATAT",
+        "unit_length": 12,
+        "copy_number": 2,
+        "total_length": 24,
+        "sequence_id": "NC_014649.1"
+      },
+      {
+        "start": 804253,
+        "end": 804277,
+        "repeat_unit": "GTTCCTCGTAAT",
+        "unit_length": 12,
+        "copy_number": 2,
+        "total_length": 24,
+        "sequence_id": "NC_014649.1"
+      },
+      {
+        "start": 828682,
+        "end": 828706,
+        "repeat_unit": "GATTCTAATAAA",
+        "unit_length": 12,
+        "copy_number": 2,
+        "total_length": 24,
+        "sequence_id": "NC_014649.1"
+      },
+      {
+        "start": 829330,
+        "end": 829354,
+        "repeat_unit": "GACAATGAATCA",
+        "unit_length": 12,
+        "copy_number": 2,
+        "total_length": 24,
+        "sequence_id": "NC_014649.1"
+      },
+      {
+        "start": 829502,
+        "end": 829526,
+        "repeat_unit": "CTGTATCAAAAC",
+        "unit_length": 12,
+        "copy_number": 2,
+        "total_length": 24,
+        "sequence_id": "NC_014649.1"
+      },
+      {
+        "start": 846875,
+        "end": 846899,
+        "repeat_unit": "GGATCTTGTGGA",
+        "unit_length": 12,
+        "copy_number": 2,
+        "total_length": 24,
+        "sequence_id": "NC_014649.1"
+      },
+      {
+        "start": 848667,
+        "end": 848703,
+        "repeat_unit": "AAAATTGGGATT",
+        "unit_length": 12,
+        "copy_number": 3,
+        "total_length": 36,
+        "sequence_id": "NC_014649.1"
+      },
+      {
+        "start": 874815,
+        "end": 874839,
+        "repeat_unit": "TTGATTCTTTAT",
+        "unit_length": 12,
+        "copy_number": 2,
+        "total_length": 24,
+        "sequence_id": "NC_014649.1"
+      },
+      {
+        "start": 891040,
+        "end": 891064,
+        "repeat_unit": "TCTGACTCAATA",
+        "unit_length": 12,
+        "copy_number": 2,
+        "total_length": 24,
+        "sequence_id": "NC_014649.1"
+      },
+      {
+        "start": 930469,
+        "end": 930493,
+        "repeat_unit": "TCATCATCAGAT",
+        "unit_length": 12,
+        "copy_number": 2,
+        "total_length": 24,
+        "sequence_id": "NC_014649.1"
+      },
+      {
+        "start": 946751,
+        "end": 946775,
+        "repeat_unit": "TCAATCAAATCC",
+        "unit_length": 12,
+        "copy_number": 2,
+        "total_length": 24,
+        "sequence_id": "NC_014649.1"
+      },
+      {
+        "start": 946983,
+        "end": 947007,
+        "repeat_unit": "CAATCTAACCAG",
+        "unit_length": 12,
+        "copy_number": 2,
+        "total_length": 24,
+        "sequence_id": "NC_014649.1"
+      },
+      {
+        "start": 947011,
+        "end": 947035,
+        "repeat_unit": "CTAATCAACAAC",
+        "unit_length": 12,
+        "copy_number": 2,
+        "total_length": 24,
+        "sequence_id": "NC_014649.1"
+      },
+      {
+        "start": 947043,
+        "end": 947079,
+        "repeat_unit": "CAACCTAATCAA",
+        "unit_length": 12,
+        "copy_number": 3,
+        "total_length": 36,
+        "sequence_id": "NC_014649.1"
+      },
+      {
+        "start": 951399,
+        "end": 951423,
+        "repeat_unit": "ATGAATGGACCT",
+        "unit_length": 12,
+        "copy_number": 2,
+        "total_length": 24,
+        "sequence_id": "NC_014649.1"
+      },
+      {
+        "start": 976457,
+        "end": 976481,
+        "repeat_unit": "TGAAAATATTTC",
+        "unit_length": 12,
+        "copy_number": 2,
+        "total_length": 24,
+        "sequence_id": "NC_014649.1"
+      },
+      {
+        "start": 982484,
+        "end": 982508,
+        "repeat_unit": "GTAGTGATTCTA",
+        "unit_length": 12,
+        "copy_number": 2,
+        "total_length": 24,
+        "sequence_id": "NC_014649.1"
+      },
+      {
+        "start": 1020169,
+        "end": 1020193,
+        "repeat_unit": "TTATTTTCAGCA",
+        "unit_length": 12,
+        "copy_number": 2,
+        "total_length": 24,
+        "sequence_id": "NC_014649.1"
+      },
+      {
+        "start": 1045444,
+        "end": 1045480,
+        "repeat_unit": "GATTCAATTAGT",
+        "unit_length": 12,
+        "copy_number": 3,
+        "total_length": 36,
+        "sequence_id": "NC_014649.1"
+      },
+      {
+        "start": 1059701,
+        "end": 1059725,
+        "repeat_unit": "CAAGAATCTGAC",
+        "unit_length": 12,
+        "copy_number": 2,
+        "total_length": 24,
+        "sequence_id": "NC_014649.1"
+      },
+      {
+        "start": 1059767,
+        "end": 1059791,
+        "repeat_unit": "GACCAAGATTCT",
+        "unit_length": 12,
+        "copy_number": 2,
+        "total_length": 24,
+        "sequence_id": "NC_014649.1"
+      },
+      {
+        "start": 1144456,
+        "end": 1144480,
+        "repeat_unit": "ATCATAAAAAAA",
+        "unit_length": 12,
+        "copy_number": 2,
+        "total_length": 24,
+        "sequence_id": "NC_014649.1"
+      },
+      {
+        "start": 1176056,
+        "end": 1176080,
+        "repeat_unit": "TCTCAAAAAATT",
+        "unit_length": 12,
+        "copy_number": 2,
+        "total_length": 24,
+        "sequence_id": "NC_014649.1"
+      },
+      {
+        "start": 190940,
+        "end": 190966,
+        "repeat_unit": "ATAAATTTGTTGG",
+        "unit_length": 13,
+        "copy_number": 2,
+        "total_length": 26,
+        "sequence_id": "NC_014649.1"
+      },
+      {
+        "start": 241810,
+        "end": 241836,
+        "repeat_unit": "AAAATTATTCAGA",
+        "unit_length": 13,
+        "copy_number": 2,
+        "total_length": 26,
+        "sequence_id": "NC_014649.1"
+      },
+      {
+        "start": 762986,
+        "end": 763012,
+        "repeat_unit": "AATTAGACAGATA",
+        "unit_length": 13,
+        "copy_number": 2,
+        "total_length": 26,
+        "sequence_id": "NC_014649.1"
+      },
+      {
+        "start": 786639,
+        "end": 786665,
+        "repeat_unit": "AATTTTATTAATG",
+        "unit_length": 13,
+        "copy_number": 2,
+        "total_length": 26,
+        "sequence_id": "NC_014649.1"
+      },
+      {
+        "start": 839994,
+        "end": 840020,
+        "repeat_unit": "ATTTTATCATTGT",
+        "unit_length": 13,
+        "copy_number": 2,
+        "total_length": 26,
+        "sequence_id": "NC_014649.1"
+      },
+      {
+        "start": 979895,
+        "end": 979921,
+        "repeat_unit": "CTAACAGTGATAC",
+        "unit_length": 13,
+        "copy_number": 2,
+        "total_length": 26,
+        "sequence_id": "NC_014649.1"
+      },
+      {
+        "start": 979951,
+        "end": 979977,
+        "repeat_unit": "GATACCTAACAGT",
+        "unit_length": 13,
+        "copy_number": 2,
+        "total_length": 26,
+        "sequence_id": "NC_014649.1"
+      },
+      {
+        "start": 980019,
+        "end": 980045,
+        "repeat_unit": "GATACCTAACAGT",
+        "unit_length": 13,
+        "copy_number": 2,
+        "total_length": 26,
+        "sequence_id": "NC_014649.1"
+      },
+      {
+        "start": 30409,
+        "end": 30437,
+        "repeat_unit": "AATTATTATTAACA",
+        "unit_length": 14,
+        "copy_number": 2,
+        "total_length": 28,
+        "sequence_id": "NC_014649.1"
+      },
+      {
+        "start": 230902,
+        "end": 230930,
+        "repeat_unit": "GAAATAATGATTAT",
+        "unit_length": 14,
+        "copy_number": 2,
+        "total_length": 28,
+        "sequence_id": "NC_014649.1"
+      },
+      {
+        "start": 813273,
+        "end": 813301,
+        "repeat_unit": "AAAAAAAAATTGAA",
+        "unit_length": 14,
+        "copy_number": 2,
+        "total_length": 28,
+        "sequence_id": "NC_014649.1"
+      },
+      {
+        "start": 825827,
+        "end": 825869,
+        "repeat_unit": "TTAAATAAGAGATA",
+        "unit_length": 14,
+        "copy_number": 3,
+        "total_length": 42,
+        "sequence_id": "NC_014649.1"
+      },
+      {
+        "start": 875943,
+        "end": 875971,
+        "repeat_unit": "ATTTATTTGAAAAT",
+        "unit_length": 14,
+        "copy_number": 2,
+        "total_length": 28,
+        "sequence_id": "NC_014649.1"
+      },
+      {
+        "start": 986427,
+        "end": 986455,
+        "repeat_unit": "AATTAATCTATTTT",
+        "unit_length": 14,
+        "copy_number": 2,
+        "total_length": 28,
+        "sequence_id": "NC_014649.1"
+      },
+      {
+        "start": 998876,
+        "end": 998904,
+        "repeat_unit": "TTAATTAAATACAG",
+        "unit_length": 14,
+        "copy_number": 2,
+        "total_length": 28,
+        "sequence_id": "NC_014649.1"
+      },
+      {
+        "start": 4086,
+        "end": 4116,
+        "repeat_unit": "GAATTTTCTAAATCC",
+        "unit_length": 15,
+        "copy_number": 2,
+        "total_length": 30,
+        "sequence_id": "NC_014649.1"
+      },
+      {
+        "start": 8830,
+        "end": 8860,
+        "repeat_unit": "TCTTCTTCATTATCT",
+        "unit_length": 15,
+        "copy_number": 2,
+        "total_length": 30,
+        "sequence_id": "NC_014649.1"
+      },
+      {
+        "start": 47757,
+        "end": 47802,
+        "repeat_unit": "GATTCATTATCAGAA",
+        "unit_length": 15,
+        "copy_number": 3,
+        "total_length": 45,
+        "sequence_id": "NC_014649.1"
+      },
+      {
+        "start": 171996,
+        "end": 172026,
+        "repeat_unit": "TTGGATTGATAGTTG",
+        "unit_length": 15,
+        "copy_number": 2,
+        "total_length": 30,
+        "sequence_id": "NC_014649.1"
+      },
+      {
+        "start": 270419,
+        "end": 270449,
+        "repeat_unit": "ATGAATCAGTTATTA",
+        "unit_length": 15,
+        "copy_number": 2,
+        "total_length": 30,
+        "sequence_id": "NC_014649.1"
+      },
+      {
+        "start": 383016,
+        "end": 383046,
+        "repeat_unit": "CATTCAACAATCAAT",
+        "unit_length": 15,
+        "copy_number": 2,
+        "total_length": 30,
+        "sequence_id": "NC_014649.1"
+      },
+      {
+        "start": 393190,
+        "end": 393220,
+        "repeat_unit": "TTTTTTTGTTGATTT",
+        "unit_length": 15,
+        "copy_number": 2,
+        "total_length": 30,
+        "sequence_id": "NC_014649.1"
+      },
+      {
+        "start": 417072,
+        "end": 417102,
+        "repeat_unit": "AGAAGATAGTGAATC",
+        "unit_length": 15,
+        "copy_number": 2,
+        "total_length": 30,
+        "sequence_id": "NC_014649.1"
+      },
+      {
+        "start": 595220,
+        "end": 595250,
+        "repeat_unit": "GATTTATTCATCATT",
+        "unit_length": 15,
+        "copy_number": 2,
+        "total_length": 30,
+        "sequence_id": "NC_014649.1"
+      },
+      {
+        "start": 597061,
+        "end": 597091,
+        "repeat_unit": "AGAATTTCTTGATGC",
+        "unit_length": 15,
+        "copy_number": 2,
+        "total_length": 30,
+        "sequence_id": "NC_014649.1"
+      },
+      {
+        "start": 699457,
+        "end": 699502,
+        "repeat_unit": "TCAAGAAACAAAAGA",
+        "unit_length": 15,
+        "copy_number": 3,
+        "total_length": 45,
+        "sequence_id": "NC_014649.1"
+      },
+      {
+        "start": 713521,
+        "end": 713581,
+        "repeat_unit": "TTTTTTCTTCGGAAT",
+        "unit_length": 15,
+        "copy_number": 4,
+        "total_length": 60,
+        "sequence_id": "NC_014649.1"
+      },
+      {
+        "start": 713816,
+        "end": 713846,
+        "repeat_unit": "TTTATTTTCTATTTC",
+        "unit_length": 15,
+        "copy_number": 2,
+        "total_length": 30,
+        "sequence_id": "NC_014649.1"
+      },
+      {
+        "start": 732749,
+        "end": 732779,
+        "repeat_unit": "CTGCCAAGAAAGCAC",
+        "unit_length": 15,
+        "copy_number": 2,
+        "total_length": 30,
+        "sequence_id": "NC_014649.1"
+      },
+      {
+        "start": 732787,
+        "end": 732817,
+        "repeat_unit": "AAGGCACCTGCTAAG",
+        "unit_length": 15,
+        "copy_number": 2,
+        "total_length": 30,
+        "sequence_id": "NC_014649.1"
+      },
+      {
+        "start": 833853,
+        "end": 833898,
+        "repeat_unit": "AAAAATATTCAAATC",
+        "unit_length": 15,
+        "copy_number": 3,
+        "total_length": 45,
+        "sequence_id": "NC_014649.1"
+      },
+      {
+        "start": 917026,
+        "end": 917056,
+        "repeat_unit": "GTTGATTGTCTAGAA",
+        "unit_length": 15,
+        "copy_number": 2,
+        "total_length": 30,
+        "sequence_id": "NC_014649.1"
+      },
+      {
+        "start": 917056,
+        "end": 917086,
+        "repeat_unit": "ATTGATTGTCTAGAA",
+        "unit_length": 15,
+        "copy_number": 2,
+        "total_length": 30,
+        "sequence_id": "NC_014649.1"
+      },
+      {
+        "start": 926738,
+        "end": 926768,
+        "repeat_unit": "CGTTCATCTGGTAGC",
+        "unit_length": 15,
+        "copy_number": 2,
+        "total_length": 30,
+        "sequence_id": "NC_014649.1"
+      },
+      {
+        "start": 1081794,
+        "end": 1081839,
+        "repeat_unit": "GATCCATTATGAATA",
+        "unit_length": 15,
+        "copy_number": 3,
+        "total_length": 45,
+        "sequence_id": "NC_014649.1"
+      },
+      {
+        "start": 539712,
+        "end": 539744,
+        "repeat_unit": "TTTAGTATTTTAGTAT",
+        "unit_length": 16,
+        "copy_number": 2,
+        "total_length": 32,
+        "sequence_id": "NC_014649.1"
+      },
+      {
+        "start": 750626,
+        "end": 750658,
+        "repeat_unit": "TTTTTTCAGAAATTTA",
+        "unit_length": 16,
+        "copy_number": 2,
+        "total_length": 32,
+        "sequence_id": "NC_014649.1"
+      },
+      {
+        "start": 1170432,
+        "end": 1170480,
+        "repeat_unit": "GATGATAATTTCCATT",
+        "unit_length": 16,
+        "copy_number": 3,
+        "total_length": 48,
+        "sequence_id": "NC_014649.1"
+      },
+      {
+        "start": 176389,
+        "end": 176423,
+        "repeat_unit": "CAACAAAAAATAATTAT",
+        "unit_length": 17,
+        "copy_number": 2,
+        "total_length": 34,
+        "sequence_id": "NC_014649.1"
+      },
+      {
+        "start": 176440,
+        "end": 176474,
+        "repeat_unit": "CAACAAAAAATAATTAT",
+        "unit_length": 17,
+        "copy_number": 2,
+        "total_length": 34,
+        "sequence_id": "NC_014649.1"
+      },
+      {
+        "start": 750576,
+        "end": 750610,
+        "repeat_unit": "TTTTTCAGAAAATTATT",
+        "unit_length": 17,
+        "copy_number": 2,
+        "total_length": 34,
+        "sequence_id": "NC_014649.1"
+      },
+      {
+        "start": 750610,
+        "end": 750644,
+        "repeat_unit": "TTTTTCAGAAATTTATT",
+        "unit_length": 17,
+        "copy_number": 2,
+        "total_length": 34,
+        "sequence_id": "NC_014649.1"
+      },
+      {
+        "start": 1172761,
+        "end": 1172795,
+        "repeat_unit": "TTTTATTGATTAAAAAG",
+        "unit_length": 17,
+        "copy_number": 2,
+        "total_length": 34,
+        "sequence_id": "NC_014649.1"
+      },
+      {
+        "start": 21403,
+        "end": 21439,
+        "repeat_unit": "CATCGTTTTCATTTTCGA",
+        "unit_length": 18,
+        "copy_number": 2,
+        "total_length": 36,
+        "sequence_id": "NC_014649.1"
+      },
+      {
+        "start": 26992,
+        "end": 27028,
+        "repeat_unit": "TCAGAATCATCAGAATCA",
+        "unit_length": 18,
+        "copy_number": 2,
+        "total_length": 36,
+        "sequence_id": "NC_014649.1"
+      },
+      {
+        "start": 87751,
+        "end": 87823,
+        "repeat_unit": "CCAGTATCTCCTTTATCT",
+        "unit_length": 18,
+        "copy_number": 4,
+        "total_length": 72,
+        "sequence_id": "NC_014649.1"
+      },
+      {
+        "start": 88197,
+        "end": 88251,
+        "repeat_unit": "ATCACCTTTATCTCCTAC",
+        "unit_length": 18,
+        "copy_number": 3,
+        "total_length": 54,
+        "sequence_id": "NC_014649.1"
+      },
+      {
+        "start": 88341,
+        "end": 88377,
+        "repeat_unit": "ATCTCCTTTGTCTCCTAC",
+        "unit_length": 18,
+        "copy_number": 2,
+        "total_length": 36,
+        "sequence_id": "NC_014649.1"
+      },
+      {
+        "start": 88426,
+        "end": 88480,
+        "repeat_unit": "CCTTTATCACCTTGATCT",
+        "unit_length": 18,
+        "copy_number": 3,
+        "total_length": 54,
+        "sequence_id": "NC_014649.1"
+      },
+      {
+        "start": 223969,
+        "end": 224005,
+        "repeat_unit": "AATATTAAATCATTATTA",
+        "unit_length": 18,
+        "copy_number": 2,
+        "total_length": 36,
+        "sequence_id": "NC_014649.1"
+      },
+      {
+        "start": 237833,
+        "end": 237887,
+        "repeat_unit": "TAAGGGAGATAATGGAAC",
+        "unit_length": 18,
+        "copy_number": 3,
+        "total_length": 54,
+        "sequence_id": "NC_014649.1"
+      },
+      {
+        "start": 238044,
+        "end": 238080,
+        "repeat_unit": "GGAGATAAAGGTGATATT",
+        "unit_length": 18,
+        "copy_number": 2,
+        "total_length": 36,
+        "sequence_id": "NC_014649.1"
+      },
+      {
+        "start": 238543,
+        "end": 238597,
+        "repeat_unit": "AAAAAGGTGATAATGGAG",
+        "unit_length": 18,
+        "copy_number": 3,
+        "total_length": 54,
+        "sequence_id": "NC_014649.1"
+      },
+      {
+        "start": 239012,
+        "end": 239048,
+        "repeat_unit": "TAAGGGAGATAAAGGTAG",
+        "unit_length": 18,
+        "copy_number": 2,
+        "total_length": 36,
+        "sequence_id": "NC_014649.1"
+      },
+      {
+        "start": 240210,
+        "end": 240246,
+        "repeat_unit": "AAAGGTGATAAAGGTGAT",
+        "unit_length": 18,
+        "copy_number": 2,
+        "total_length": 36,
+        "sequence_id": "NC_014649.1"
+      },
+      {
+        "start": 240537,
+        "end": 240627,
+        "repeat_unit": "AAGGGTGATAAAGGTATT",
+        "unit_length": 18,
+        "copy_number": 5,
+        "total_length": 90,
+        "sequence_id": "NC_014649.1"
+      },
+      {
+        "start": 312308,
+        "end": 312344,
+        "repeat_unit": "GATTTTTTAGATTTCTTG",
+        "unit_length": 18,
+        "copy_number": 2,
+        "total_length": 36,
+        "sequence_id": "NC_014649.1"
+      },
+      {
+        "start": 337735,
+        "end": 337789,
+        "repeat_unit": "AATAATAATTTTGATGTG",
+        "unit_length": 18,
+        "copy_number": 3,
+        "total_length": 54,
+        "sequence_id": "NC_014649.1"
+      },
+      {
+        "start": 382427,
+        "end": 382499,
+        "repeat_unit": "ACTGAATCTACTGAATCT",
+        "unit_length": 18,
+        "copy_number": 4,
+        "total_length": 72,
+        "sequence_id": "NC_014649.1"
+      },
+      {
+        "start": 427530,
+        "end": 427566,
+        "repeat_unit": "TCATTATCAATTGAATCA",
+        "unit_length": 18,
+        "copy_number": 2,
+        "total_length": 36,
+        "sequence_id": "NC_014649.1"
+      },
+      {
+        "start": 463572,
+        "end": 463608,
+        "repeat_unit": "TTGATTGGATTGATTAAT",
+        "unit_length": 18,
+        "copy_number": 2,
+        "total_length": 36,
+        "sequence_id": "NC_014649.1"
+      },
+      {
+        "start": 464256,
+        "end": 464292,
+        "repeat_unit": "CATTTGGCCCATTTGATT",
+        "unit_length": 18,
+        "copy_number": 2,
+        "total_length": 36,
+        "sequence_id": "NC_014649.1"
+      },
+      {
+        "start": 464587,
+        "end": 464623,
+        "repeat_unit": "TTCATTGGGTTCATTTGG",
+        "unit_length": 18,
+        "copy_number": 2,
+        "total_length": 36,
+        "sequence_id": "NC_014649.1"
+      },
+      {
+        "start": 464629,
+        "end": 464665,
+        "repeat_unit": "GGGTTCATTTGATTCATG",
+        "unit_length": 18,
+        "copy_number": 2,
+        "total_length": 36,
+        "sequence_id": "NC_014649.1"
+      },
+      {
+        "start": 464665,
+        "end": 464701,
+        "repeat_unit": "GGGTTCATTTGGTTCATT",
+        "unit_length": 18,
+        "copy_number": 2,
+        "total_length": 36,
+        "sequence_id": "NC_014649.1"
+      },
+      {
+        "start": 564001,
+        "end": 564037,
+        "repeat_unit": "TTCCTAATAAATCATTAG",
+        "unit_length": 18,
+        "copy_number": 2,
+        "total_length": 36,
+        "sequence_id": "NC_014649.1"
+      },
+      {
+        "start": 577976,
+        "end": 578012,
+        "repeat_unit": "TGAATCTGACAAATCTAG",
+        "unit_length": 18,
+        "copy_number": 2,
+        "total_length": 36,
+        "sequence_id": "NC_014649.1"
+      },
+      {
+        "start": 643754,
+        "end": 643790,
+        "repeat_unit": "TTTATTTTCTCTAGTCAT",
+        "unit_length": 18,
+        "copy_number": 2,
+        "total_length": 36,
+        "sequence_id": "NC_014649.1"
+      },
+      {
+        "start": 657455,
+        "end": 657509,
+        "repeat_unit": "TTTAGATGATTTGGATGG",
+        "unit_length": 18,
+        "copy_number": 3,
+        "total_length": 54,
+        "sequence_id": "NC_014649.1"
+      },
+      {
+        "start": 823593,
+        "end": 823629,
+        "repeat_unit": "AATCCAATAAAATTCATT",
+        "unit_length": 18,
+        "copy_number": 2,
+        "total_length": 36,
+        "sequence_id": "NC_014649.1"
+      },
+      {
+        "start": 848264,
+        "end": 848300,
+        "repeat_unit": "TAGATTTACTGGATTTAT",
+        "unit_length": 18,
+        "copy_number": 2,
+        "total_length": 36,
+        "sequence_id": "NC_014649.1"
+      },
+      {
+        "start": 877903,
+        "end": 877957,
+        "repeat_unit": "TTATCACCTTTATCTCCA",
+        "unit_length": 18,
+        "copy_number": 3,
+        "total_length": 54,
+        "sequence_id": "NC_014649.1"
+      },
+      {
+        "start": 878088,
+        "end": 878124,
+        "repeat_unit": "ACCTTTATCTCCATTATC",
+        "unit_length": 18,
+        "copy_number": 2,
+        "total_length": 36,
+        "sequence_id": "NC_014649.1"
+      },
+      {
+        "start": 878250,
+        "end": 878304,
+        "repeat_unit": "ACCTTTATCTCCTTTATT",
+        "unit_length": 18,
+        "copy_number": 3,
+        "total_length": 54,
+        "sequence_id": "NC_014649.1"
+      },
+      {
+        "start": 878331,
+        "end": 878367,
+        "repeat_unit": "TCCTTTATCTCCTTTATT",
+        "unit_length": 18,
+        "copy_number": 2,
+        "total_length": 36,
+        "sequence_id": "NC_014649.1"
+      },
+      {
+        "start": 878374,
+        "end": 878410,
+        "repeat_unit": "TCTCCTTTTTCTCCTTTT",
+        "unit_length": 18,
+        "copy_number": 2,
+        "total_length": 36,
+        "sequence_id": "NC_014649.1"
+      },
+      {
+        "start": 930178,
+        "end": 930214,
+        "repeat_unit": "TTGGATGATTTAGATGAT",
+        "unit_length": 18,
+        "copy_number": 2,
+        "total_length": 36,
+        "sequence_id": "NC_014649.1"
+      },
+      {
+        "start": 977612,
+        "end": 977648,
+        "repeat_unit": "CTGTTCAACCTGTTCAAC",
+        "unit_length": 18,
+        "copy_number": 2,
+        "total_length": 36,
+        "sequence_id": "NC_014649.1"
+      },
+      {
+        "start": 1134419,
+        "end": 1134473,
+        "repeat_unit": "AGAGATAGATCGCTGTCT",
+        "unit_length": 18,
+        "copy_number": 3,
+        "total_length": 54,
+        "sequence_id": "NC_014649.1"
+      },
+      {
+        "start": 564547,
+        "end": 564585,
+        "repeat_unit": "TAAAAAATTGATTTAAAAT",
+        "unit_length": 19,
+        "copy_number": 2,
+        "total_length": 38,
+        "sequence_id": "NC_014649.1"
+      },
+      {
+        "start": 71102,
+        "end": 71142,
+        "repeat_unit": "TAATATTGTTTAATACTTCA",
+        "unit_length": 20,
+        "copy_number": 2,
+        "total_length": 40,
+        "sequence_id": "NC_014649.1"
+      },
+      {
+        "start": 861176,
+        "end": 861216,
+        "repeat_unit": "AAAAATTCCCAAAATTCCCA",
+        "unit_length": 20,
+        "copy_number": 2,
+        "total_length": 40,
+        "sequence_id": "NC_014649.1"
+      },
+      {
+        "start": 21349,
+        "end": 21391,
+        "repeat_unit": "TTTCATCATCATCATCATCAT",
+        "unit_length": 21,
+        "copy_number": 2,
+        "total_length": 42,
+        "sequence_id": "NC_014649.1"
+      },
+      {
+        "start": 62063,
+        "end": 62105,
+        "repeat_unit": "TACAAATAGGCTTACAAGGTT",
+        "unit_length": 21,
+        "copy_number": 2,
+        "total_length": 42,
+        "sequence_id": "NC_014649.1"
+      },
+      {
+        "start": 586675,
+        "end": 586717,
+        "repeat_unit": "TTTCAAAAAAATTATTCAGAA",
+        "unit_length": 21,
+        "copy_number": 2,
+        "total_length": 42,
+        "sequence_id": "NC_014649.1"
+      },
+      {
+        "start": 666493,
+        "end": 666535,
+        "repeat_unit": "GTATTTTCAAATTTTTCTATT",
+        "unit_length": 21,
+        "copy_number": 2,
+        "total_length": 42,
+        "sequence_id": "NC_014649.1"
+      },
+      {
+        "start": 942263,
+        "end": 942305,
+        "repeat_unit": "GGAGGTTGAACAGGACTAATA",
+        "unit_length": 21,
+        "copy_number": 2,
+        "total_length": 42,
+        "sequence_id": "NC_014649.1"
+      },
+      {
+        "start": 1155717,
+        "end": 1155759,
+        "repeat_unit": "ATAATTCTGATAATGATTCTA",
+        "unit_length": 21,
+        "copy_number": 2,
+        "total_length": 42,
+        "sequence_id": "NC_014649.1"
+      },
+      {
+        "start": 22741,
+        "end": 22851,
+        "repeat_unit": "AATACAATTCAAAGATCGGAAG",
+        "unit_length": 22,
+        "copy_number": 5,
+        "total_length": 110,
+        "sequence_id": "NC_014649.1"
+      },
+      {
+        "start": 551006,
+        "end": 551072,
+        "repeat_unit": "AACAGATAATTAACAGGTAATT",
+        "unit_length": 22,
+        "copy_number": 3,
+        "total_length": 66,
+        "sequence_id": "NC_014649.1"
+      },
+      {
+        "start": 900185,
+        "end": 900229,
+        "repeat_unit": "TATTTATTGTATATTTATTGTA",
+        "unit_length": 22,
+        "copy_number": 2,
+        "total_length": 44,
+        "sequence_id": "NC_014649.1"
+      },
+      {
+        "start": 979705,
+        "end": 979749,
+        "repeat_unit": "TAACAGTAACCTAACAGTAACC",
+        "unit_length": 22,
+        "copy_number": 2,
+        "total_length": 44,
+        "sequence_id": "NC_014649.1"
+      },
+      {
+        "start": 979840,
+        "end": 979884,
+        "repeat_unit": "CTAACAGTAATCTAACAGTAAT",
+        "unit_length": 22,
+        "copy_number": 2,
+        "total_length": 44,
+        "sequence_id": "NC_014649.1"
+      },
+      {
+        "start": 1180945,
+        "end": 1181055,
+        "repeat_unit": "TTGTATTCTTCCGATCTTTGAA",
+        "unit_length": 22,
+        "copy_number": 5,
+        "total_length": 110,
+        "sequence_id": "NC_014649.1"
+      },
+      {
+        "start": 7152,
+        "end": 7200,
+        "repeat_unit": "TCTTCATCTGATTCTTCACTAATT",
+        "unit_length": 24,
+        "copy_number": 2,
+        "total_length": 48,
+        "sequence_id": "NC_014649.1"
+      },
+      {
+        "start": 103833,
+        "end": 103905,
+        "repeat_unit": "GTTTCTGAATTATGTTCCGATTCA",
+        "unit_length": 24,
+        "copy_number": 3,
+        "total_length": 72,
+        "sequence_id": "NC_014649.1"
+      },
+      {
+        "start": 148202,
+        "end": 148274,
+        "repeat_unit": "GACCTTTCAGGAGATCTGTAACGA",
+        "unit_length": 24,
+        "copy_number": 3,
+        "total_length": 72,
+        "sequence_id": "NC_014649.1"
+      },
+      {
+        "start": 148274,
+        "end": 148322,
+        "repeat_unit": "GACCTTTCAGGAGATCTGTAACGG",
+        "unit_length": 24,
+        "copy_number": 2,
+        "total_length": 48,
+        "sequence_id": "NC_014649.1"
+      },
+      {
+        "start": 248077,
+        "end": 248125,
+        "repeat_unit": "TTGAGTTTGTTCTTGAGTTTGTTT",
+        "unit_length": 24,
+        "copy_number": 2,
+        "total_length": 48,
+        "sequence_id": "NC_014649.1"
+      },
+      {
+        "start": 369306,
+        "end": 369378,
+        "repeat_unit": "ATTTATTAGAGGATTTATTAGAGG",
+        "unit_length": 24,
+        "copy_number": 3,
+        "total_length": 72,
+        "sequence_id": "NC_014649.1"
+      },
+      {
+        "start": 523983,
+        "end": 524031,
+        "repeat_unit": "TTGAGTTCCAAATAGAGGCTCAGA",
+        "unit_length": 24,
+        "copy_number": 2,
+        "total_length": 48,
+        "sequence_id": "NC_014649.1"
+      },
+      {
+        "start": 563802,
+        "end": 563850,
+        "repeat_unit": "ACTGATAATACAACTGATAATACT",
+        "unit_length": 24,
+        "copy_number": 2,
+        "total_length": 48,
+        "sequence_id": "NC_014649.1"
+      },
+      {
+        "start": 610070,
+        "end": 610118,
+        "repeat_unit": "CAAATAATCAAACAAATAATCAAA",
+        "unit_length": 24,
+        "copy_number": 2,
+        "total_length": 48,
+        "sequence_id": "NC_014649.1"
+      },
+      {
+        "start": 677410,
+        "end": 677458,
+        "repeat_unit": "TTAGTATATTGAAGTTAATGAATC",
+        "unit_length": 24,
+        "copy_number": 2,
+        "total_length": 48,
+        "sequence_id": "NC_014649.1"
+      },
+      {
+        "start": 741906,
+        "end": 741954,
+        "repeat_unit": "TGAATCAACTACTGAAGTTAAACC",
+        "unit_length": 24,
+        "copy_number": 2,
+        "total_length": 48,
+        "sequence_id": "NC_014649.1"
+      },
+      {
+        "start": 1168801,
+        "end": 1168849,
+        "repeat_unit": "GTGATCCTAATGTAATTTCATTTT",
+        "unit_length": 24,
+        "copy_number": 2,
+        "total_length": 48,
+        "sequence_id": "NC_014649.1"
+      },
+      {
+        "start": 238290,
+        "end": 238344,
+        "repeat_unit": "GATAAAGGTGATAAGGGAACGAAAGGG",
+        "unit_length": 27,
+        "copy_number": 2,
+        "total_length": 54,
+        "sequence_id": "NC_014649.1"
+      },
+      {
+        "start": 382427,
+        "end": 382481,
+        "repeat_unit": "ACTGAATCTACTGAATCTACTGAATCT",
+        "unit_length": 27,
+        "copy_number": 2,
+        "total_length": 54,
+        "sequence_id": "NC_014649.1"
+      },
+      {
+        "start": 436521,
+        "end": 436575,
+        "repeat_unit": "GTCTCCAATATCTCCAACATCTTCAAT",
+        "unit_length": 27,
+        "copy_number": 2,
+        "total_length": 54,
+        "sequence_id": "NC_014649.1"
+      },
+      {
+        "start": 699908,
+        "end": 699989,
+        "repeat_unit": "CAAGAAGTTGCTGAAGAACCAGTTCAA",
+        "unit_length": 27,
+        "copy_number": 3,
+        "total_length": 81,
+        "sequence_id": "NC_014649.1"
+      },
+      {
+        "start": 878047,
+        "end": 878101,
+        "repeat_unit": "TTATCACCTTTATTACCTTTATCTCCA",
+        "unit_length": 27,
+        "copy_number": 2,
+        "total_length": 54,
+        "sequence_id": "NC_014649.1"
+      },
+      {
+        "start": 878142,
+        "end": 878196,
+        "repeat_unit": "ACCTTTATCTCCATTATCACCTTTATC",
+        "unit_length": 27,
+        "copy_number": 2,
+        "total_length": 54,
+        "sequence_id": "NC_014649.1"
+      },
+      {
+        "start": 878205,
+        "end": 878259,
+        "repeat_unit": "ACCTTTATCTCCATTATCACCTTTATC",
+        "unit_length": 27,
+        "copy_number": 2,
+        "total_length": 54,
+        "sequence_id": "NC_014649.1"
+      },
+      {
+        "start": 985117,
+        "end": 985198,
+        "repeat_unit": "TTTATTTCGTTTTGATATTTCAGTTCT",
+        "unit_length": 27,
+        "copy_number": 3,
+        "total_length": 81,
+        "sequence_id": "NC_014649.1"
+      },
+      {
+        "start": 713521,
+        "end": 713581,
+        "repeat_unit": "TTTTTTCTTCGGAATTTTTTTCTTCGGAAT",
+        "unit_length": 30,
+        "copy_number": 2,
+        "total_length": 60,
+        "sequence_id": "NC_014649.1"
+      },
+      {
+        "start": 804655,
+        "end": 804715,
+        "repeat_unit": "AGACCTCCTCATCCTCGACCTCCTTCACCT",
+        "unit_length": 30,
+        "copy_number": 2,
+        "total_length": 60,
+        "sequence_id": "NC_014649.1"
+      },
+      {
+        "start": 750640,
+        "end": 750704,
+        "repeat_unit": "TATTTTTTCAGAAATTTATTTTCTCAAAAATC",
+        "unit_length": 32,
+        "copy_number": 2,
+        "total_length": 64,
+        "sequence_id": "NC_014649.1"
+      },
+      {
+        "start": 861060,
+        "end": 861126,
+        "repeat_unit": "ACTAAATCTATAATAACACAAATTAATAGATTA",
+        "unit_length": 33,
+        "copy_number": 2,
+        "total_length": 66,
+        "sequence_id": "NC_014649.1"
+      },
+      {
+        "start": 1142331,
+        "end": 1142397,
+        "repeat_unit": "ATGAAATTTCCGATAATGAATCTTCTGACGATG",
+        "unit_length": 33,
+        "copy_number": 2,
+        "total_length": 66,
+        "sequence_id": "NC_014649.1"
+      },
+      {
+        "start": 87751,
+        "end": 87823,
+        "repeat_unit": "CCAGTATCTCCTTTATCTCCAGTATCTCCTTTATCT",
+        "unit_length": 36,
+        "copy_number": 2,
+        "total_length": 72,
+        "sequence_id": "NC_014649.1"
+      },
+      {
+        "start": 238062,
+        "end": 238134,
+        "repeat_unit": "GGAGATAAAGGTGATATTGGAGATAAGGGAATGAAA",
+        "unit_length": 36,
+        "copy_number": 2,
+        "total_length": 72,
+        "sequence_id": "NC_014649.1"
+      },
+      {
+        "start": 239400,
+        "end": 239472,
+        "repeat_unit": "AAAGGCGATAAAGGAGACAAAGGTAGTAAAGGATAC",
+        "unit_length": 36,
+        "copy_number": 2,
+        "total_length": 72,
+        "sequence_id": "NC_014649.1"
+      },
+      {
+        "start": 240537,
+        "end": 240609,
+        "repeat_unit": "AAGGGTGATAAAGGTATTAAGGGTGATAAAGGTATT",
+        "unit_length": 36,
+        "copy_number": 2,
+        "total_length": 72,
+        "sequence_id": "NC_014649.1"
+      },
+      {
+        "start": 294524,
+        "end": 294596,
+        "repeat_unit": "TTGGATTAAAGGGTGATAAAGGTGACAAAGGAGATG",
+        "unit_length": 36,
+        "copy_number": 2,
+        "total_length": 72,
+        "sequence_id": "NC_014649.1"
+      },
+      {
+        "start": 369306,
+        "end": 369378,
+        "repeat_unit": "ATTTATTAGAGGATTTATTAGAGGATTTATTAGAGG",
+        "unit_length": 36,
+        "copy_number": 2,
+        "total_length": 72,
+        "sequence_id": "NC_014649.1"
+      },
+      {
+        "start": 382427,
+        "end": 382499,
+        "repeat_unit": "ACTGAATCTACTGAATCTACTGAATCTACTGAATCT",
+        "unit_length": 36,
+        "copy_number": 2,
+        "total_length": 72,
+        "sequence_id": "NC_014649.1"
+      },
+      {
+        "start": 877966,
+        "end": 878074,
+        "repeat_unit": "TTATCACCTTTATCACCTTTATTACCTTTATCTCCA",
+        "unit_length": 36,
+        "copy_number": 3,
+        "total_length": 108,
+        "sequence_id": "NC_014649.1"
+      },
+      {
+        "start": 22741,
+        "end": 22829,
+        "repeat_unit": "AATACAATTCAAAGATCGGAAGAATACAATTCAAAGATCGGAAG",
+        "unit_length": 44,
+        "copy_number": 2,
+        "total_length": 88,
+        "sequence_id": "NC_014649.1"
+      },
+      {
+        "start": 1180945,
+        "end": 1181033,
+        "repeat_unit": "TTGTATTCTTCCGATCTTTGAATTGTATTCTTCCGATCTTTGAA",
+        "unit_length": 44,
+        "copy_number": 2,
+        "total_length": 88,
+        "sequence_id": "NC_014649.1"
+      },
+      {
+        "start": 88780,
+        "end": 88870,
+        "repeat_unit": "TTATCTCCTTGATCACCTTTGGCACCTACGTCTCCTTGATCTCCC",
+        "unit_length": 45,
+        "copy_number": 2,
+        "total_length": 90,
+        "sequence_id": "NC_014649.1"
+      },
+      {
+        "start": 176363,
+        "end": 176465,
+        "repeat_unit": "AATAATTATCAACAAAAAATAATTACCAACAAAAAATAATTATCAACAAAA",
+        "unit_length": 51,
+        "copy_number": 2,
+        "total_length": 102,
+        "sequence_id": "NC_014649.1"
+      },
+      {
+        "start": 238008,
+        "end": 238116,
+        "repeat_unit": "GGAGATAAAGGTGATATTGGAGATAAGGGAATGAAAGGAGATAAAGGTGATATT",
+        "unit_length": 54,
+        "copy_number": 2,
+        "total_length": 108,
+        "sequence_id": "NC_014649.1"
+      },
+      {
+        "start": 1132249,
+        "end": 1132367,
+        "repeat_unit": "AATCAATTCCTGTATAAATTCTGGATCGGTTTTAGATGAACTCATTAATATGTGATTTA",
+        "unit_length": 59,
+        "copy_number": 2,
+        "total_length": 118,
+        "sequence_id": "NC_014649.1"
+      },
+      {
+        "start": 878134,
+        "end": 878260,
+        "repeat_unit": "CCTTTATTACCTTTATCTCCATTATCACCTTTATCACCTTTATCTCCATTATCACCTTTATCT",
+        "unit_length": 63,
+        "copy_number": 2,
+        "total_length": 126,
+        "sequence_id": "NC_014649.1"
+      }
+    ],
+    "inverted_repeats": [],
+    "direct_repeats": [],
+    "per_sequence_stats": [
+      {
+        "sequence_id": "NC_014649.1",
+        "sequence_length": 1181549,
+        "repeat_bases": 9607,
+        "repeat_percentage": 0.81,
+        "n_tandem_repeats": 252,
+        "n_ssrs": 14890,
+        "ssr_types": {
+          "1bp": 12663,
+          "2bp": 912,
+          "3bp": 1258,
+          "4bp": 45,
+          "5bp": 7,
+          "6bp": 5
+        }
+      }
+    ],
+    "summary": {
+      "total_genome_length": 1181549,
+      "total_repeat_bases": 9607,
+      "overall_repeat_percentage": 0.81,
+      "n_tandem_repeats": 252,
+      "repeat_size_distribution": {
+        "10-20bp": 12,
+        "20-50bp": 189,
+        "50-100bp": 44,
+        "100-500bp": 7,
+        ">500bp": 0
+      }
+    }
+  },
+  "gene_analysis": {
+    "error": "Gene prediction failed: find_genes() got an unexpected keyword argument 'translation_table'"
+  },
+  "promoter_analysis": {
+    "summary": {
+      "sequences_with_promoters": 1,
+      "total_sequences": 1,
+      "total_motifs_found": 138423,
+      "motif_type_counts": {
+        "pribnow_box": 92193,
+        "-35_box": 35763,
+        "shine_dalgarno": 10467
+      },
+      "promoter_density_per_kb": 117.15
+    },
+    "per_sequence_predictions": [
+      {
+        "sequence_id": "NC_014649.1",
+        "n_promoter_motifs": 138423,
+        "motifs_found": [
+          {
+            "type": "pribnow_box",
+            "motif": "TATAAT",
+            "position": 56,
+            "sequence_context": "CAAACAAAAATACAATTATCTATTGT"
+          },
+          {
+            "type": "pribnow_box",
+            "motif": "TATAAT",
+            "position": 152,
+            "sequence_context": "GATTATTTCTTTTAATTCTCCGACTA"
+          },
+          {
+            "type": "pribnow_box",
+            "motif": "TATAAT",
+            "position": 209,
+            "sequence_context": "TGTCAAAAAATATCATCCTACCACTA"
+          },
+          {
+            "type": "pribnow_box",
+            "motif": "TATAAT",
+            "position": 227,
+            "sequence_context": "TACCACTAAATATTATGGTATTATTC"
+          },
+          {
+            "type": "pribnow_box",
+            "motif": "TATAAT",
+            "position": 235,
+            "sequence_context": "AATATTATGGTATTATTCATGGTGAA"
+          },
+          {
+            "type": "pribnow_box",
+            "motif": "TATAAT",
+            "position": 284,
+            "sequence_context": "ATTTTACAGTTTTAATTACTCTAATA"
+          },
+          {
+            "type": "pribnow_box",
+            "motif": "TATAAT",
+            "position": 293,
+            "sequence_context": "TTTTAATTACTCTAATAGAGAAGAAG"
+          },
+          {
+            "type": "pribnow_box",
+            "motif": "TATAAT",
+            "position": 352,
+            "sequence_context": "ACGGATTTTATGTAATTGAAACCAGT"
+          },
+          {
+            "type": "pribnow_box",
+            "motif": "TATAAT",
+            "position": 538,
+            "sequence_context": "CAGTTAAAGATATCATTATCAATTGG"
+          },
+          {
+            "type": "pribnow_box",
+            "motif": "TATAAT",
+            "position": 565,
+            "sequence_context": "TATCCAATGATAAAATTAAAACGTTG"
+          }
+        ]
+      }
+    ]
+  },
+  "kmer_analysis_summary": {
+    "4-mers": {
+      "total_kmers": 1181542,
+      "unique_kmers": 256,
+      "shannon_entropy": 7.353,
+      "top_kmer": "AAAA",
+      "top_kmer_count": 25719
+    },
+    "5-mers": {
+      "total_kmers": 1181540,
+      "unique_kmers": 1024,
+      "shannon_entropy": 9.175,
+      "top_kmer": "TTTTT",
+      "top_kmer_count": 10421
+    },
+    "6-mers": {
+      "total_kmers": 1181538,
+      "unique_kmers": 4093,
+      "shannon_entropy": 10.991,
+      "top_kmer": "AAAAAT",
+      "top_kmer_count": 4269
+    }
+  }
+}

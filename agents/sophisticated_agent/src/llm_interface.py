@@ -90,14 +90,24 @@ class CborgLLM(BaseLLM):
         temperature = kwargs.get("temperature", 0.7)
         max_tokens = kwargs.get("max_tokens", 4096)
 
-        response = await self.client.chat.completions.create(
-            model=self.model,
-            messages=[{"role": "user", "content": prompt}],
-            temperature=temperature,
-            max_tokens=max_tokens,
-        )
+        try:
+            response = await self.client.chat.completions.create(
+                model=self.model,
+                messages=[{"role": "user", "content": prompt}],
+                temperature=temperature,
+                max_tokens=max_tokens,
+            )
 
-        return response.choices[0].message.content
+            content = response.choices[0].message.content
+            if content is None:
+                raise ValueError("API returned None content")
+                
+            return content
+            
+        except Exception as e:
+            print(f"CBORG API Error: {e}")
+            # Return None to trigger fallback handling
+            return None
 
     async def generate_structured(
         self, prompt: str, schema: Dict[str, Any], **kwargs

@@ -46,17 +46,18 @@ COMMON PATTERNS:
 4. Only use read_file for small files or when content preview is specifically requested:
    - file_info(path: "data/file.txt") → read_file(path: "data/file.txt") [only if file is small]
 
-IMPORTANT FILE PATH EXAMPLES:
-- Correct: "data/nelli_hackathon/contigs100k.fna"  
-- Incorrect: "contigs100k.fna"
-- Correct: "example/mimivirus_genome.fna"
-- Incorrect: "mimivirus_genome.fna"
+IMPORTANT FILE PATH PRINCIPLES:
+- Always use full discovered paths from previous file search results
+- Never assume file locations - always search first with find_file_by_name or tree_view
+- Use the exact path returned by file discovery tools
+- Example workflow: find_file_by_name(filename: "target.fna") → analyze_fasta_file(file_path: "USE_PATH_FROM_PREVIOUS_RESULT")
 
 CONTEXT AWARENESS:
 - If the user says "go ahead and run these analysis", look at the conversation context
 - For sequence analysis requests, use this standard workflow:
-  1. analyze_fasta_file(file_path: "data/nelli_hackathon/contigs100k.fna", sequence_type: "dna") 
-  2. write_json_report(data: "ANALYSIS_RESULTS", output_path: "reports/sequence_analysis.json")
+  1. find_file_by_name(filename: "target_file.fna", search_path: "{repo_root}", max_depth: 5)
+  2. analyze_fasta_file(file_path: "USE_PATH_FROM_PREVIOUS_RESULT", sequence_type: "dna") 
+  3. write_json_report(data: "ANALYSIS_RESULTS", output_path: "reports/sequence_analysis.json")
 - For file-based sequence analysis: analyze_fasta_file → write_json_report
 - For individual sequence stats: sequence_stats(sequence: "actual_sequence_string", sequence_type: "dna")  
 - Always specify complete file paths from previous context
