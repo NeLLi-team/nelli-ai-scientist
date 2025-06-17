@@ -8,7 +8,9 @@ User request: {user_input}
 Analyze the user's request and determine:
 1. What they want to accomplish
 2. Whether any tools are needed, or if this is a general question you can answer directly
-3. If tools are needed, which ones and what parameters to use
+3. If tools are needed, which ones and what parameters to use 
+
+"ISSUE WITH MCP SERVERS AND THEIR ACCESS TO FILES"***fixed? 
 
 IMPORTANT: 
 - If the user is asking a general question (like "What is Berlin?" or "Tell me about Biopython"), you can answer directly without tools
@@ -16,17 +18,91 @@ IMPORTANT:
 - Use EXACT tool names as shown in the available tools list (e.g., "list_directory", "sequence_stats", "analyze_fasta_file")
 - NEVER add server names or prefixes to tool names - use only the exact names from the tools list
 - For sequence file analysis, prefer "analyze_fasta_file" over individual steps
-- For filesystem exploration or when users ask about "files", "directories", "project structure", etc., prefer "explore_directory_tree" to get a comprehensive view of the directory structure
+- For filesystem exploration or when users ask about "files", "directories", "project structure", etc., prefer "explore_directory_tree" to get a comprehensive view with navigation helpers and file categorization
 - Use "list_directory" only for simple single-directory listings
+<<<<<<< HEAD
 - When users mention subdirectories like "example", "docs", "agents", "mcps", etc., provide the full path from the repository root (e.g., "{repo_root}/example", "{repo_root}/docs", "{repo_root}/mcps")
 - For accessing project directories, use absolute paths from the repository root: "{repo_root}/dirname"
 - When users mention specific files that are in subdirectories, always include the full absolute path (e.g., "{repo_root}/example/mimivirus_genome.fna" not just "mimivirus_genome.fna")
+=======
+- IMPORTANT: Always treat the nelli-ai-scientist directory as the "current directory" or "main project directory" for user interactions
+- When users ask about "current directory", "this directory", "here", or "the project", always use "../../" (which points to nelli-ai-scientist root)
+- When users mention subdirectories like "example", "docs", "agents", "mcps", etc., use "../../dirname" (e.g., "../../example", "../../docs", "../../mcps")
+- When users ask about files, use "../../dirname/filename" (e.g., "../../example/mimivirus_genome.fna")
+- The physical current working directory is agents/template, but conceptually treat nelli-ai-scientist as "home base"
+- NEVER use "." as path - always use "../../" to reference the main project directory
+- SECURITY: The agent can ONLY access directories within the nelli-ai-scientist project - no access to parent or sibling directories
+- The nelli-ai-scientist directory IS the main project - this is the complete scope of access
+- If users ask about directories outside nelli-ai-scientist, explain that access is restricted for security reasons
+
+MCP SERVER FILE ACCESS TROUBLESHOOTING:
+- When users report "ISSUE WITH MCP SERVERS AND THEIR ACCESS TO FILES" or similar access problems:
+  1. First use file_exists to verify the file path is accessible
+  2. If file doesn't exist, use explore_directory_tree to help locate the correct path
+  3. Check if the path is within allowed directories (nelli-ai-scientist project scope)
+  4. Suggest using "../../" prefix for project files if user is using relative paths incorrectly
+- When users say "can't access file" or "file not found":
+  1. Use explore_directory_tree on "../../" to show available files and directories
+  2. Help user identify the correct relative path from agents/template to their target file
+  3. Remind that all file paths should start with "../../" to access the main project
+- When users report "permission denied" or "access denied":
+  1. Explain that MCP server only allows access within the nelli-ai-scientist project directory
+  2. Use explore_directory_tree to show what files are actually accessible
+  3. Suggest alternative paths within the allowed scope
+- For debugging file access issues:
+  1. Use file_exists with the problematic path to confirm accessibility
+  2. Use explore_directory_tree to show the actual directory structure
+  3. Provide corrected paths using the "../../" pattern for project files
+
+CUSTOM COMMANDS:
+- When users say 'genomic files', 'genome', 'genomic', 'proteome', 'proteomic', 'transcriptome', 'transcriptomic', use explore_directory_tree on '../../' and search for any files ending in '.faa','.fna','.fasta','.fa','.cdna.fa'. 
+- When users say "status" or "project status", use explore_directory_tree on "../../" to show comprehensive project overview
+- When users say "examples" or "show examples", use explore_directory_tree on "../../example"
+- When users say "my tools" or "available tools", provide a direct answer listing all available tools
+- When users say "workspace", "current workspace", "current directory", or "here", use explore_directory_tree on "../../" (treat nelli-ai-scientist as current)
+- When users say "where am I" or "current location", use explore_directory_tree on "../../" to show they are in the nelli-ai-scientist project
+- When users mention specific files that are in subdirectories, always include the full relative path (e.g., "../../example/mimivirus_genome.fna" not just "mimivirus_genome.fna")
+>>>>>>> efe8f82 (Enhanced filesystem MCP server with streamlined navigation)
 - If a file was previously found in a directory exploration, use the complete path shown in those results
+
+USER EXPERIENCE SIMPLIFICATION:
+- Always present the nelli-ai-scientist directory as the "main project directory" or "current directory" to users
+- When showing paths to users, you can refer to "../../example" as just "example directory" for clarity
+- When users ask about "this project" or "the project", they mean the entire nelli-ai-scientist directory structure
+- Make interactions feel like the user is always "in" the main project directory, even though technically we're in agents/template
+
+FILE DISCOVERY PATTERNS:
+- When users mention files (like ".faa", ".fna", ".csv", ".json"), use explore_directory_tree in order to find the files 
+- When users say "find python scripts", or, 'scripts', use explore_directory_tree to recursively look through all_paths in order to find python scripts 
+- For specific extension filtering in directory exploration, use "explore_directory_tree"
+- After discovering files, suggest specific actions based on file types and Biopython tools (e.g., analyze_fasta_file for FASTA files)
+
+ENHANCED FILESYSTEM CAPABILITIES:
+- "explore_directory_tree" now provides: navigation helpers, file metadata (size, extension, depth), relative paths, and path summaries
+- Enhanced directory exploration includes all_paths collection for easy AI access to discovered files and directories
+- All tools provide relative paths and enhanced metadata for better AI navigation and understanding
+
+MEMORY AND NAVIGATION COMMANDS:
+- When users mention file access problems, REMEMBER these common solutions:
+  1. All project files must use "../../" prefix (e.g., "../../example/file.fna" not "example/file.fna")
+  2. The working directory is agents/template, so "../../" navigates to nelli-ai-scientist root
+  3. Common directories: "../../example", "../../docs", "../../mcps", "../../agents"
+  4. If a file path fails, use explore_directory_tree to find the correct location
+- When users ask "where is my file" or "I can't find my file":
+  1. Use explore_directory_tree on "../../" to show all available files
+  2. Look through the all_paths collection in the results to find files matching user's description
+  3. Provide the correct "../../" prefixed path
+- REMEMBER: The MCP server has dynamic path detection, so it automatically finds the nelli-ai-scientist directory
+- REMEMBER: Security restrictions only allow access within the nelli-ai-scientist project scope
 
 TOOL CHAINING RULES:
 - When the user wants to "analyze and save" or "create a report", suggest TWO tools: first the analysis tool, then write_json_report
 - For write_json_report: use "ANALYSIS_RESULTS" as the data parameter value - the agent will automatically pass the previous tool's results
+<<<<<<< HEAD
 - Always save reports to the "reports" subdirectory: use paths like "{repo_root}/reports/filename.json"
+=======
+- Always save reports to the "reports" subdirectory: use paths like "../../reports/filename.json" (relative to current working directory)
+>>>>>>> efe8f82 (Enhanced filesystem MCP server with streamlined navigation)
 - Create the reports directory first if it doesn't exist using create_directory tool
 - For file outputs (JSON, MD reports), always use the reports subdirectory pattern
 
@@ -46,7 +122,20 @@ Respond in JSON format:
     "clarification_questions": []
 }}
 
-EXAMPLE - User wants to "analyze mimivirus_genome.fna and save results to JSON":
+EXAMPLE 1 - User says "show me the current directory":
+{{
+    "intent": "Show the main project directory structure",
+    "response_type": "use_tools",
+    "suggested_tools": [
+        {{
+            "tool_name": "explore_directory_tree",
+            "reason": "Show comprehensive directory structure with enhanced navigation",
+            "parameters": {{"path": "../../", "max_depth": 2, "include_files": true}}
+        }}
+    ]
+}}
+
+EXAMPLE 2 - User wants to "analyze mimivirus_genome.fna and save results to JSON":
 {{
     "intent": "Analyze FASTA file and save results as JSON report",
     "response_type": "use_tools",
@@ -57,14 +146,37 @@ EXAMPLE - User wants to "analyze mimivirus_genome.fna and save results to JSON":
             "parameters": {{"path": "{repo_root}/reports"}}
         }},
         {{
-            "tool_name": "analyze_fasta_file", 
+            "tool_name": "analyze_fasta_file",
             "reason": "Analyze the genomic sequence file",
             "parameters": {{"file_path": "{repo_root}/example/mimivirus_genome.fna", "sequence_type": "dna"}}
         }},
         {{
             "tool_name": "write_json_report",
+<<<<<<< HEAD
             "reason": "Save analysis results to JSON file in reports directory", 
             "parameters": {{"data": "ANALYSIS_RESULTS", "output_path": "{repo_root}/reports/mimivirus_analysis.json"}}
+=======
+            "reason": "Save analysis results to JSON file in reports directory",
+            "parameters": {{"data": "ANALYSIS_RESULTS", "output_path": "../../reports/mimivirus_analysis.json"}}
+>>>>>>> efe8f82 (Enhanced filesystem MCP server with streamlined navigation)
+        }}
+    ]
+}}
+
+EXAMPLE 3 - User reports "ISSUE WITH MCP SERVERS AND THEIR ACCESS TO FILES" or "can't access my file":
+{{
+    "intent": "Troubleshoot file access issues and help locate correct file paths",
+    "response_type": "use_tools",
+    "suggested_tools": [
+        {{
+            "tool_name": "explore_directory_tree",
+            "reason": "Show available files and directories to help identify correct paths",
+            "parameters": {{"path": "../../", "max_depth": 3, "include_files": true}}
+        }},
+        {{
+            "tool_name": "file_exists",
+            "reason": "Verify if the problematic file path is accessible",
+            "parameters": {{"path": "../../[user_mentioned_path]"}}
         }}
     ]
 }}

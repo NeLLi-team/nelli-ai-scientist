@@ -38,7 +38,7 @@ def _check_path_security(path: str) -> bool:
     abs_path = os.path.abspath(path)
     return any(abs_path.startswith(allowed) for allowed in ALLOWED_DIRS)
 
-@mcp.tool
+@mcp.tool()
 async def read_file(path: str) -> dict:
     """Read the contents of a file
     
@@ -67,7 +67,7 @@ async def read_file(path: str) -> dict:
     except Exception as e:
         return {"error": f"Failed to read file: {str(e)}"}
 
-@mcp.tool
+@mcp.tool()
 async def write_file(path: str, content: str) -> dict:
     """Write content to a file
     
@@ -93,7 +93,11 @@ async def write_file(path: str, content: str) -> dict:
     except Exception as e:
         return {"error": f"Failed to write file: {str(e)}"}
 
+<<<<<<< HEAD
 @mcp.tool
+=======
+@mcp.tool()
+>>>>>>> efe8f82 (Enhanced filesystem MCP server with streamlined navigation)
 async def list_directory(path: str = None) -> dict:
     """List contents of a directory
     
@@ -138,7 +142,7 @@ async def list_directory(path: str = None) -> dict:
     except Exception as e:
         return {"error": f"Failed to list directory: {str(e)}"}
 
-@mcp.tool
+@mcp.tool()
 async def create_directory(path: str) -> dict:
     """Create a directory
     
@@ -158,7 +162,7 @@ async def create_directory(path: str) -> dict:
     except Exception as e:
         return {"error": f"Failed to create directory: {str(e)}"}
 
-@mcp.tool
+@mcp.tool()
 async def delete_file(path: str) -> dict:
     """Delete a file
     
@@ -184,7 +188,7 @@ async def delete_file(path: str) -> dict:
     except Exception as e:
         return {"error": f"Failed to delete file: {str(e)}"}
 
-@mcp.tool
+@mcp.tool()
 async def file_exists(path: str) -> dict:
     """Check if a file or directory exists
     
@@ -218,6 +222,7 @@ async def file_exists(path: str) -> dict:
     except Exception as e:
         return {"error": f"Failed to check file existence: {str(e)}"}
 
+<<<<<<< HEAD
 @mcp.tool
 async def find_files_by_pattern(path: str = None, pattern: str = "*", extensions: str = None, max_depth: int = 3) -> dict:
     """Find files matching a pattern or extensions in a directory tree
@@ -316,11 +321,15 @@ async def find_files_by_pattern(path: str = None, pattern: str = "*", extensions
         return {"error": f"Failed to search files: {str(e)}"}
 
 @mcp.tool
+=======
+
+@mcp.tool()
+>>>>>>> efe8f82 (Enhanced filesystem MCP server with streamlined navigation)
 async def explore_directory_tree(path: str = None, max_depth: int = 3, include_files: bool = True) -> dict:
-    """Explore directory structure recursively from current working directory or specified path
-    
+    """Explore directory structure recursively with enhanced navigation
+
     Args:
-        path: Starting directory path (defaults to current working directory)
+        path: Starting directory path (defaults to repository base directory)
         max_depth: Maximum depth to traverse (default: 3)
         include_files: Whether to include files in the output (default: True)
     """
@@ -328,29 +337,37 @@ async def explore_directory_tree(path: str = None, max_depth: int = 3, include_f
         # Use repository base directory if no path specified
         if path is None:
             path = REPO_BASE
+<<<<<<< HEAD
         
+=======
+
+>>>>>>> efe8f82 (Enhanced filesystem MCP server with streamlined navigation)
         if not _check_path_security(path):
             return {"error": f"Access denied. Path must be in: {ALLOWED_DIRS}"}
-        
+
         if not os.path.exists(path):
             return {"error": f"Directory not found: {path}"}
-        
+
         if not os.path.isdir(path):
             return {"error": f"Path is not a directory: {path}"}
-        
+
         def _explore_recursive(current_path: str, current_depth: int = 0) -> dict:
             """Recursively explore directory structure"""
             if current_depth > max_depth:
                 return {"truncated": True, "reason": "max_depth_reached"}
-            
+
             try:
                 entries = []
+                all_paths = []  # Collect all paths for easy access
                 items = os.listdir(current_path)
-                
+
+                # Filter hidden files
+                items = [item for item in items if not item.startswith('.')]
+
                 # Sort items: directories first, then files
                 dirs = []
                 files = []
-                
+
                 for item in items:
                     item_path = os.path.join(current_path, item)
                     try:
@@ -359,71 +376,133 @@ async def explore_directory_tree(path: str = None, max_depth: int = 3, include_f
                         elif include_files:
                             files.append(item)
                     except (PermissionError, OSError):
-                        # Skip items we can't access
                         continue
-                
+
                 # Process directories
                 for item in sorted(dirs):
                     item_path = os.path.join(current_path, item)
                     try:
                         stat = os.stat(item_path)
+                        rel_path = os.path.relpath(item_path, path)
+
                         dir_entry = {
                             "name": item,
                             "type": "directory",
-                            "path": item_path,
+                            "absolute_path": item_path,
+                            "relative_path": rel_path,
+                            "depth": current_depth,
                             "modified": stat.st_mtime,
                         }
-                        
+
+                        # Add to paths collection
+                        all_paths.append({
+                            "type": "directory",
+                            "name": item,
+                            "path": item_path,
+                            "relative": rel_path
+                        })
+
                         # Recursively explore subdirectory
                         if current_depth < max_depth:
                             subdir_content = _explore_recursive(item_path, current_depth + 1)
                             if subdir_content:
                                 dir_entry["contents"] = subdir_content
-                        
+                                # Collect paths from subdirectories
+                                if "all_paths" in subdir_content:
+                                    all_paths.extend(subdir_content["all_paths"])
+
                         entries.append(dir_entry)
                     except (PermissionError, OSError):
-                        # Skip directories we can't access
                         continue
-                
+
                 # Process files
                 if include_files:
                     for item in sorted(files):
                         item_path = os.path.join(current_path, item)
                         try:
                             stat = os.stat(item_path)
-                            entries.append({
+                            rel_path = os.path.relpath(item_path, path)
+                            file_ext = os.path.splitext(item)[1].lower() if '.' in item else None
+
+                            file_entry = {
                                 "name": item,
                                 "type": "file",
-                                "path": item_path,
+                                "absolute_path": item_path,
+                                "relative_path": rel_path,
+                                "depth": current_depth,
                                 "size": stat.st_size,
                                 "modified": stat.st_mtime,
+                                "extension": file_ext,
+                            }
+
+                            # Add to paths collection
+                            all_paths.append({
+                                "type": "file",
+                                "name": item,
+                                "path": item_path,
+                                "relative": rel_path,
+                                "size": stat.st_size,
+                                "extension": file_ext
                             })
+
+                            entries.append(file_entry)
                         except (PermissionError, OSError):
-                            # Skip files we can't access
                             continue
-                
+
                 return {
                     "entries": entries,
                     "entry_count": len(entries),
-                    "depth": current_depth
+                    "depth": current_depth,
+                    "all_paths": all_paths
                 }
-                
+
             except Exception as e:
                 return {"error": f"Failed to explore {current_path}: {str(e)}"}
-        
+
         # Start exploration
         result = _explore_recursive(path)
-        
+
+        # Extract all paths for easy access
+        all_paths = result.get("all_paths", [])
+
+        # Create simple summaries
+        file_paths = [p for p in all_paths if p["type"] == "file"]
+        dir_paths = [p for p in all_paths if p["type"] == "directory"]
+
         return {
             "root_path": path,
             "max_depth": max_depth,
             "include_files": include_files,
             "tree": result,
+            "navigation": {
+                "current_directory": path,
+                "relative_to_repo": os.path.relpath(path, REPO_BASE) if path != REPO_BASE else ".",
+            },
+            "summary": {
+                "total_files": len(file_paths),
+                "total_directories": len(dir_paths),
+                "all_paths": all_paths
+            },
             "success": True
         }
-        
+
     except Exception as e:
         return {"error": f"Failed to explore directory tree: {str(e)}"}
+
+
+
+
+
+def _format_file_size(size_bytes: int) -> str:
+    """Format file size in human readable format"""
+    if size_bytes == 0:
+        return "0 B"
+    size_names = ["B", "KB", "MB", "GB", "TB"]
+    import math
+    i = int(math.floor(math.log(size_bytes, 1024)))
+    p = math.pow(1024, i)
+    s = round(size_bytes / p, 2)
+    return f"{s} {size_names[i]}"
 
 # Add some example resources
 @mcp.resource("filesystem://allowed-dirs")
@@ -438,11 +517,38 @@ def get_allowed_directories():
 def get_examples():
     """Get example file operations"""
     return {
+<<<<<<< HEAD
         "examples": [
             {"operation": "read_file", "path": f"{REPO_BASE}/README.md"},
             {"operation": "write_file", "path": f"{REPO_BASE}/output.txt", "content": "Hello World"},
             {"operation": "list_directory", "path": REPO_BASE},
             {"operation": "explore_directory_tree", "path": REPO_BASE, "max_depth": 2}
+=======
+        "basic_operations": [
+            {"operation": "read_file", "path": f"{REPO_BASE}/README.md"},
+            {"operation": "write_file", "path": f"{REPO_BASE}/output.txt", "content": "Hello World"},
+            {"operation": "list_directory", "path": REPO_BASE},
+        ],
+        "enhanced_exploration": [
+            {
+                "operation": "explore_directory_tree",
+                "path": REPO_BASE,
+                "max_depth": 2,
+                "include_files": True,
+                "description": "Get comprehensive directory structure with navigation helpers"
+            },
+            {
+                "operation": "explore_directory_tree",
+                "path": f"{REPO_BASE}/agents",
+                "max_depth": 3,
+                "description": "Explore agents directory"
+            }
+        ],
+        "tips": [
+            "Use explore_directory_tree for comprehensive project understanding",
+            "All tools provide relative paths for easy navigation",
+            "Enhanced explore_directory_tree includes file metadata and path summaries"
+>>>>>>> efe8f82 (Enhanced filesystem MCP server with streamlined navigation)
         ]
     }
 
