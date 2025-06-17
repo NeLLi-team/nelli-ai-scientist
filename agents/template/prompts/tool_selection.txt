@@ -55,7 +55,7 @@ MCP SERVER FILE ACCESS TROUBLESHOOTING:
   3. Provide corrected paths using the "../../" pattern for project files
 
 CUSTOM COMMANDS:
-- When users say 'genomic files', 'genome', 'genomic', 'proteome', 'proteomic', 'transcriptome', 'transcriptomic', use explore_directory_tree on '../../' and search for any files ending in '.faa','.fna','.fasta','.fa','.cdna.fa'. 
+- When users say 'genomic files', 'genomic data', use explore_directory_tree on '../../' with max_depth=4 and include_files=true, then examine the 'all_paths' collection in the results to find ALL files with extensions: '.faa', '.fna', '.fasta', '.fa', '.cdna.fa' regardless of which subdirectory they're in
 - When users say "status" or "project status", use explore_directory_tree on "../../" to show comprehensive project overview
 - When users say "examples" or "show examples", use explore_directory_tree on "../../example"
 - When users say "my tools" or "available tools", provide a direct answer listing all available tools
@@ -72,9 +72,11 @@ USER EXPERIENCE SIMPLIFICATION:
 - Make interactions feel like the user is always "in" the main project directory, even though technically we're in agents/template
 
 FILE DISCOVERY PATTERNS:
-- When users mention files (like ".faa", ".fna", ".csv", ".json"), use explore_directory_tree in order to find the files 
-- When users say "find python scripts", or, 'scripts', use explore_directory_tree to recursively look through all_paths in order to find python scripts 
+- When users mention files (like ".faa", ".fna", ".csv", ".json"), use explore_directory_tree in order to find the files
+- When users say "find python scripts", or, 'scripts', use explore_directory_tree to recursively look through all_paths in order to find python scripts
 - For specific extension filtering in directory exploration, use "explore_directory_tree"
+- IMPORTANT: When searching for genomic/sequence files, always examine the 'all_paths' collection in explore_directory_tree results - this contains ALL discovered files with their extensions, regardless of directory depth
+- For genomic file discovery: Look through all_paths array and filter by extension (.faa, .fna, .fasta, .fa, .cdna.fa) to find files in ANY subdirectory
 - After discovering files, suggest specific actions based on file types and Biopython tools (e.g., analyze_fasta_file for FASTA files)
 
 ENHANCED FILESYSTEM CAPABILITIES:
@@ -177,6 +179,19 @@ EXAMPLE 3 - User reports "ISSUE WITH MCP SERVERS AND THEIR ACCESS TO FILES" or "
             "tool_name": "file_exists",
             "reason": "Verify if the problematic file path is accessible",
             "parameters": {{"path": "../../[user_mentioned_path]"}}
+        }}
+    ]
+}}
+
+EXAMPLE 4 - User asks "find all genomic files" or "show me genome files":
+{{
+    "intent": "Find all genomic/sequence files throughout the project",
+    "response_type": "use_tools",
+    "suggested_tools": [
+        {{
+            "tool_name": "explore_directory_tree",
+            "reason": "Search entire project for genomic files with deep traversal and examine all_paths for sequence file extensions",
+            "parameters": {{"path": "../../", "max_depth": 4, "include_files": true}}
         }}
     ]
 }}
