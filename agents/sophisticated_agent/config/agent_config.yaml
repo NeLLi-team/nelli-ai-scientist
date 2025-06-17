@@ -20,13 +20,13 @@ agent:
   enhanced_features:
     reasoning_and_planning:
       enabled: true
-      model: "google/gemini-pro"           # More capable model for reasoning and planning
+      model: "anthropic/claude-sonnet"     # More capable model for reasoning and planning
       temperature: 0.3                     # Lower temperature for focused analysis
       max_tokens: 4000                     # Sufficient for reasoning and planning
       
     execution:
       enabled: true
-      model: "google/gemini-flash-lite"    # Fast model for tool coordination and execution
+      model: "anthropic/claude-sonnet"     # Fast model for tool coordination and execution
       temperature: 0.1                     # Very low temperature for precise calls
       max_tokens: 1000                     # Focused responses
       max_iterations: 10                   # Maximum planning iterations
